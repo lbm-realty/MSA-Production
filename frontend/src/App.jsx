@@ -19,7 +19,7 @@ function App() {
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/donations" element={<Donations />} />
           <Route path="/events" element={<Events />} />
-          <Route path="*" element={<Home />} />
+          {/* <Route path="*" element={<Home />} /> */}
         </Routes>
         <Footer />
       </Router>
