@@ -1,0 +1,181 @@
+.last-container{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 30px;
+    align-items: center;
+    padding-top: 20px;
+    background-color: #800000;
+    height: 180px;
+}
+
+.msa-logo {
+    width: 180px;
+}
+
+.about {
+    scale: 0.9;
+    background-color: #800000;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-header{
+    font-family: Arial;
+    font-size: 33px;
+    color: white;
+}
+
+.about-text{
+    margin-top: 10px;
+    font-family: Arial;
+    font-size: 18px;
+    color: white;
+}
+
+.connect {
+    scale: 0.9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.contactHeading{
+    font-family: Arial;
+    font-size: 33px;
+    color: white;
+    padding-bottom: 10px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 0;
+}
+
+.list li {
+    display: flex;
+    align-items: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.whatsapp{
+    height: 25px;
+    padding-bottom: 3px;
+}
+
+.numberLink{
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 14.5px;
+}
+
+.email{
+    height: 21px;
+    padding-bottom: 3px;
+}
+
+.emailLink{
+    padding-left: 10px;
+    color: white;
+}
+
+.location{
+    height: 25px;
+    padding-left: 4px;
+    padding-bottom: 3px;
+}
+
+.locationLink{
+    padding-left: 10px;
+    color: white;
+    font-size: 14.5px;
+}
+
+@media all and (width < 600px) {
+    .last-container{
+        display: flex;
+        justify-content: space-evenly;
+        padding-right: 10px;
+        padding-left: 0;
+        padding-top: 20px;
+        background-color: #800000;
+        height: 180px;
+    }
+
+    .msa-logo {
+        scale: 0.7;
+        width: 100px;
+    }
+
+    .about, .about-header {
+        font-size: 13px;
+    }
+
+    .about-text {
+        font-size: 9px;
+        margin-top: 6px;
+    }
+    .connect {
+        padding-bottom: 0px;
+        display: flexbox;
+        justify-content: center;
+    }
+
+    .contactHeading {
+        font-size: 13px;
+        padding-left: 9px;
+    }
+
+    .whatsapp, .email, .location {
+        scale: 0.5;
+    }
+     
+     .numberLink, .emailLink, .locationLink {
+        font-size: 9px;
+        margin-left: 0;
+        padding: 0;
+    }
+}
+
+@media all and (600px < width < 928px) {
+    .msa-logo {
+        /* scale: 0.9; */
+        width: 100px;
+    }
+
+    .about, .about-header {
+        font-size: 23px;
+    }
+
+    .about-text {
+        font-size: 16px;
+        margin-top: 6px;
+    }
+    .connect {
+        padding-bottom: 0px;
+        display: flexbox;
+        justify-content: center;
+    }
+
+    .contactHeading {
+        font-size: 23px;
+        padding-left: 9px;
+    }
+
+    .whatsapp, .email, .location {
+        scale: 0.7;
+    }
+     
+     .numberLink, .emailLink, .locationLink {
+        font-size: 16px;
+        margin-left: 0;
+        padding: 0;
+    }
+}

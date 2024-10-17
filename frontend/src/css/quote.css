@@ -1,0 +1,77 @@
+.black-box{
+    height: 460px;
+    display: flex;
+    background-color: black;
+}
+
+.quote{
+    margin-top: -30px;
+    padding: 50px;
+    background-color: #800000;
+}
+
+.text{
+    word-wrap: break-word;
+    font-size: 50px;
+    padding-top: 15px;
+    padding-left: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+
+.quotation{
+    height: 75px;
+}
+
+
+.dash{
+    background-color: rgb(255, 255, 255);
+    height: 1px;
+    width: 56px;
+    display: flex;
+    margin-left: 35px;
+    margin-top: 30px;
+}
+
+.mo-name{
+    font-family:'Times New Roman', Times, serif;
+    display: flex;
+    margin-top: -12.5px;
+    background-color: #800000;
+    color: rgb(255, 255, 255);
+    width: 200px;
+    margin-left: 110px;
+    font-size: 20px;
+}
+
+@media all and (width < 600px) {
+    /* .quote {
+        width: 78.5%;
+    } */
+
+    .text {
+        scale: 0.7;
+        width: 350px;
+        padding: 0;
+    }
+
+    .quotation {
+        scale: 0.9;
+    }
+
+    .footer {
+        margin-top: 0;
+        scale: 0.7;
+        margin-left: 10px;
+    }
+}
+
+.black-box-2{
+    height: 160px;
+    background-color: black;
+}
+
+@media all and (600px < width < 928px) {
+    
+}

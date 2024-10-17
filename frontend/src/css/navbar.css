@@ -1,0 +1,113 @@
+.navbar {
+    background-color: #800000;
+    color: rgb(0, 0, 0);
+    height: 2vh;
+    width: 100%;
+    padding: 3vw 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    height: 80px;
+    margin-left: 10px;
+}
+
+.navbar ul li{
+    list-style: none;
+    display: inline-flex;
+    margin: 0 20px;
+    position: relative;
+    bottom: 7px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.navbar ul li a:hover{
+    color: rgb(0, 0, 0);
+    transition: 0.5s;
+}
+
+.navbar ul li::after{ 
+    content: '';
+    height: 0.2vh;
+    width: 0%;
+    background: #000000;
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    transition: 0.5s;
+}
+
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+.menu-icon{
+    display: none;
+}
+
+.menu-icon i{
+    color: #fff;
+    font-size: 30px;
+}
+
+.menuList-open {
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.menuList-closed {
+    height: 0;
+}
+
+@media all and (width < 600px) {
+    .navbar {
+        padding-left: 0;
+        width: 100%;
+        /* justify-content: space-ar; */
+    }
+    .navbar ul{
+        position: absolute;
+        top: 29px;
+        left: 0;
+        right: 0;
+        display: flexbox;
+        text-align: center;
+        background: #800000;
+        gap: 0;
+        overflow: hidden;
+        z-index: 10;
+    }
+    .logo {
+        scale: 0.35;
+    }
+    .navbar ul li{
+        padding: 20px 70px 20px 70px;
+    }
+    .menu-icon{
+        padding-right: 30px;
+        display: block;
+        scale: 0.6;
+    }
+    #menuList{ 
+        transition: 0.5s;
+    }
+}
+
+@media all and (600px < width < 928px) {
+    .navbar ul li, .logo {
+        scale: 0.85;
+    }
+}
