@@ -5,7 +5,7 @@ function Quote() {
   return (
     <>
       <div class="quote">
-        <img src={quotes} class="quotation" />
+        <img src={quotes} class="quotation" alt="" />
         <div class="text">CULTIVATE COMMUNITY, IGNITE IMAN</div>
         <div class="footer">
           <div class="dash"></div>
