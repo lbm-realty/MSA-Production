@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "../css/eventCalendar.css";
 
 function EventCalendar() {
@@ -29,62 +29,84 @@ function EventCalendar() {
     return months[monthNum];
   };
 
-  const events = {
-    "2024-08-28": "GBM",
-    "2024-09-06": "Masjid Cleanup at 3 PM & Chai Night",
-    "2024-09-07": "Park Kickoff at 3 PM",
-    "2024-09-08": "Memorization Goal",
-    "2024-09-13": "Chai Night",
-    "2024-09-14":
-      "Sisters' Paint Rock Coffee Meet & Mingle at 3:30 PM, Brothers' Pool Party at 5 PM",
-    "2024-09-20": "Imam Anwar Chai Night",
-    "2024-09-26": "South Plains Fair College Night",
-    "2024-09-27": "Challenge Chai Night",
-    "2024-10-01": "1st Fiqh Session",
-    "2024-10-04": "Chai Night",
-    "2024-10-05":
-      "Sisters' Cooking with a Chef at 2 PM, Brothers' Field Day at 5 PM",
-    "2024-10-10": "Seerah Trivia Night after Maghreb",
-    "2024-10-12": "Culture Fest, MSA Carnival at 5 PM",
-    "2024-10-18": "Alumni Dinner, Alumni join us for Chai Night!!",
-    "2024-10-19": "Alumni Tailgate",
-    "2024-10-21": "MSA Charity Week Tabling from 11 AM - 2 PM",
-    "2024-10-22": "MSA Charity Week Tabling from 1 PM - 4 PM",
-    "2024-10-23": "Giveback",
-    "2024-10-24": "Brothers' Charity Soccer Tournament",
-    "2024-10-25": "Bake Sale at 3 PM, Charity Chai, Halaqa, & Challenge Night",
-    "2024-10-26":
-      "Brothers' Charity UFC Watch Along, Sisters' Charity Movie Night",
-    "2024-10-27": "Sisters' Charity Pilates",
-    "2024-10-31": "Seerah Trivia Night after Maghreb",
-  };
-
-  useEffect(() => {
-    renderCalendar(currentDate);
-  }, [currentDate]);
-
-  function renderCalendar(date) {
+  const renderCalendar = useCallback((date) => {
+    const events = {
+      "2024-08-28": "GBM",
+      "2024-09-06": "Masjid Cleanup at 3 PM & Chai Night",
+      "2024-09-07": "Park Kickoff at 3 PM",
+      "2024-09-08": "Memorization Goal",
+      "2024-09-13": "Chai Night",
+      "2024-09-14":
+        "Sisters' Paint Rock Coffee Meet & Mingle at 3:30 PM, Brothers' Pool Party at 5 PM",
+      "2024-09-20": "Imam Anwar Chai Night",
+      "2024-09-26": "South Plains Fair College Night",
+      "2024-09-27": "Challenge Chai Night",
+      "2024-10-01": "1st Fiqh Session",
+      "2024-10-04": "Chai Night",
+      "2024-10-05":
+        "Sisters' Cooking with a Chef at 2 PM, Brothers' Field Day at 5 PM",
+      "2024-10-10": "Seerah Trivia Night after Maghreb",
+      "2024-10-12": "Culture Fest, MSA Carnival at 5 PM",
+      "2024-10-18": "Alumni Dinner, Alumni join us for Chai Night!!",
+      "2024-10-19": "Alumni Tailgate",
+      "2024-10-21": "MSA Charity Week Tabling from 11 AM - 2 PM",
+      "2024-10-22": "MSA Charity Week Tabling from 1 PM - 4 PM",
+      "2024-10-23": "Giveback",
+      "2024-10-24": "Brothers' Charity Soccer Tournament",
+      "2024-10-25": "Bake Sale at 3 PM, Charity Chai, Halaqa, & Challenge Night",
+      "2024-10-26":
+        "Brothers' Charity UFC Watch Along, Sisters' Charity Movie Night",
+      "2024-10-27": "Sisters' Charity Pilates",
+      "2024-10-31": "Seerah Trivia Night after Maghreb",
+    };
     const year = date.getFullYear();
     const month = date.getMonth();
     const firstDayOfMonth = new Date(year, month, 1);
     const lastDayOfMonth = new Date(year, month + 1, 0);
     const firstDayOfWeek = firstDayOfMonth.getDay();
     const totalDaysInMonth = lastDayOfMonth.getDate();
-
+  
     const daysArray = [];
     for (let noDay = 0; noDay < firstDayOfWeek; noDay++) {
       daysArray.push({ day: " ", events: [] });
     }
-
+  
     for (let day = 1; day <= totalDaysInMonth; day++) {
       const date = new Date(year, month, day);
       const dateString = date.toISOString().split('T')[0];
       const eventString = events[dateString] ? events[dateString] : "";
       daysArray.push({ day, events: eventString });
     }
-
+  
     setDays(daysArray);
-  }
+  }, []); 
+  
+  useEffect(() => {
+    renderCalendar(currentDate);
+  }, [currentDate, renderCalendar]);
+
+  // function renderCalendar(date) {
+  //   const year = date.getFullYear();
+  //   const month = date.getMonth();
+  //   const firstDayOfMonth = new Date(year, month, 1);
+  //   const lastDayOfMonth = new Date(year, month + 1, 0);
+  //   const firstDayOfWeek = firstDayOfMonth.getDay();
+  //   const totalDaysInMonth = lastDayOfMonth.getDate();
+
+  //   const daysArray = [];
+  //   for (let noDay = 0; noDay < firstDayOfWeek; noDay++) {
+  //     daysArray.push({ day: " ", events: [] });
+  //   }
+
+  //   for (let day = 1; day <= totalDaysInMonth; day++) {
+  //     const date = new Date(year, month, day);
+  //     const dateString = date.toISOString().split('T')[0];
+  //     const eventString = events[dateString] ? events[dateString] : "";
+  //     daysArray.push({ day, events: eventString });
+  //   }
+
+  //   setDays(daysArray);
+  // }
 
   const prevMonth = () => {
     setCurrentDate((prevDate) => {

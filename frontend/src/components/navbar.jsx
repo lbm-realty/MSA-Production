@@ -32,7 +32,7 @@ function Navbar() {
   return (
       <div>
         <div id="navbar" className="navbar">
-          <img src={logo} className="logo" /><Link to='/'></Link>
+          <img src={logo} className="logo" alt="MSA-logo" /><Link to='/'></Link>
           <ul id="menuList" className={`menuList-${menuOpen ? 'open' : 'closed'}`}>
             <li className="navbar-text"><Link to='/'>Home</Link></li>
             <li className="navbar-text"><Link to='/faqs'>FAQS</Link></li>

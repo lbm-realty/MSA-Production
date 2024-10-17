@@ -7,18 +7,18 @@ import question5 from "../images/Question5.png";
 import question6 from "../images/Question6.png";
 
 function FaqContainer() {
+  const faqImages = [question1, question2, question3, question4, question5, question6]
+
   return (
     <>
       <body>
         <div class="container">
           <div class="wrapper">
             <div class="wrapper-holder">
-              <img src={question1} id="slider-img-1" class="images" />
-              <img src={question2} id="slider-img-2" class="images" />
-              <img src={question3} id="slider-img-3" class="images" />
-              <img src={question4} id="slider-img-4" class="images" />
-              <img src={question5} id="slider-img-5" class="images" />
-              <img src={question6} id="slider-img-6" class="images" />
+              {faqImages.map((image, value) => {
+                return(
+              <img src={image} id={`slider-img-${value+1}`} class="images" alt={image} key={value} />
+            )}) }
             </div>
           </div>
         </div>

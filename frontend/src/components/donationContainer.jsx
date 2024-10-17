@@ -5,7 +5,6 @@ import StripeCheckout from "react-stripe-checkout";
 function DonationContainer() {
   const [customAmount, setCustomAmount] = useState(0); 
   const [showCustomInput, setShowCustomInput] = useState(false); 
-  const [confirmedAmount, setConfirmedAmount] = useState(null); 
   const [showButton, setShowButton] = useState(true); 
   const product = {
     name: "",
@@ -13,10 +12,6 @@ function DonationContainer() {
   }
 
   const handleAmount = (amount) => {
-    // setProduct({
-    //   name: `${amount}`,
-    //   price: amount,
-    // });
     product.name = `Purchase of ${amount} was made`;
     product.price = amount;
   };
@@ -44,11 +39,6 @@ function DonationContainer() {
 
   const handleCustomDonate = () => {
         if (customAmount) {
-          // setProduct({
-          //   name: `${customAmount}`,
-          //   price: customAmount
-          // })
-          // setConfirmedAmount(customAmount);
           product.name = `Purchase of ${customAmount} was made`;
           product.price = customAmount;
           setShowCustomInput(false); // Hide custom input after confirmation
