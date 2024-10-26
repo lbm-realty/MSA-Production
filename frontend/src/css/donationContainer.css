@@ -58,6 +58,48 @@ body {
     transition: background-color 0.3s, transform 0.3s;
 }
 
+.subscription-option{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.oneTime {
+    background-color:  rgb(0, 0, 0);
+    border-radius: 15px 15px 0 0;
+    height: 45px;
+    font-size: 20px;
+    width: 120px;
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    border: 1.5px solid rgb(224, 99, 99);
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.oneTime:hover, .monthly:hover {
+    background-color:  rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1.5px solid rgb(0, 0, 0);
+    transform: scale(1.05);
+}
+
+.monthly {
+    background-color:  rgb(0, 0, 0);
+    border-radius: 0 0 15px 15px;
+    height: 45px;
+    font-size: 20px;
+    width: 120px;
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    border: 1.5px solid rgb(224, 99, 99);
+    cursor: pointer;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
 .donation-button-2 {
     background-color:  rgb(0, 0, 0);
     border: none;

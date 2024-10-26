@@ -3,13 +3,41 @@ import "../css/donationContainer.css";
 import StripeCheckout from "react-stripe-checkout";
 
 function DonationContainer() {
-  const [customAmount, setCustomAmount] = useState(0); 
-  const [showCustomInput, setShowCustomInput] = useState(false); 
-  const [showButton, setShowButton] = useState(true); 
+  const [customAmount, setCustomAmount] = useState(0);
+  const [showCustomInput, setShowCustomInput] = useState(false);
+  const [showButton, setShowButton] = useState(true);
+  const [subscribe25, setSubscribe25] = useState(false);
+  const [subscribe50, setSubscribe50] = useState(false);
+  const [subscribe100, setSubscribe100] = useState(false);
   const product = {
     name: "",
-    price: 0
-  }
+    price: 0,
+  };
+
+  const subscriptionOptions = (amount) => {
+    if (amount == 25) {
+      setSubscribe25(true);
+      setSubscribe50(false);
+      setSubscribe100(false);
+    } else if (amount == 50) {
+      setSubscribe50(true);
+      setSubscribe25(false);
+      setSubscribe100(false);
+    } else {
+      setSubscribe100(true);
+      setSubscribe25(false);
+      setSubscribe50(false);
+    }
+  };
+
+  const handleSubscription = (amount) => {
+    if (amount == 25)
+      window.location.href = "https://buy.stripe.com/fZe2bFcFJ4Ye2E86oo";
+    else if (amount == 50)
+      window.location.href = "https://buy.stripe.com/dR603xaxB9eu4Mg7st";
+    else 
+      window.location.href = "https://buy.stripe.com/4gwcQj49d1M26Uo002";
+  };
 
   const handleAmount = (amount) => {
     product.name = `Purchase of ${amount} was made`;
@@ -38,12 +66,12 @@ function DonationContainer() {
   };
 
   const handleCustomDonate = () => {
-        if (customAmount) {
-          product.name = `Purchase of ${customAmount} was made`;
-          product.price = customAmount;
-          setShowCustomInput(false); // Hide custom input after confirmation
-        }
-      };
+    if (customAmount) {
+      product.name = `Purchase of ${customAmount} was made`;
+      product.price = customAmount;
+      setShowCustomInput(false);
+    }
+  };
 
   return (
     <>
@@ -56,86 +84,122 @@ function DonationContainer() {
               support!
             </div>
             <div className="with-custom-donations">
-            <StripeCheckout
-              stripeKey={process.env.REACT_APP_KEY}
-              token={makePayment}
-            >
               <div id="donation-options" class="donation-options">
-                <button
-                  onClick={() => {
-                    handleAmount(25);
-                  }}
-                  data-amount="25"
-                  class="donation-button-1"
-                >
-                  Donate $25
-                </button>
-                <button
-                  onClick={() => {
-                    handleAmount(50);
-                  }}
-                  data-amount="50"
-                  class="donation-button-2"
-                >
-                  Donate $50
-                </button>
-                <button
-                  onClick={() => {
-                    handleAmount(100);
-                  }}
-                  data-amount="100"
-                  class="donation-button-3"
-                >
-                  Donate $100
-                </button>
+                {subscribe25 ? (
+                  <div className="subscription-option">
+                    <StripeCheckout
+                      stripeKey={process.env.REACT_APP_KEY}
+                      token={makePayment}
+                    >
+                      <button className="oneTime">One Time</button>
+                    </StripeCheckout>
+
+                    <button onClick={() => {handleSubscription(25)}} className="monthly">
+                      Monthly
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      subscriptionOptions(25);
+                    }}
+                    data-amount="25"
+                    className="donation-button-1"
+                  >
+                    Donate $25
+                  </button>
+                )}
+                {subscribe50 ? (
+                  <div className="subscription-option">
+                    <StripeCheckout
+                      stripeKey={process.env.REACT_APP_KEY}
+                      token={makePayment}
+                    >
+                      <button className="oneTime">One Time</button>
+                    </StripeCheckout>{" "}
+                    <button onClick={() => {handleSubscription(50)}} className="monthly">Monthly</button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      subscriptionOptions(50);
+                    }}
+                    data-amount="50"
+                    className="donation-button-2"
+                  >
+                    Donate $50
+                  </button>
+                )}
+                {subscribe100 ? (
+                  <div className="subscription-option">
+                    <StripeCheckout
+                      stripeKey={process.env.REACT_APP_KEY}
+                      token={makePayment}
+                    >
+                      <button className="oneTime">One Time</button>
+                    </StripeCheckout>
+                    <button onClick={() => {handleSubscription(100)}} className="monthly">
+                      Monthly
+                    </button>
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => {
+                      subscriptionOptions(100);
+                    }}
+                    data-amount="100"
+                    className="donation-button-3"
+                  >
+                    Donate $100
+                  </button>
+                )}
               </div>
-            </StripeCheckout>
-            <button
-                  data-amount="custom"
-                  id="donation-button-custom"
-                  className="donation-button-custom"
-                  onClick={() => {
-                    setShowCustomInput(true);
-                    setShowButton(true); 
-                  }}
-                >
-                  Custom Amount
-                </button>
-                {showCustomInput && (
-                  <div id="custom-donation">
-                    {showButton && (
-                      <>
-                        <input
-                          id="custom-amount"
-                          type="number"
-                          placeholder="Enter Amount in USD"
-                          value={customAmount || ""}
-                          onChange={(e) => setCustomAmount(e.target.value)}
-                        />
-                        <StripeCheckout
+              <button
+                data-amount="custom"
+                id="donation-button-custom"
+                className="donation-button-custom"
+                onClick={() => {
+                  setShowCustomInput(true);
+                  setShowButton(true);
+                }}
+              >
+                Custom Amount
+              </button>
+              {showCustomInput && (
+                <div id="custom-donation">
+                  {showButton && (
+                    <>
+                      <input
+                        id="custom-amount"
+                        type="number"
+                        placeholder="Enter Amount in USD"
+                        value={customAmount || ""}
+                        onChange={(e) => setCustomAmount(e.target.value)}
+                      />
+                      <StripeCheckout
                         stripeKey={process.env.REACT_APP_KEY}
                         token={makePayment}
-                        >
+                      >
                         <button
                           id="custom-donate-button"
                           onClick={handleCustomDonate}
                         >
                           Confirm Amount
                         </button>
-                        </StripeCheckout>
-                        <button
-                          className="cancel-button"
-                          onClick={() => {
-                            setShowButton(false);
-                            setShowCustomInput(false);
-                          }}
-                        >
-                          Cancel
-                        </button>
-                      </>
-                    )}
-                  </div>
-                )}
+                      </StripeCheckout>
+                      <button
+                        className="cancel-button"
+                        onClick={() => {
+                          setShowButton(false);
+                          setShowCustomInput(false);
+                        }}
+                      >
+                        Cancel
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -145,4 +209,3 @@ function DonationContainer() {
 }
 
 export default DonationContainer;
-
