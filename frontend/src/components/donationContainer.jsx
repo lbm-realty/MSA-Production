@@ -15,11 +15,11 @@ function DonationContainer() {
   };
 
   const subscriptionOptions = (amount) => {
-    if (amount == 25) {
+    if (amount === 25) {
       setSubscribe25(true);
       setSubscribe50(false);
       setSubscribe100(false);
-    } else if (amount == 50) {
+    } else if (amount === 50) {
       setSubscribe50(true);
       setSubscribe25(false);
       setSubscribe100(false);
@@ -31,9 +31,9 @@ function DonationContainer() {
   };
 
   const handleSubscription = (amount) => {
-    if (amount == 25)
+    if (amount === 25)
       window.location.href = "https://buy.stripe.com/fZe2bFcFJ4Ye2E86oo";
-    else if (amount == 50)
+    else if (amount === 50)
       window.location.href = "https://buy.stripe.com/dR603xaxB9eu4Mg7st";
     else 
       window.location.href = "https://buy.stripe.com/4gwcQj49d1M26Uo002";
@@ -91,7 +91,7 @@ function DonationContainer() {
                       stripeKey={process.env.REACT_APP_KEY}
                       token={makePayment}
                     >
-                      <button className="oneTime">One Time</button>
+                      <button onClick={() => {handleAmount(25)}} className="oneTime">One Time</button>
                     </StripeCheckout>
 
                     <button onClick={() => {handleSubscription(25)}} className="monthly">
@@ -115,7 +115,7 @@ function DonationContainer() {
                       stripeKey={process.env.REACT_APP_KEY}
                       token={makePayment}
                     >
-                      <button className="oneTime">One Time</button>
+                      <button onClick={() => {handleAmount(50)}} className="oneTime">One Time</button>
                     </StripeCheckout>{" "}
                     <button onClick={() => {handleSubscription(50)}} className="monthly">Monthly</button>
                   </div>
@@ -136,7 +136,7 @@ function DonationContainer() {
                       stripeKey={process.env.REACT_APP_KEY}
                       token={makePayment}
                     >
-                      <button className="oneTime">One Time</button>
+                      <button onClick={() => {handleAmount(100)}} className="oneTime">One Time</button>
                     </StripeCheckout>
                     <button onClick={() => {handleSubscription(100)}} className="monthly">
                       Monthly
