@@ -70,27 +70,34 @@
 }
 
 .ayah-arabic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 100%;
-    top: 61%;
+    top: 57%;
     transform: translate(0, -100%); 
     color: white;
-    font-size: 5.5rem; 
+    font-size: 3.95rem; 
     font-weight: bold; 
-    padding: 3vh 10vw 0 5vw; 
+    padding: 3vh 10vw 2vh 0vw; 
     background-color: rgb(44, 42, 42);
     opacity: 80%;
 }
 
 .ayah-english {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    top: 66.9%;
+    top: 62.5%;
     width: 100%;
     transform: translate(0, -100%); 
     color: white;
-    font-size: 2rem; 
+    font-size: 1.8rem; 
     font-weight: bold; 
-    padding: 0 10vw 1vh 5vw; 
+    font-family: serif;
+    padding: 1vh 10vw 1vh 2vw; 
     background-color: rgb(44, 42, 42);
     opacity: 80%;
 }
@@ -98,23 +105,23 @@
 @media all and (width < 600px) {
     .ayah-arabic {
         position: absolute;
-        top: 62%;
+        top: 56%;
         transform: translate(0, -100%); 
         color: white;
-        font-size: 1.85rem; 
+        font-size: 1rem; 
         font-weight: bold; 
-        padding: 1vh 0 0 1vw; 
+        padding: 1vh 0 0.3vh 1vw; 
         background-color: rgb(44, 42, 42);
         opacity: 80%;
     }
     .ayah-english {
         position: absolute;
-        top: 69.5%;
+        top: 63.9%;
         transform: translate(0, -100%); 
         color: white;
-        font-size: 0.6rem; 
+        font-size: 0.5rem; 
         font-weight: bold; 
-        padding: 1vh 0 0 1vw; 
+        padding: 0.5vh 0 0.5vh 1vw; 
         background-color: rgb(44, 42, 42);
         opacity: 80%;
     }

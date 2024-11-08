@@ -1,10 +1,11 @@
-import EventCalendar from "../components/eventCalendar";
+// import EventCalendar from "../components/eventCalendar";
+import EventList from "../components/eventsDisplay";
 import ImageGallery from "../components/imageGallery";
 
 function Events() {
   return (
     <>
-      <EventCalendar />
+      <EventList />
       <ImageGallery />
     </>
   );

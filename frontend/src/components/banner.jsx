@@ -77,11 +77,10 @@ function Banner() {
         </div>
         <div className="ayahs">
           <div className="ayah-arabic">
-            اِنَّمَا الۡمُؤۡمِنُوۡنَ اِخۡوَةٌ فَاَصۡلِحُوۡا بَيۡنَ اَخَوَيۡكُمۡ
+          وَٱصْبِرْ نَفْسَكَ مَعَ ٱلَّذِينَ يَدْعُونَ رَبَّهُم بِٱلْغَدَوٰةِ وَٱلْعَشِىِّ يُرِيدُونَ وَجْهَهُۥ ۖ
           </div>
           <div className="ayah-english">
-            The believers are but one brotherhood, so make peace between your
-            brothers
+          And patiently stick with those who call upon their Lord morning and evening, seeking His pleasure.
           </div>
         </div>
       </div>
