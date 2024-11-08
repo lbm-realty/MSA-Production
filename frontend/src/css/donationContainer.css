@@ -281,6 +281,9 @@ body {
         flex-direction: column;
         display: flexbox;
     }
+    .oneTime{
+        scale: 0.9;
+    }
     .donation-button-1, .donation-button-2, .donation-button-3 {
         font-size: 25px;
         height: 110px;

@@ -32,12 +32,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0 40px 0;
-  width: 83%;
+  padding: 40px 60px 40px 60px;
+  width: fit-content;
 }
 
 .event-wrapper {
-  /* padding: 10px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +49,6 @@
   background-color: #390f0f;
   padding: 24px;
   border-radius: 4px;
-  /* margin: 0 auto; */
 }
 
 .event-content {
