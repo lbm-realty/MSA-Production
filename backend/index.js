@@ -1,26 +1,26 @@
 const cors = require("cors");
 const express = require("express");
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');?
 
 
 require("dotenv").config();
 const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then (() => {
-  console.log("Successfully Setup Database");
-}).catch ((err) => {
-  console.log(`MongoDB Error: ${err}`);
-})
+// mongoose.connect(process.env.MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }).then (() => {
+//   console.log("Successfully Setup Database");
+// }).catch ((err) => {
+//   console.log(`MongoDB Error: ${err}`);
+// })
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(cors({ origin: 'http://localhost:8282' }));
+// app.use(cors({ origin: 'http://localhost:8282' }));
 
 app.get("/", (req, res) => {
   res.send("App works");
