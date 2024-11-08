@@ -116,7 +116,7 @@ function DonationContainer() {
                       token={makePayment}
                     >
                       <button onClick={() => {handleAmount(50)}} className="oneTime">One Time</button>
-                    </StripeCheckout>{" "}
+                    </StripeCheckout>
                     <button onClick={() => {handleSubscription(50)}} className="monthly">Monthly</button>
                   </div>
                 ) : (
