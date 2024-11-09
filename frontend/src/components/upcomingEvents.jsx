@@ -1,6 +1,6 @@
 const upcomingEvents = [
     {
-        date: { month: "Every", day: "Week" },
+        date: { month: "Every", day: "Friday" },
         title: "Chai Night",
         timeRange: "After Isha",
         location: "ICSP - Community Hall",
@@ -9,12 +9,12 @@ const upcomingEvents = [
         venue: "ICSP - Community Hall",
     },
     {
-        date: { month: "Every", day: "Week" },
+        date: { month: "Every", day: "Friday" },
         title: "Dawah",
         timeRange: "11:00 AM - 01:00 PM",
         location: "Free Speech Area, between the SUB and the Library",
         description:
-            "Join us for some delicious chai and snacks, every week!",
+            "",
         venue: "Free Speech Area, TTU",
     },
     {
