@@ -13,7 +13,7 @@ app.post("/payment", (req, res) => {
   const { product, token } = req.body;
   console.log("Price ", product.price);
   const idempotencyKey = uuidv4();
-  if (product.price >= 0.5) {
+  if (product.price >= 0.5) { 
     return stripe.customers
       .create({
         email: token.email,
