@@ -6,9 +6,9 @@ function DonationContainer() {
   const [customAmount, setCustomAmount] = useState(0);
   const [showCustomInput, setShowCustomInput] = useState(false);
   const [showButton, setShowButton] = useState(true);
-  const [subscribe25, setSubscribe25] = useState(false);
-  const [subscribe50, setSubscribe50] = useState(false);
-  const [subscribe100, setSubscribe100] = useState(false);
+  // const [subscribe25, setSubscribe25] = useState(false);
+  // const [subscribe50, setSubscribe50] = useState(false);
+  // const [subscribe100, setSubscribe100] = useState(false);
   const product = {
     name: "",
     price: 0,
@@ -18,21 +18,21 @@ function DonationContainer() {
 
   const stripeKey = process.env.REACT_APP_KEY;
 
-  const subscriptionOptions = (amount) => {
-    if (amount === 25) {
-      setSubscribe25(true);
-      setSubscribe50(false);
-      setSubscribe100(false);
-    } else if (amount === 50) {
-      setSubscribe50(true);
-      setSubscribe25(false);
-      setSubscribe100(false);
-    } else {
-      setSubscribe100(true);
-      setSubscribe25(false);
-      setSubscribe50(false);
-    }
-  };
+  // const subscriptionOptions = (amount) => {
+  //   if (amount === 25) {
+  //     setSubscribe25(true);
+  //     setSubscribe50(false);
+  //     setSubscribe100(false);
+  //   } else if (amount === 50) {
+  //     setSubscribe50(true);
+  //     setSubscribe25(false);
+  //     setSubscribe100(false);
+  //   } else {
+  //     setSubscribe100(true);
+  //     setSubscribe25(false);
+  //     setSubscribe50(false);
+  //   }
+  // };
 
   const handleSubscription = (amount) => {
     if (amount === 25)
@@ -107,10 +107,11 @@ function DonationContainer() {
                     </button>
                   </div>
               ) : (
+                
                 <button
-                    onClick={() => {
-                      subscriptionOptions(singlePrice);
-                    }}
+                    // onClick={() => {
+                    //   subscriptionOptions(singlePrice);
+                    // }}
                     data-amount={singlePrice}
                     className="donation-button-1"
                   >
@@ -193,13 +194,15 @@ function DonationContainer() {
                 id="donation-button-custom"
                 className="donation-button-custom"
                 onClick={() => {
-                  setSubscribe100(false);
-                  setSubscribe25(false);
-                  setSubscribe50(false);
                   setShowCustomInput(true);
                   setShowButton(true);
                 }}
               >
+                  {/* setSubscribe100(false);
+                  setSubscribe25(false);
+                  setSubscribe50(false); */}
+
+
                 Custom Amount
               </button>
               {showCustomInput && (
