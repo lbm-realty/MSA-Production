@@ -269,6 +269,7 @@ function DonationContainer() {
     //   name: `${amount}`,
     //   price: amount,
     // });
+    console.log("The stripe key is: ", process.env.REACT_APP_KEY);
     product.name = `Purchase of ${amount} was made`;
     product.price = amount;
   };
