@@ -29,6 +29,7 @@ const ComingSoon = () => {
     <div className="newsletter-container">
       <h3 className="newsletter-header">Welcome to our Newsletter!</h3>
       <div className="inner-container">
+        <h4>For full access to the newsletter, visit the website on a desktop page</h4>
         {pdfFiles.map((pdf, index) => (
           <div className="pdf-box" key={index}>
             <h3>{pdf.month} Newsletter</h3>
