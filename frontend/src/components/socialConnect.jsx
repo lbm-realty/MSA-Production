@@ -24,7 +24,7 @@ function SocialConnect() {
           <h3 class="instagram-header">Instagram</h3>
         </div>
         <div class="connect-youtube">
-          <a href="https://www.youtube.com/@texastechuniversitymuslims4754">
+          <a href="https://www.youtube.com/@texastechuniversity_msa ">
             <img src={youtube} class="youtube-logo" alt="" />
           </a>
           <h3 class="youtube-header">YouTube</h3>
