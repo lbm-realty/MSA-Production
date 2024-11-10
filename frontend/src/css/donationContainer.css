@@ -282,7 +282,7 @@ body {
         display: flexbox;
     }
     .oneTime{
-        font-size: small;
+        font-size: medium;
         scale: 1;
     }
     .donation-button-1, .donation-button-2, .donation-button-3 {

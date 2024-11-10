@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import "../css/newsletter.css"; 
 import pdf1 from "../images/MSA August Newsletter[1].pdf";
 import pdf2 from "../images/MSA September Newsletter[1].pdf";
+import pdf3 from "../images/MSA October Newsletter.pdf";
 
 const ComingSoon = () => {
-  const archivePdfs = []
+  const archivePdfs = [
+    { month: "August", file: pdf1 }
+  ]
 
   const pdfFiles = [
+    { month: "October", file: pdf3 },
     { month: "September", file: pdf2 },
-    { month: "August", file: pdf1 }
   ];
   const [isArchiveOpen, setArchiveOpen] = useState();
   const [ishovered, setHovered] = useState();

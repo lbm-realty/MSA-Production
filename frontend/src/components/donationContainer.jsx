@@ -40,6 +40,9 @@ function DonationContainer() {
   };
 
   const handleAmount = (amount) => {
+    if (amount < 0.5) {
+      alert("Error: The amount entered was too small, please try again.");
+    }
     product.name = `Purchase of ${amount} was made`;
     product.price = amount;
   };
