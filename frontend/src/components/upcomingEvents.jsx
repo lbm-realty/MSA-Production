@@ -20,7 +20,7 @@ const upcomingEvents = [
     {
         date: { month: "Nov", day: "23" },
         title: "Food Wars Cookoff",
-        timeRange: "11:00 AM - 01:00 PM",
+        timeRange: "05:00 PM",
         location: "ICSP - Community Hall",
         description:
             "Bring your best dish & participate in the Brothers vs Sisters competition to see who take home the trophy!!",
