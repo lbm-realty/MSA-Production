@@ -5,7 +5,8 @@ const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: 'https://msattu.netlify.app/' }));
+// app.use(cors({ origin: 'https://msattu.netlify.app/' }));
+app.use(cors({ origin: ['https://msattu.netlify.app', 'https://www.msattu.netlify.app'] }));
 app.get("/", (req, res) => {
   res.send("App works");
 });
@@ -31,14 +32,14 @@ app.post("/payment", (req, res) => {
           { idempotencyKey }
         );
       })
-      .then((result) => console.log(result))
-      .catch((err) => console.log(err));
+      .then((result) => res.status(200).json({ success: true, result }))
+      .catch((err) => res.status(500).json({ success: false, error: err.message }));
   } else {
     res.send("The amount was too small, transaction failed") 
   }
 });
-app.listen(8282, () => console.log("Listening at PORT 8282"));
 
+app.listen(8282, () => console.log("Listening at PORT 8282"));
 
 // const cors = require("cors");
 // const express = require("express");
