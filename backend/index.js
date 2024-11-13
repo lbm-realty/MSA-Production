@@ -5,8 +5,8 @@ const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
 const app = express();
 app.use(express.json());
-// app.use(cors({ origin: true }));
-app.use(cors({ origin: 'https://msattu.netlify.app/' }));
+app.use(cors({ origin: true }));
+// app.use(cors({ origin: 'https://msattu.netlify.app/' }));
 // app.use(cors({ origin: ['https://msattu.netlify.app', 'https://www.msattu.netlify.app'] }));
 app.get("/", (req, res) => {
   res.send("App works");
