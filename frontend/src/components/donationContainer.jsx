@@ -58,7 +58,7 @@ function DonationContainer() {
       "Content-Type": "application/json",
     };
     console.log(`This is the headers: ${headers}`);
-    return fetch(`https://msa-production.onrender.com/`, {
+    return fetch(`https://msa-production.onrender.com/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body),
