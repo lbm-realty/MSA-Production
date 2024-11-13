@@ -48,13 +48,16 @@ function DonationContainer() {
   };
 
   const makePayment = (token) => {
+    console.log("In the make payment function");
     const body = {
       token,
       product,
     };
+    console.log(`This is the body: ${body.token}, ${body.product}`);
     const headers = {
       "Content-Type": "application/json",
     };
+    console.log(`This is the headers: ${headers}`);
     return fetch(`https://msa-production.onrender.com/payment`, {
       method: "POST",
       headers,
