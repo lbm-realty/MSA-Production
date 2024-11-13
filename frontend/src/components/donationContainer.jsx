@@ -61,15 +61,16 @@ function DonationContainer() {
       body: JSON.stringify(body),
     })
       .then((response) => {
-        console.log("RESPONSE", response);
+        console.log("RESPONSE: ", response);
         const { status } = response;
-        console.log("STATUS", status);
+        console.log("STATUS: ", status);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("The error is: ", err));
   };
 
   const handleCustomDonate = () => {
     if (customAmount) {
+      console.log(`The amount you want to donate is: ${customAmount}`);
       product.name = `Purchase of ${customAmount} was made`;
       product.price = customAmount;
       setShowCustomInput(false);
