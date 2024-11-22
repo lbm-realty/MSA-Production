@@ -169,7 +169,7 @@
     
     .slider {
         display: inline-block;
-        animation: scroll-horizontal 20s linear infinite; 
+        animation: scroll-horizontal 90s linear infinite; 
         /* overflow-x: scroll;  */
         /* scroll-snap-type: x mandatory; */
         /* scroll-behavior: smooth; */
