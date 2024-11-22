@@ -13,7 +13,6 @@ function Quote() {
         </div>
       </div>
 
-      <div class="black-box-2"></div>
     </>
   );
 }

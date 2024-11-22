@@ -45,10 +45,21 @@
     font-size: 20px;
 }
 
+.black-box-2{
+    height: 160px;
+    background-color: black;
+}
+
 @media all and (width < 600px) {
     /* .quote {
         width: 78.5%;
     } */
+
+    .black-box-2 {
+        height: 0px;
+        bottom: 0;
+        top: 0;
+    }
 
     .text {
         scale: 0.7;
@@ -65,11 +76,6 @@
         scale: 0.7;
         margin-left: 10px;
     }
-}
-
-.black-box-2{
-    height: 160px;
-    background-color: black;
 }
 
 @media all and (600px < width < 928px) {

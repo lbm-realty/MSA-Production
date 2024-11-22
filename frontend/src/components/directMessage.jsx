@@ -37,7 +37,7 @@ function DirectMessage() {
         </div>
       </div>
 
-      <div class="black-box-2"></div>
+      {/* <div class="black-box-2"></div> */}
     </>
   );
 }

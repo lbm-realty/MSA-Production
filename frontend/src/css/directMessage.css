@@ -72,19 +72,18 @@ h2 {
 }
 
 @media all and (width < 600px) {
+    .red-line {
+        margin-top: 70px;
+    }
+    .main-form {
+        padding-bottom: 110px;
+    }
     .form-container {
         display: flexbox;
         justify-content: space-between;
         align-items: center;
     }
 
-    .red-line {
-        scale: 0.9;
-    }
-
-    .main-form {
-        scale: 0.9;
-    }
 }
 
 @media all and (600px < width < 928px) {
