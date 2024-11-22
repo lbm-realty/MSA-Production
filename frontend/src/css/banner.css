@@ -2,14 +2,25 @@
     display: flexbox;
 }
 
-.banner{
+/* .banner{
     position: relative;
     width: 100%;
     height: auto; 
     overflow: hidden;
-}
+} */
+
+.banner {
+    position: relative;
+    width: 100%; /* Width of the visible area */
+    overflow: hidden; /* Hide content outside the container */
+    white-space: nowrap; /* Prevent content from wrapping */
+  }
+
 
 .banner-image {
+    position: relative;
+    display: flex;
+    aspect-ratio: 16 / 9;
     width: 100%;
     height: auto;
     display: block;
@@ -28,17 +39,33 @@
 
 .slider-wrapper {
     position: relative;
-    width: 100%;
-    margin: 0 0;
+    display: flex;
+    aspect-ratio: 16 / 9;
+    /* width: 100%; */
+    /* margin: 0 0; */
 }
 
 .slider {
-    display: flex;
-    aspect-ratio: 16 / 9;
-    overflow-x: auto; 
+    display: inline-block;
+    animation: scroll-horizontal 40s linear infinite; 
+    /* overflow-x: scroll;  */
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
+
+.banner-image {
+    display: inline-block;
+    /* animation: scroll-horizontal 10s linear infinite;  */
+  }
+  
+  @keyframes scroll-horizontal {
+    0% {
+      transform: translateX(0%); 
+    }
+    100% {
+      transform: translateX(-1487%); /* Move left by 100% of its width */
+    }
+  }
 
 .slider-nav {
     display: flex;
@@ -63,7 +90,7 @@
 
 .slider-nav a:hover {
     opacity: 1;
-}
+} 
 
 .ayahs {
     display: flexbox;
@@ -76,7 +103,7 @@
     position: absolute;
     width: 100%;
     top: 57%;
-    transform: translate(0, -100%); 
+    transform: translate(0, -187%); 
     color: white;
     font-size: 3.5rem; 
     font-weight: bold; 
@@ -92,7 +119,7 @@
     position: absolute;
     top: 62.5%;
     width: 100%;
-    transform: translate(0, -100%); 
+    transform: translate(0, -275%); 
     color: white;
     font-size: 1.8rem; 
     font-weight: bold; 
@@ -104,22 +131,22 @@
 
 @media all and (width < 600px) {
     .ayah-arabic {
-        position: absolute;
-        top: 56%;
-        transform: translate(0, -100%); 
+        /* position: absolute; */
+        /* top: 56%; */
+        transform: translate(0, -316%); 
         color: white;
-        font-size: 0.85rem; 
+        font-size: 1.05rem; 
         font-weight: bold; 
         padding: 1vh 0 0.3vh 1vw; 
         background-color: rgb(44, 42, 42);
         opacity: 80%;
     }
     .ayah-english {
-        position: absolute;
-        top: 63.9%;
-        transform: translate(0, -100%); 
+        /* position: absolute; */
+        /* top: 63.9%; */
+        transform: translate(0, -432%); 
         color: white;
-        font-size: 0.5rem; 
+        font-size: 0.55rem; 
         font-weight: bold; 
         padding: 0.5vh 0 0.5vh 1vw; 
         background-color: rgb(44, 42, 42);
@@ -131,6 +158,27 @@
     .banner {
         width: 100%;
     }
+    .slider-wrapper {
+        position: relative;
+        display: flex;
+        height: 300px;
+        /* aspect-ratio: 16 / 9; */
+        /* width: 100%; */
+        /* margin: 0 0; */
+    }
+    
+    .slider {
+        display: inline-block;
+        animation: scroll-horizontal 20s linear infinite; 
+        /* overflow-x: scroll;  */
+        /* scroll-snap-type: x mandatory; */
+        /* scroll-behavior: smooth; */
+    }
+    
+    .banner-image {
+        display: inline-block;
+        /* animation: scroll-horizontal 10s linear infinite;  */
+      }
 }
 
 @media all and (600px < width < 928px) {

@@ -1,5 +1,5 @@
 import '../css/socialConnect.css';
-import discord from '../images/discord-logo.png';
+import discord from '../images/discord-logo-2.png';
 import youtube from '../images/youtube-logo.png';
 import instagram from '../images/instagram-logo.png';
 import facebook from '../images/facebook-logo.png';

@@ -10,7 +10,26 @@
 }
 
 .msa-logo {
-    width: 180px;
+    width: 160px;
+}
+
+.logo-desc-2 {
+    /* justify-content:end; */
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    /* padding: 20px 10px 20px 10px;
+    gap: 0; */
+}
+
+.h4-2 {
+    color: white;
+    font-weight: 100;
+    opacity: 95%;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 22px;
+    /* letter-spacing: 0.3px; */
+    margin-left: 10px;
 }
 
 .about {
@@ -21,14 +40,14 @@
 }
 
 .about-header{
-    font-family: Arial;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 33px;
     color: white;
 }
 
 .about-text{
     margin-top: 10px;
-    font-family: Arial;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     color: white;
 }
@@ -42,7 +61,7 @@
 }
 
 .contactHeading{
-    font-family: Arial;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 33px;
     color: white;
     padding-bottom: 10px;
@@ -57,6 +76,7 @@
 }
 
 .list li {
+    font-family: 'Times New Roman', Times, serif;
     display: flex;
     align-items: center;
 }
@@ -110,15 +130,33 @@ ul{
     }
 
     .msa-logo {
-        scale: 0.7;
-        width: 100px;
+        /* scale: 0.7; */
+        width: 70px;
+        bottom: 0;
+    }
+
+    .logo-desc-2 {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 200px;
+        /* align-items: center; */
+        /* justify-content: center; */
+    }
+
+    .h4-2 {
+        display: flex;
+        font-size: 6px;
+        margin: 3px 0 0 3px;
     }
 
     .about, .about-header {
         font-size: 13px;
+        margin-left: 10px;
     }
 
     .about-text {
+        margin-left: 10px;
         font-size: 9px;
         margin-top: 6px;
     }

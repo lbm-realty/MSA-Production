@@ -5,7 +5,6 @@
   justify-content: center;
   height: auto;
   padding: 30px;
-  /* background: white; */
 }
 
 .newsletter-header {
@@ -22,12 +21,12 @@
 .outer-container {
   display: flex;
   flex-direction: column;
-  width: 900px;
+  width: 940px;
   border-radius: 30px;
   height: fit-content;
   background: #800000;
   color: #800000;
-  padding: 0 45px 0 45px;
+  padding: 0 25px 10px 25px;
   font-size: 20px;
   align-items: center;
   justify-content: center;
@@ -36,20 +35,20 @@
 .inner-container {
   display: flex;
   flex-wrap: wrap;
-  width: 900px;
+  width: 950px;
   border-radius: 30px;
   height: fit-content;
   background: #800000;
-  padding: 40px;
-  gap: 80px;
+  padding: 20px;
+  gap: 40px;
   margin-top: -60px;
   align-items: center;
   justify-content: center;
 }
 
 .pdf-box {
-  width: 350px;
-  height: 450px;
+  width: 430px;
+  height: 550px;
   border: 3px solid #f89696;
   border-radius: 18px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -124,56 +123,49 @@
   overflow: hidden;
 }
 
-.archive-content.open {
+.arch-content-open {
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   min-height: 0px;
   max-height: fit-content;
   border-radius: 30px;
 }
 
-.archive-content.closed {
+.arch-content-closed {
   max-height: 0;
   padding: 0;
 }
 
 @media all and (width < 600px) {
   .newsletter-container {
-    /* padding: 0; */
-    gap: 0;
+    gap: 10px;
+    height: fit-content;
   }
   .newsletter-header {
     font-size: 20px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
-
   .inner-container {
-    scale: 0.8;
-    padding: 10px 10px 10px 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     max-height: auto;
-    height: auto;
-    width: auto;
-    gap: 0;
-    margin-top: -90px;
+    height: fit-content;
+    width: fit-content;
   } 
   .outer-container {
-    scale: 0.8;
-    padding: 10px 10px 0px 10px;
+    padding: 0 0 10px 0;
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
     max-height: auto;
-    height: auto;
-    width: auto;
-    gap: 0;
-    margin-top: -40px;
-    /* margin-bottom: 40px; */
+    height: fit-content;
+    width: fit-content;
+    gap: 40px;
   }
-
   .outer-container h4 {
     font-size: 18px;
     width: 80%;
@@ -182,35 +174,38 @@
     font-family: serif;
     padding: 5px 2px 6px 14px;
     font-style: italic;
-    bottom: -10px;
   }
-
   .pdf-box {
-    scale: 0.85;
+    height: 430px;
+    width: 300px;
   }
-
   .arch-section {
-    margin-top: -30px;
-    max-height: fit-content;
+    height: fit-content;
+    /* padding: 0 0 10px 0; */
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 320px;
+    width: 350px;
   }
-
-  .archive-content.closed {
+  .arch-content-closed {
     background: #800000;
+    padding: 0;
   }
-
+  .arch-content-open {
+    padding: 10px 0 20px 0;
+  }
   .arch-toggle-button {
+    gap: 10px;
     padding: 5px 30px 7px 30px;
   }
-
   .arch-toggle-button:hover {
     background-color: #df7474;
     transition: 0.6s;
     color: black;
     border-radius: 35px 35px 35px 0;
     font-weight: bold;
+    padding: 6px 98px 6px 99px;
   }
 }
 

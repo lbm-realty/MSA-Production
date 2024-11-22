@@ -32,19 +32,27 @@ function Navbar() {
   return (
       <div>
         <div id="navbar" className="navbar">
-          <img src={logo} className="logo" alt="MSA-logo" /><Link to='/'></Link>
+          <div className="logo-desc">
+            <img src={logo} className="logo" alt="MSA-logo" /><Link to='/'></Link>
+            <h4>Muslim Student Association</h4>
+          </div>
+          <div className="hyperlinks">
           <ul id="menuList" className={`menuList-${menuOpen ? 'open' : 'closed'}`}>
             <li className="navbar-text"><Link to='/'>Home</Link></li>
+            <li className="navbar-text"><Link to='/events'>EVENTS</Link></li>
             <li className="navbar-text"><Link to='/faqs'>FAQS</Link></li>
             <li className="navbar-text"><Link to='/newsletter'>NEWSLETTER</Link></li>
             <li className="navbar-text"><Link to='/donations'>DONATE</Link></li>
-            <li className="navbar-text"><Link to='/events'>EVENTS</Link></li>
           </ul>
           {isMobile && (
            <div id="menu-icon" onClick={toggleClick} className='menu-icon'>
-            <i className="fa-solid fa-bars"></i>
+            {/* <i className="fa-solid fa-bars"></i> */}
+            <div className="mobile-hyperlink"></div>
+            <div className="mobile-hyperlink"></div>
+            <div className="mobile-hyperlink"></div>
           </div> 
           )} 
+          </div>
         </div>
       </div>
     );

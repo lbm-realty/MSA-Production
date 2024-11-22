@@ -9,8 +9,9 @@ import location from '../images/location.png'
 function Footer() {
   return (
     <div className="last-container">
-      <div>
+      <div className='logo-desc-2'>
         <img src={logo} className="msa-logo" alt="" />
+        <h4 className="h4-2">Muslim Student Association</h4>
       </div>
       <div className="about">
         <div className="about-header">About</div>

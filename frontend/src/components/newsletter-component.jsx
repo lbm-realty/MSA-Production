@@ -56,8 +56,8 @@ const ComingSoon = () => {
         )}
         <div className="adjusting-border"></div>
 
-        <div className={`archive-content ${isArchiveOpen ? "open" : "closed"}`}>
-          {archivePdfs.map((pdf, index) => (
+        <div className={`arch-content-${isArchiveOpen ? "open" : "closed"}`}>
+          {isArchiveOpen && archivePdfs.map((pdf, index) => (
             <div className="pdf-box" key={index}>
               <h3>{pdf.month} Newsletter</h3>
               <iframe

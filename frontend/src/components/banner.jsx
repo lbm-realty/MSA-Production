@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/banner.css'
-import slide1 from '../images/slide-show-1.jpg'
+import slide1 from '../images/slide-show-1.png'
 import slide2 from '../images/slide-show-2.png'
 import slide3 from '../images/slide-show-3.png'
 import slide4 from '../images/slide-show-4.png'
@@ -15,6 +15,54 @@ function Banner() {
       <div id="banner" className="banner">
         <div className="slider-wrapper">
           <div className="slider">
+            <img
+              id="slide-1"
+              className="banner-image"
+              src={slide1}
+              alt=""
+            />
+            <img
+              id="slide-2"
+              className="banner-image"
+              src={slide2}
+              alt=""
+            />
+            <img
+              id="slide-3"
+              className="banner-image"
+              src={slide3}
+              alt=""
+            />
+            <img
+              id="slide-4"
+              className="banner-image"
+              src={slide4}
+              alt=""
+            />
+            <img
+              id="slide-5"
+              className="banner-image"
+              src={slide5}
+              alt=""
+            />
+            <img
+              id="slide-6"
+              className="banner-image"
+              src={slide6}
+              alt=""
+            />
+            <img
+              id="slide-7"
+              className="banner-image"
+              src={slide7}
+              alt=""
+            />
+            <img
+              id="slide-8"
+              className="banner-image"
+              src={slide8}
+              alt=""
+            />
             <img
               id="slide-1"
               className="banner-image"
