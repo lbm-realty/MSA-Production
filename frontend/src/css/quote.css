@@ -6,8 +6,8 @@
 
 .quote{
     margin-top: -30px;
-    padding: 50px;
-    background-color: #800000;
+    padding: 50px 50px 50px 50px;
+    background-color: var(--bg-red);
 }
 
 .text{
@@ -15,8 +15,8 @@
     font-size: 50px;
     padding-top: 15px;
     padding-left: 30px;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
     color: rgb(255, 255, 255);
 }
 
@@ -38,7 +38,7 @@
     font-family:'Times New Roman', Times, serif;
     display: flex;
     margin-top: -12.5px;
-    background-color: #800000;
+    background-color: var(--bg-red);
     color: rgb(255, 255, 255);
     width: 200px;
     margin-left: 110px;

@@ -1,14 +1,14 @@
 import '../css/socialConnect.css';
 import discord from '../images/discord-logo-2.png';
 import youtube from '../images/youtube-logo.png';
-import instagram from '../images/instagram-logo.png';
+import instagram from '../images/instagram-logo-2.png';
 import facebook from '../images/facebook-logo.png';
 
 function SocialConnect() {
   return (
     <div class="connect-container">
       <div class="connect-header">
-        <h1>Connect With Us!</h1>
+        <h3>Connect With Us!</h3>
       </div>
       <div class="socials-connect">
         <div class="connect-discord">

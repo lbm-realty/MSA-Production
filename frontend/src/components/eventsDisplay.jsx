@@ -69,7 +69,7 @@ function EventDisplay() {
     setHovered(!ishovered);
   };
   return (
-    <div>
+    <div className="whole-container">
       <div className="event-wrapper">
         <h3 className="upcoming-events-heading">UPCOMING EVENTS</h3>
         <div className="event-container">

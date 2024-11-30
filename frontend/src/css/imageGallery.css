@@ -10,15 +10,16 @@
 }
 
 .image-gallery {
-    background-color:  #800000;
+    background-color:  var(--bg-red);
     height: auto;
     padding: 10px 10px 50px 10px;
     text-align: center;
 }
 
 .image-gallery h2 {
+    font-family: 'Times New Roman', Times, serif;
     margin-top: 50px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 50px;
     margin-bottom: 30px;
 }
@@ -30,7 +31,7 @@
     background-color: #b53535;
     font-size: 28px;
     letter-spacing: -0.2px;
-    font-family: serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .image-gallery a, h3 {
@@ -54,7 +55,7 @@
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     height: 500px;
-    background: black;
+    background: var(--bg-black);
     border: 2px solid rgb(248, 132, 132);
     width: 375px;
 }
@@ -114,8 +115,8 @@
 }
 
 .black-box-2{
-    height: 260px;
-    background-color: black;
+    height: 220px;
+    background-color: var(--bg-black);
 }
 
 @media all and (600px < width < 928px) {

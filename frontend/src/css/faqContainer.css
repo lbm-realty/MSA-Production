@@ -1,10 +1,10 @@
 body {
-    background-color: black;
+    background-color: var(--bg-black);
     margin: 0;
 }
 
 .wrapper {
-    background-color: black;
+    background-color: var(--bg-black);
 }
   
 .container {
@@ -42,7 +42,7 @@ body {
 
 .black-box-2{
     height: 110px;
-    background-color: black;
+    background: var(--bg-black);
 }
 
 @media all and (600px < width < 928px) {

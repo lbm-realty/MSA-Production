@@ -11,11 +11,14 @@ function Footer() {
     <div className="last-container">
       <div className='logo-desc-2'>
         <img src={logo} className="msa-logo" alt="" />
-        <h4 className="h4-2">Muslim Student Association</h4>
+        <div className="">
+          <h2 className='ttu-msa-2'>TTU MSA</h2>
+          <h2 className='ttu-basmalah-2'>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h2>
+        </div>
       </div>
-      <div className="about">
-        <div className="about-header">About</div>
-        <div className="about-text">
+      <div className="about-footer">
+        <div className="about-header-footer">About</div>
+        <div className="about-text-footer">
           This website is designed to help <br />
           incoming freshmen and Tech students <br />
           learn about the MSA and connect <br />

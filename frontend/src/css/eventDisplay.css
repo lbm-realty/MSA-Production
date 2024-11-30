@@ -1,6 +1,11 @@
+.whole-container{
+  background: var(--bg-black);
+  padding-bottom: 150px;
+}
+
 .upcoming-events-heading {
   color: white;
-  background: #800000;
+  background: var(--bg-red);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,8 +13,8 @@
   border-radius: 15px;
   padding: 10px 0 10px 0;
   font-size: 40px;
-  font-family: "Algerian";
-  font-weight: 100;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -19,13 +24,14 @@
 }
 
 .archive-event-container {
+  background: var(--bg-black);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .event-container {
-  background: #800000;
+  background: var(--bg-red);
   display: flex;
   border-radius: 18px;
   gap: 20px;
@@ -37,6 +43,7 @@
 }
 
 .event-wrapper {
+  background: var(--bg-black);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -62,7 +69,7 @@
 }
 
 .event-container-2 {
-  background: #800000;
+  background: var(--bg-red);
   display: flex;
   border-radius: 18px;
   gap: 0;
@@ -215,7 +222,7 @@
 .archive-section-container {
   display: flex;
   flex-direction: column;
-  background: black;
+  background: var(--bg-black);
   justify-content: center;
   align-items: center;
 }
@@ -225,12 +232,12 @@
   width: 83%;
   margin-top: 20px;
   bottom: 0;
-  background: #800000;
+  background: var(--bg-red);
   border-radius: 30px;
 }
 
 .archive-toggle-button {
-  background-color: #800000;
+  background-color: var(--bg-red);
   color: white;
   padding: 10px;
   font-style: italic;
@@ -270,7 +277,7 @@
   justify-content: center;
   opacity: 0;
   transform: translateY(-10px); /* Slight slide up when closed */
-  background: #800000;
+  background: var(--bg-red);
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -300,7 +307,7 @@
     max-height: 0;
     opacity: 0;
     transform: translateY(-10px); /* Slight slide up when closed */
-    background: #800000;
+    background: var(--bg-red);
     display: flex;
     flex-wrap: wrap;
     gap: 0;
@@ -313,7 +320,7 @@
   .archive-section {
     width: 90%;
     margin-top: 20px;
-    background: #800000;
+    background: var(--bg-red);
     border-radius: 30px;
     gap: 0;
     padding: 0;

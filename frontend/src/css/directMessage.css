@@ -1,6 +1,7 @@
 .form-container {
-    background-color: black;
+    background-color: var(--bg-black);
     display: flex;
+    padding-top: 50px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -10,7 +11,7 @@
     height: 2px;
     width: 85%;
     /* margin-left: 90px; */
-    background-color: #800000;
+    background-color: var(--bg-red);
 }
 
 .main-form {
@@ -18,15 +19,15 @@
     margin-top: 10px;
     /* margin-left: 270px; */
     padding: 40px;
-    background-color: #000000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-black);
     border-radius: 2px;
 }
 
 h2 {
     text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Times New Roman', Times, serif;
     color: #ffffff;
+    font-size: 35px;
     margin-bottom: 20px;
 }
 
@@ -47,7 +48,7 @@ h2 {
     padding: 13px;
     border: 1px solid #ffffff;
     box-sizing: border-box;
-    background-color: #000000;
+    background-color: var(--bg-black);
     color: white;
 }
 

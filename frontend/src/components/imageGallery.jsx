@@ -73,8 +73,6 @@ function ImageGallery() {
 
   return (
     <>
-      <div class="black-box-2"></div>
-
       <div class="image-gallery">
         <h2>Event Highlights</h2>
         <div class="gallery-grid">

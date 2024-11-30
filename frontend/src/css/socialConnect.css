@@ -4,7 +4,7 @@
     justify-content: space-between;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #000000;
+    background-color: var(--bg-black);
     height: 300px;
 }
 
@@ -12,7 +12,8 @@
     padding-top: 40px;
     display: flex;
     justify-content: center;
-    background-color: black;
+    background-color: var(--bg-black);
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .connect-discord, .connect-facebook, .connect-youtube, .connect-instagram {
@@ -22,29 +23,26 @@
     justify-content: center;
 }
 
-.connect-header h1 {
-    font-family:'Times New Roman', Times, serif;
-    background-color: rgb(0, 0, 0);
+.connect-header h3 {
+    background-color: var(--bg-black);
     color: rgb(255, 255, 255);
     font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .discord-logo{
     height: 140px;
     width: 150px;
-    border-radius: 10px;
+    border-radius: 200px;
     cursor: pointer;
-    padding: 0 0 100px 0;
 }
 
 .discord-header {
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    height: 20px;
-    width: 100px;
+    background-color: var(--bg-black);
     color: white;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
-    margin: 120px 0 0 0;
+    /* margin: 120px 0 0 0; */
 
 }
 
@@ -54,16 +52,18 @@
 }
 
 .instagram-logo{
-    height: 130px;
-    width: 136.5px;
+    height: 140px;
+    width: 146.5px;
     cursor: pointer;
+    border-radius: 42px;
     /* margin-left: 30px; */
 }
 
 .instagram-header {
     color: white;
     font-size: 30px;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--bg-black);
+    font-family: 'Times New Roman', Times, serif;
     /* margin-left: 30px; */
 }
 
@@ -75,6 +75,7 @@
 .youtube-logo {
     height: 130px;
     width: 170px;
+    border-radius: 30px;
     cursor: pointer;
     /* margin-left: 15px; */
 }
@@ -82,8 +83,9 @@
 .youtube-header {
     color: white;
     font-size: 30px;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--bg-black);
     /* margin-left: 40px; */
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .youtube-logo:hover{
@@ -93,7 +95,8 @@
 
 .facebook-logo {
     height: 130px;
-    width: 95px;
+    width: 130px;
+    border-radius: 100px;
     /* margin-left: 40px; */
     cursor: pointer;
 }
@@ -101,8 +104,9 @@
 .facebook-header {
     color: white;
     font-size: 30px;
-    background-color: #000000;
+    background-color: var(--bg-black);
     /* margin-left: 30px; */
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .facebook-logo:hover{
@@ -123,19 +127,20 @@
         justify-content: center;
         display: flexbox;
         flex-wrap: wrap;
-        background-color: #000000;
+        background-color: var(--bg-black);
         height: auto;
     }
     
     .connect-header {
-        padding-top: 0;
+        padding-top: 40px;
         display: flex;
+        /* font-size: ; */
         justify-content: center;
-        background-color: black;
+        background-color: var(--bg-black);
     }
     
-    .connect-header h1 {
-        scale: 0.7;
+    .connect-header h3 {
+        font-size: 43px;
     }
 
     .connect-discord, .connect-facebook, .connect-instagram, .connect-youtube {
@@ -159,7 +164,7 @@
         padding-top: 50px;
         display: flex;
         justify-content: center;
-        background-color: black;
+        background-color: var(--bg-black);
     }
     
     .connect-header h1 {

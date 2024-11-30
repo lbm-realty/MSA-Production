@@ -34,7 +34,10 @@ function Navbar() {
         <div id="navbar" className="navbar">
           <div className="logo-desc">
             <img src={logo} className="logo" alt="MSA-logo" /><Link to='/'></Link>
-            <h4>Muslim Student Association</h4>
+            <div className="">
+              <h2 className='ttu-msa'>TTU MSA</h2>
+              <h2 className='ttu-basmalah'>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h2>
+            </div>
           </div>
           <div className="hyperlinks">
           <ul id="menuList" className={`menuList-${menuOpen ? 'open' : 'closed'}`}>

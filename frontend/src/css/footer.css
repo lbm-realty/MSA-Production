@@ -5,7 +5,7 @@
     padding-right: 30px;
     align-items: center;
     padding-top: 20px;
-    background-color: #800000;
+    background-color: var(--bg-red);
     height: 180px;
 }
 
@@ -13,13 +13,31 @@
     width: 160px;
 }
 
-.logo-desc-2 {
-    /* justify-content:end; */
+.ttu-msa-2 {
+    justify-content: flex-start;
     display: flex;
-    /* flex-direction: column; */
+    font-size: 22px;
+    padding: 0;
+    font-weight: 100;
+    top: 8px;
+    margin-left: 0;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.ttu-basmalah-2 {
+    letter-spacing: 0.1px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 18px;
+    bottom: 6px;
+    position: relative;
+}
+
+.logo-desc-2 {
+    display: flex;
     align-items: center;
-    /* padding: 20px 10px 20px 10px;
-    gap: 0; */
 }
 
 .h4-2 {
@@ -32,20 +50,20 @@
     margin-left: 10px;
 }
 
-.about {
+.about-footer {
     scale: 0.9;
-    background-color: #800000;
+    background-color: var(--bg-red);
     display: flex;
     flex-direction: column;
 }
 
-.about-header{
+.about-header-footer{
     font-family: 'Times New Roman', Times, serif;
     font-size: 33px;
     color: white;
 }
 
-.about-text{
+.about-text-footer{
     margin-top: 10px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
@@ -125,7 +143,7 @@ ul{
         padding-right: 10px;
         padding-left: 0;
         padding-top: 20px;
-        background-color: #800000;
+        background-color: var(--bg-red);
         height: 180px;
     }
 
@@ -135,27 +153,30 @@ ul{
         bottom: 0;
     }
 
+    .ttu-msa-2, .ttu-basmalah-2 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 10px;
+    }
+
     .logo-desc-2 {
         display: flex;
         flex-direction: column;
         gap: 0;
         width: 200px;
-        /* align-items: center; */
-        /* justify-content: center; */
+        padding-top: 10px;
+        /* align-items: center;
+        justify-content: center; */
     }
 
-    .h4-2 {
-        display: flex;
-        font-size: 9px;
-        margin: 3px 0 0 3px;
-    }
-
-    .about, .about-header {
+    .about-footer, .about-header-footer {
         font-size: 13px;
         margin-left: 10px;
     }
 
-    .about-text {
+    .about-text-footer {
         margin-left: 10px;
         font-size: 9px;
         margin-top: 6px;
