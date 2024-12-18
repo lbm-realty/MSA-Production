@@ -1,13 +1,30 @@
 const cors = require("cors");
 const express = require("express");
+const eventsRoute = require("./routes/eventsRoute");
 require("dotenv").config();
 const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
-// app.use(cors({ origin: 'https://msattu.netlify.app/' }));
-// app.use(cors({ origin: ['https://msattu.netlify.app', 'https://www.msattu.netlify.app'] }));
+const mongoose = require('mongoose');
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb://localhost:27017/msa-app", {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log("Connected to MongoDB locally");
+  } catch (err) {
+    console.log("Error connecting to Database:", err.message);
+  }
+}
+
+connectDB();
+
+app.use('/api/events', eventsRoute);
+
 app.get("/", (req, res) => {
   res.send("App works");
 });
@@ -41,58 +58,3 @@ app.post("/payment", (req, res) => {
 });
 
 app.listen(8282, () => console.log("Listening at PORT 8282"));
-
-// const cors = require("cors");
-// const express = require("express");
-// require("dotenv").config();
-// const stripe = require("stripe")(process.env.BACKEND_KEY);
-// const { v4: uuidv4 } = require("uuid");
-// const app = express();
-
-// app.use(express.json());
-// app.use(cors({ origin: 'https://msattu.netlify.app' }));
-
-// app.get("/", (req, res) => {
-//   res.send("App works");
-// });
-
-// app.post("/payment", async (req, res) => {
-//   const { product, token } = req.body;
-//   console.log("Price ", product.price);
-  
-//   // Check for a minimum amount to process the payment
-//   if (product.price < 0.5) {
-//     return res.send("The amount was too small, transaction failed");
-//   }
-
-//   const idempotencyKey = uuidv4();
-
-//   try {
-//     // Create a new customer on Stripe
-//     const customer = await stripe.customers.create({
-//       email: token.email,
-//       source: token.id,
-//     });
-
-//     // Create a charge for the customer
-//     const charge = await stripe.charges.create(
-//       {
-//         amount: product.price * 100, // Stripe works in cents
-//         currency: "usd",
-//         customer: customer.id,
-//         receipt_email: token.email,
-//         description: product.name,
-//       },
-//       { idempotencyKey }
-//     );
-
-//     console.log("Charge successful:", charge);
-//     res.json({ success: true, charge }); // Send success response
-
-//   } catch (error) {
-//     console.error("Payment error:", error);
-//     res.status(500).json({ success: false, message: "Payment failed", error });
-//   }
-// });
-
-// app.listen(8282, () => console.log("Listening at PORT 8282"));
