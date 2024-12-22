@@ -88,11 +88,15 @@
 .gallery-item:hover .overlay {
     opacity: 1;
 }
-
 .overlay p {
     margin: 0;
     font-size: 1.2em;
 }
+.black-box-2{
+    height: 220px;
+    background: url('../images/bg-1.png') repeat; 
+}
+
 
 @media all and (width < 600px) {
     .gallery-item {
@@ -110,13 +114,8 @@
         top: 0;
     }
     .black-box-2 {
-        height: 0;
+        height: 120px;
     }
-}
-
-.black-box-2{
-    height: 220px;
-    background-color: var(--bg-black);
 }
 
 @media all and (600px < width < 928px) {

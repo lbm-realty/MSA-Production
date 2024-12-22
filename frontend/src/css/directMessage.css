@@ -1,5 +1,5 @@
 .form-container {
-    background-color: var(--bg-black);
+    background: url('../images/bg-2.png') repeat; 
     display: flex;
     padding-top: 50px;
     flex-direction: column;
@@ -19,7 +19,6 @@
     margin-top: 10px;
     /* margin-left: 270px; */
     padding: 40px;
-    background-color: var(--bg-black);
     border-radius: 2px;
 }
 
@@ -48,8 +47,9 @@ h2 {
     padding: 13px;
     border: 1px solid #ffffff;
     box-sizing: border-box;
-    background-color: var(--bg-black);
-    color: white;
+    color: white;    
+    background: url('../images/bg-2.png') repeat; 
+
 }
 
 .form-group textarea {

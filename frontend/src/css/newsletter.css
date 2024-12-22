@@ -1,14 +1,15 @@
 .newsletter-container {
+  background: url('../images/bg-1.png') repeat; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: auto;
-  padding: 30px;
+  padding: 80px 0;
 }
 
 .newsletter-header {
-  color: rgb(255, 179, 179);
+  color: rgb(255, 255, 255);
   font-family: 'Times New Roman', Times, serif;
   font-size: 44px;
   font-style: italic;
@@ -17,31 +18,27 @@
   padding: 10px 12px 10px 10px;
   border-radius: 10px;
 }
-
-.outer-container {
-  display: flex;
-  flex-direction: column;
-  width: 940px;
-  border-radius: 30px;
-  height: fit-content;
-  background: var(--bg-red);
-  color: var(--bg-red);
-  padding: 0 25px 10px 25px;
-  font-size: 20px;
-  align-items: center;
-  justify-content: center;
+h4 {
+  padding: 5px 0 10px 10px;
+  margin: 0;
+  background-color: #481d1d;
+  color: white;
+  max-width: 300px;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-style: italic;
 }
-
 .inner-container {
   display: flex;
   flex-wrap: wrap;
-  width: 950px;
+  /* width: 100%; */
+  /* width: 950px; */
   border-radius: 30px;
   height: fit-content;
   background: var(--bg-red);
-  padding: 20px;
+  padding: 30px 30px;
   gap: 40px;
-  margin-top: -60px;
   align-items: center;
   justify-content: center;
 }
@@ -96,7 +93,7 @@
   font-weight: bolder;
   /* width: 1000px; */
 }
-
+ 
 .arch-toggle-button:hover {
   background-color: #df7474;
   transition: 0.6s;

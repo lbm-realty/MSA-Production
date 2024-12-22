@@ -1,8 +1,8 @@
 import React from 'react';
 import '../css/banner.css'
 import slide1 from '../images/slide-show-1.png'
-import slide2 from '../images/slide-show-2.png'
-import slide3 from '../images/slide-show-3.png'
+import slide2 from '../images/slide-show-2-2.png'
+import slide3 from '../images/slide-show-3.jpg'
 import slide4 from '../images/slide-show-4.png'
 import slide5 from '../images/slide-show-5.png'
 import slide6 from '../images/slide-show-6.png'
@@ -11,9 +11,9 @@ import slide8 from '../images/slide-show-8.png'
 
 function Banner() {
   return (
-    <div className="container">
-      <div id="banner" className="banner">
-        <div className="slider-wrapper">
+    // <div className="banner-container">
+      <div id="banner" className="banner-homepage">
+        {/* <div className="slider-wrapper"> */}
           <div className="slider">
             <img
               id="slide-1"
@@ -112,7 +112,7 @@ function Banner() {
               alt=""
             />
           </div>
-          <div className="slider-nav">
+          {/* <div className="slider-nav">
             <a href="#slide-1" aria-label="Go to slide 1"></a>
             <a href="#slide-2" aria-label="Go to slide 2"></a>
             <a href="#slide-3" aria-label="Go to slide 3"></a>
@@ -121,18 +121,18 @@ function Banner() {
             <a href="#slide-6" aria-label="Go to slide 6"></a>
             <a href="#slide-7" aria-label="Go to slide 7"></a>
             <a href="#slide-8" aria-label="Go to slide 8"></a>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <div className="ayahs">
-          <div className="ayah-arabic">
+          <h3 className="ayah-arabic">
           وَٱصْبِرْ نَفْسَكَ مَعَ ٱلَّذِينَ يَدْعُونَ رَبَّهُم بِٱلْغَدَوٰةِ وَٱلْعَشِىِّ يُرِيدُونَ وَجْهَهُۥ ۖ
-          </div>
-          <div className="ayah-english">
-          And patiently stick with those who call upon their Lord morning and evening, seeking His pleasure.
-          </div>
+          </h3>
+          <h3 className="ayah-english">
+          And patiently stick with those who call upon their Lord morning and evening, seeking His pleasure
+          </h3>
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 

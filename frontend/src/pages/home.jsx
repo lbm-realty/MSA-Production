@@ -2,7 +2,8 @@ import Banner from '../components/banner'
 import SocialConnect from "../components/socialConnect";
 import Quote from "../components/quote";
 import DirectMessage from "../components/directMessage";
-import AboutContainer from '../components/aboutContainer';
+import AboutContainer from '../components/aboutAndLogo';
+
 
 function Home() {
   return (

@@ -7,6 +7,8 @@ import Faqs from "./pages/faqs";
 import Newsletter from "./pages/newsletter";
 import Donations from "./pages/donations";
 import Events from "./pages/events";
+import AboutContainer from "./components/aboutContainer";
+import ApiTest from "./components/apiTest"
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/donations" element={<Donations />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/about" element={<AboutContainer />} />
           {/* <Route path="*" element={<Home />} /> */}
+          <Route path="/addEvents" element={<ApiTest />} />
         </Routes>
         <Footer />
       </Router>

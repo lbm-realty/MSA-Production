@@ -105,6 +105,7 @@ ul{
 
 .whatsapp{
     height: 25px;
+    padding-left: 2px;
     padding-bottom: 3px;
 }
 
@@ -115,7 +116,7 @@ ul{
 }
 
 .email{
-    height: 21px;
+    height: 20px;
     padding-bottom: 3px;
 }
 

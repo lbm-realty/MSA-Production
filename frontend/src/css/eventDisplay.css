@@ -1,8 +1,9 @@
 .whole-container{
-  background: var(--bg-black);
-  padding-bottom: 150px;
+  /* background: var(--bg-black); */
+  padding: 105px 0;
+  background: url('../images/bg-1.png') repeat; 
 }
-
+ 
 .upcoming-events-heading {
   color: white;
   background: var(--bg-red);
@@ -24,7 +25,7 @@
 }
 
 .archive-event-container {
-  background: var(--bg-black);
+  background: url('../images/bg-1.png') repeat; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +44,7 @@
 }
 
 .event-wrapper {
-  background: var(--bg-black);
+  background: url('../images/bg-1.png') repeat; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -229,7 +230,7 @@
 
 .archive-section {
   transition: 0.5s;
-  width: 83%;
+  width: 93%;
   margin-top: 20px;
   bottom: 0;
   background: var(--bg-red);
@@ -303,6 +304,9 @@
 }
 
 @media all and (width < 600px) {
+  .whole-container {
+    padding: 0 0 100px 0;
+  }
   .archive-content {
     max-height: 0;
     opacity: 0;
@@ -331,6 +335,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 70px 0 0 0;
   }
 
   .event-container,

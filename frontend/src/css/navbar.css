@@ -5,6 +5,8 @@
 }
 
 .navbar {
+    z-index: 10;
+    position: fixed;
     background-color: var(--bg-red);
     color: rgb(0, 0, 0);
     height: 8vw;
@@ -13,7 +15,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
 .ttu-msa {
     justify-content: flex-start;
     display: flex;
@@ -59,14 +60,14 @@
 .navbar ul li{
     list-style: none;
     display: inline-flex;
-    margin: 0 20px;
+    margin: 0 13px;
     position: relative;
     bottom: 10px;
 }
 
 .navbar ul li a{
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 255, 255);
     text-transform: uppercase;
@@ -140,7 +141,7 @@
         padding: 0;
     }
     .menuList-open {
-        height: 270px;
+        height: 320px;
         /* margin: 0; */
     }
     .logo {

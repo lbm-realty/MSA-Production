@@ -1,9 +1,11 @@
 import DonationContainer from "../components/donationContainer";
 
 function Donations() {
-    return (
-        <DonationContainer />
-    )
+  return (
+    <>
+      <DonationContainer />
+    </>
+  );
 }
 
 export default Donations;

@@ -1,0 +1,32 @@
+.donation-desc-container {
+    padding: 10px 55px 20px 55px;
+    background-color: var(--bg-red);
+    color: white;
+    margin-bottom: 50px;
+    border-radius: 25px;
+}
+.donation-desc-header {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 42px;
+    padding: 0;
+    margin-bottom: 0;
+    font-weight: 100;
+}
+.donation-desc-desc{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+@media all and (width < 600px) {
+    .donation-desc-container {
+        width: 320px;
+        padding: 10px 20px;
+    }
+    .donation-desc-header {
+        font-size: 28px;
+    }
+    .donation-desc-desc {
+        font-size: 16px;
+    }
+}

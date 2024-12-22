@@ -1,10 +1,14 @@
+.connect-container {
+    background: url('../images/bg-2.png') repeat; 
+    padding-top: 20px;
+}
+
 .socials-connect {
     padding: 0 80px 80px 80px;
     align-items: center;
     justify-content: space-between;
     display: flex;
     flex-wrap: nowrap;
-    background-color: var(--bg-black);
     height: 300px;
 }
 
@@ -12,7 +16,6 @@
     padding-top: 40px;
     display: flex;
     justify-content: center;
-    background-color: var(--bg-black);
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -24,7 +27,6 @@
 }
 
 .connect-header h3 {
-    background-color: var(--bg-black);
     color: rgb(255, 255, 255);
     font-size: 50px;
     font-family: 'Times New Roman', Times, serif;
@@ -38,7 +40,6 @@
 }
 
 .discord-header {
-    background-color: var(--bg-black);
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
@@ -62,9 +63,7 @@
 .instagram-header {
     color: white;
     font-size: 30px;
-    background-color: var(--bg-black);
     font-family: 'Times New Roman', Times, serif;
-    /* margin-left: 30px; */
 }
 
 .instagram-logo:hover{
@@ -77,14 +76,11 @@
     width: 170px;
     border-radius: 30px;
     cursor: pointer;
-    /* margin-left: 15px; */
 }
 
 .youtube-header {
     color: white;
     font-size: 30px;
-    background-color: var(--bg-black);
-    /* margin-left: 40px; */
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -97,15 +93,12 @@
     height: 130px;
     width: 130px;
     border-radius: 100px;
-    /* margin-left: 40px; */
     cursor: pointer;
 }
 
 .facebook-header {
     color: white;
     font-size: 30px;
-    background-color: var(--bg-black);
-    /* margin-left: 30px; */
     font-family: 'Times New Roman', Times, serif;
 }
 
@@ -127,16 +120,15 @@
         justify-content: center;
         display: flexbox;
         flex-wrap: wrap;
-        background-color: var(--bg-black);
         height: auto;
     }
     
     .connect-header {
         padding-top: 40px;
         display: flex;
+        width: 100%;
         /* font-size: ; */
         justify-content: center;
-        background-color: var(--bg-black);
     }
     
     .connect-header h3 {
