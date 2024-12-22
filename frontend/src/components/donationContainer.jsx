@@ -7,9 +7,9 @@ function DonationContainer() {
   const [customAmount, setCustomAmount] = useState(0);
   const [showCustomInput, setShowCustomInput] = useState(false);
   const [showButton, setShowButton] = useState(true);
-  const [subscribe25, setSubscribe25] = useState(false);
-  const [subscribe50, setSubscribe50] = useState(false);
-  const [subscribe100, setSubscribe100] = useState(false);
+  // const [subscribe25, setSubscribe25] = useState(false);
+  // const [subscribe50, setSubscribe50] = useState(false);
+  // const [subscribe100, setSubscribe100] = useState(false);
   const [oneTime, setOneTime] = useState(false);
   const [subMonthly, setSubMonthly] = useState(false);
   const product = {
@@ -202,9 +202,9 @@ function DonationContainer() {
                 id="donation-button-custom"
                 className="donation-button-custom"
                 onClick={() => {
-                  setSubscribe100(false);
-                  setSubscribe25(false);
-                  setSubscribe50(false);
+                  // setSubscribe100(false);
+                  // setSubscribe25(false);
+                  // setSubscribe50(false);
                   setShowCustomInput(true);
                   setShowButton(true);
                 }}
