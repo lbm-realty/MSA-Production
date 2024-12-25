@@ -1,5 +1,5 @@
 .connect-container {
-    background: url('../images/bg-2.png') repeat; 
+    background: var(--bg-black);
     padding-top: 20px;
 }
 

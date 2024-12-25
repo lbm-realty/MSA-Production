@@ -6,6 +6,7 @@ import question4 from "../images/Question4.png";
 import question5 from "../images/Question5.png";
 import question6 from "../images/Question6.png";
 
+
 function FaqContainer() {
   const faqImages = [question1, question2, question3, question4, question5, question6]
 

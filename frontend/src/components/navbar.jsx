@@ -42,11 +42,11 @@ function Navbar() {
           <div className="hyperlinks">
           <ul id="menuList" className={`menuList-${menuOpen ? 'open' : 'closed'}`}>
             <li className="navbar-text"><Link to='/'>Home</Link></li>
+            <li className="navbar-text"><Link to='/about'>ABOUT</Link></li>
             <li className="navbar-text"><Link to='/events'>EVENTS</Link></li>
             <li className="navbar-text"><Link to='/faqs'>FAQS</Link></li>
             <li className="navbar-text"><Link to='/newsletter'>NEWSLETTER</Link></li>
             <li className="navbar-text"><Link to='/donations'>DONATE</Link></li>
-            <li className="navbar-text"><Link to='/about'>ABOUT</Link></li>
           </ul>
           {isMobile && (
            <div id="menu-icon" onClick={toggleClick} className='menu-icon'>

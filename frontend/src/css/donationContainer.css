@@ -1,6 +1,7 @@
 .donate-section {
-    padding: 130px 150px 100px 150px;
-    background: url('../images/bg-1.png') repeat; 
+    padding: 150px 175px 130px 175px;
+    background: url('../images/zakat-assistance-img.png'); 
+    background-size: cover;
     text-align: center;
 }
 .donation-container {
