@@ -1,7 +1,6 @@
 .outer-donate {
     background: url('../images/donate-home.png') no-repeat center center;
     background-size: cover; 
-    height: 400px;
     padding: 100px 350px;
 }
 .inner-donate {
