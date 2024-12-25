@@ -1,6 +1,5 @@
 import Banner from '../components/banner'
 import SocialConnect from "../components/socialConnect";
-import Quote from "../components/quote";
 import AboutContainer from '../components/aboutAndLogo';
 import DonateHome from '../components/donateHome';
 
