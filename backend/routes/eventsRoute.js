@@ -12,13 +12,27 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.get("/", async (req, res) => {
+// router.get('/', async (req, res) => {
+//     try {
+//         const entry = await Event.find();
+//         res.send(entry)
+//     } catch (err) {}
+// })
+
+router.post("/deleteEntry", async (req, res) => {
     try {
-        const events = await Event.find();
-        res.json(events);
+        const { title1 } = req.body;
+        const validEntry = await Event.findOne({ title: title1 })
+        if (!validEntry) {
+            console.log("Object does not exist");
+            return res.status(404).json({ message: "Object does not exist" });
+        } else {
+        const deleteEntry = await Event.deleteOne({ title: title1 })
+        res.status(201).json({ message : deleteEntry });
+        }
     } catch (err) {
         res.status(500).json({ err: err.message });
-    }
+    } 
 });
 
 module.exports = router;

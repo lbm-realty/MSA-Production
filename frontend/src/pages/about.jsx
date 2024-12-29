@@ -4,10 +4,12 @@ import DirectMessage from "../components/directMessage";
 
 const About = () => {
     return (
+        <div className="about-outermost">
         <div className="about-direct">
             <AboutContainer />
             {/* <PrayerTimes /> */}
             <DirectMessage />
+        </div>
         </div>
     )
 }
