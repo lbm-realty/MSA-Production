@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import  '../css/apiTest.css'
 
 const ApiTest = () => {
@@ -87,7 +87,7 @@ const ApiTest = () => {
                     onChange={handleChangeCreate} />
                 </label>
                 <label>
-                    Date:
+                    Date: (MM-DD-YYYY)
                     <br/>
                     <input 
                     type="text"
@@ -97,7 +97,7 @@ const ApiTest = () => {
                     onChange={handleChangeCreate} />
                 </label>
                 <label>
-                    Time:
+                    Time: (HH:MM)
                     <br/>
                     <input 
                     type="text"
@@ -147,7 +147,7 @@ const ApiTest = () => {
                         <input 
                         type="text"
                         required
-                        placeholder={deleteData} 
+                        placeholder="" 
                         onChange={handleDeleteChange}
                         />                       
                 </label>
@@ -159,14 +159,3 @@ const ApiTest = () => {
 
 export default ApiTest;
 
-// const ApiTest = () => {
-//     return (
-//         <>
-//         <h3>Hello Hi Bye</h3>
-//         <h2>No byesonly hi's</h2>
-//         <h4>HI guys Hello</h4>
-//         </>
-//     )
-// }
-
-// export default ApiTest;

@@ -22,7 +22,6 @@ function App() {
           <Route path="/donations" element={<Donations />} />
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="*" element={<Home />} /> */}
           <Route path="/addEvents" element={<ApiTest />} />
         </Routes>
         <Footer />

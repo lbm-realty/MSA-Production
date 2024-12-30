@@ -12,12 +12,14 @@ router.post('/', async (req, res) => {
     }
 })
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const entry = await Event.find();
-//         res.send(entry)
-//     } catch (err) {}
-// })
+router.post("/showData", async (req, res) => {
+    try {
+        const allData = await Event.find();
+        res.json(allData);
+    } catch (err) {
+        res.json({ err: err.message });
+    }
+})
 
 router.post("/deleteEntry", async (req, res) => {
     try {

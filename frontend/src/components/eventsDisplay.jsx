@@ -39,24 +39,8 @@ const LocationIcon = () => (
   </svg>
 );
 
-// const ArrowIcon = () => (
-//   <svg
-//     xmlns="http://www.w3.org/2000/svg"
-//     width="16"
-//     height="16"
-//     viewBox="0 0 24 24"
-//     fill="none"
-//     stroke="currentColor"
-//     strokeWidth="2"
-//     strokeLinecap="round"
-//     strokeLinejoin="round"
-//   >
-//     <line x1="5" y1="12" x2="19" y2="12"></line>
-//     <polyline points="12 5 19 12 12 19"></polyline>
-//   </svg>
-// );
-
-function EventDisplay() {
+const EventDisplay = ( props ) => {
+  console.log(props.data)
   const [isArchiveOpen, setArchiveOpen] = useState();
   const [ishovered, setHovered] = useState();
 
@@ -68,37 +52,37 @@ function EventDisplay() {
     setArchiveOpen(!isArchiveOpen);
     setHovered(!ishovered);
   };
+  const months = ["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  console.log(props.data)
   return (
     <div className="whole-container">
       <div className="event-wrapper">
         <h3 className="upcoming-events-heading">UPCOMING EVENTS</h3>
         <div className="event-container">
-          {upcomingEvents.map((event, index) => (
+          {props.data.map((event, index) => (
             <>
               <div className="event-card">
                 <div className="event-content">
-                  {/* Date Box */}
                   <div className="date-box">
-                    <div className="date-month">{event.date.month}</div>
-                    <div className="date-day">{event.date.day}</div>
+                    <div className="date-month">{months[event.date[6]]}</div>
+                    <div className="date-day">{event.date.slice(8,10)}</div>
                   </div>
 
-                  {/* Content */}
                   <div className="event-details">
                     <h2 className="event-title">{event.title}</h2>
 
                     <div className="event-meta">
                       <CalendarIcon />
-                      <span>{event.timeRange}</span>
+                      <span>{event.time}</span>
                     </div>
 
                     <div className="event-meta">
                       <LocationIcon />
-                      <span>{event.location}</span>
+                      <span>{event.location1}</span>
                     </div>
 
                     <p className="event-description">{event.description}</p>
-                    <p className="event-venue">{event.venue}</p>
+                    <p className="event-venue">{event.location2}</p>
                   </div>
                 </div>
               </div>
@@ -127,14 +111,12 @@ function EventDisplay() {
                 <div key={index} className="event-container-2">
                   <div className="event-card-2">
                     <div className="event-content-2">
-                      {/* Date Box */}
                       <div className="first-row">
                         <div className="date-box-2">
                           <div className="date-month">{event.date.month}</div>
                           <div className="date-day">{event.date.day}</div>
                         </div>
 
-                        {/* Content */}
                         <h2 className="event-title-2">{event.title}</h2>
                         <div className="closed-box">CLOSED</div>
                       </div>
