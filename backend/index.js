@@ -1,6 +1,7 @@
 const cors = require("cors");
 const express = require("express");
 const eventsRoute = require("./routes/eventsRoute");
+const auth = require('./routes/auth');
 require("dotenv").config();
 const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
