@@ -40,7 +40,6 @@ const LocationIcon = () => (
 );
 
 const EventDisplay = ( props ) => {
-  console.log(props.data)
   const [isArchiveOpen, setArchiveOpen] = useState();
   const [ishovered, setHovered] = useState();
 
@@ -53,7 +52,6 @@ const EventDisplay = ( props ) => {
     setHovered(!ishovered);
   };
   const months = ["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
-  console.log(props.data)
   return (
     <div className="whole-container">
       <div className="event-wrapper">

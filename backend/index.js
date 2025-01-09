@@ -25,6 +25,7 @@ const connectDB = async () => {
 connectDB();
 
 app.use('/api/events', eventsRoute);
+app.use('/', auth);
 
 app.get("/", (req, res) => {
   res.send("App works");

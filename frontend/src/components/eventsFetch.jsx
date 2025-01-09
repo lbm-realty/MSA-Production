@@ -1,6 +1,6 @@
 import EventDisplay from "./eventsDisplay";
 import { useEffect, useState } from "react";
-import ComingSoon from "./newsletter-component";
+// import ComingSoon from "./newsletter-component";
 
 const EventsFetch = () => {
   const [eventsData, setEventsData] = useState([]);

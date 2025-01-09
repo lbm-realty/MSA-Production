@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import  '../css/apiTest.css'
+import  '../css/eventsApi.css'
+import Logout from "./logout";
 
-const ApiTest = () => {
+const EventsApi = () => {
+    const token = localStorage.getItem('accessToken');
+
     const [data, setData] = useState({
         title: '',
         date: '',
@@ -35,15 +38,15 @@ const ApiTest = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
             });
-
             const value = await response.json();
             if (response.ok) {
                 alert(`Event Created: ${value}`)
             } else {
-                alert(`There was an error: ${value.error}`)
+                alert(`There was an error: ${value.message}`)
             } 
         } catch (err) {
                 alert(`An error occured: ${err}`);
@@ -52,11 +55,13 @@ const ApiTest = () => {
 
     const handleDelete = async (e) => {
         e.preventDefault();
+        const token = localStorage.getItem('accessToken');
         try {
             const response = await fetch('http://localhost:8282/api/events/deleteEntry' , {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
+                    Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(deleteData),
             });
@@ -72,7 +77,10 @@ const ApiTest = () => {
         }
     }
 
-    return (
+        {return token ? 
+            (
+            <div className="events-outer">
+        <Logout />
         <div className="events-form-container">
             <form className="events-form" onSubmit={handleCreation} >
                 <h3>Create a new event</h3>
@@ -154,8 +162,18 @@ const ApiTest = () => {
                 <button onClick={handleDelete}>SUBMIT</button>
             </form>
         </div>
-    )
+        </div>
+        )
+        : (
+            <div className="events-outer-forbid">
+                <div className="text-container">
+                <h1>For Admin Use Only</h1>
+                <h3>You're not authorized to access this page. Please login if you're an admin/officer. You may leave otherwise.</h3>
+                <button onClick={() => {window.location.href = '/login'}}>Go to Login</button>
+                </div>
+            </div>
+        )}
 }
 
-export default ApiTest;
+export default EventsApi;
 

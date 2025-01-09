@@ -1,18 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const Event = require('../models/eventsSchema');
+// const { protected } = require('./protected')
+const { authenticateToken } = require('./tokens');
 
-router.post('/', async (req, res) => {
+router.post('/', authenticateToken, async (req, res) => {
     try {
         const newEvent = new Event(req.body);
         const saved = await newEvent.save();
-        res.status(201).json(saved);
+        res.status(201).json({ message: saved });
     } catch (err) {
         res.status(400).json({err: err.message});
     }
 })
 
-router.post("/showData", async (req, res) => {
+router.post("/showData", authenticateToken, async (req, res) => {
     try {
         const allData = await Event.find();
         res.json(allData);
@@ -21,12 +23,11 @@ router.post("/showData", async (req, res) => {
     }
 })
 
-router.post("/deleteEntry", async (req, res) => {
+router.post("/deleteEntry", authenticateToken, async (req, res) => {
     try {
         const { title1 } = req.body;
         const validEntry = await Event.findOne({ title: title1 })
         if (!validEntry) {
-            console.log("Object does not exist");
             return res.status(404).json({ message: "Object does not exist" });
         } else {
         const deleteEntry = await Event.deleteOne({ title: title1 })
