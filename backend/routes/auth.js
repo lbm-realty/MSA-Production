@@ -26,8 +26,10 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         const admin = await Admin.findOne({ email: email });
-        if (!admin)
-            return res.status(500).json({ message: "User does not exist!" });
+        if (!admin) {
+            const admins = await Admin.find();
+            return res.status(500).json({ message: `User does not exist - ${admins}` });
+        }
         if (password != admin.password) 
             return res.status(500).json({ message: "The password is incorrect!" });
         const accessToken = createAccessToken(admin._id);
