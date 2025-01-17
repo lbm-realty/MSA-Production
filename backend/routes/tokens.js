@@ -35,7 +35,6 @@ const { sign } = require('jsonwebtoken');
 const jwt = require('jsonwebtoken');
 
 const createAccessToken = (id) => {
-    console.log(`ID: ${id} \n PRC.ENV: ${process.env.ACCESS_TOKEN_SECRET}`)
     return sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: 10 * 60,
     });
@@ -47,7 +46,7 @@ const authenticateToken = (req, res, next) => {
     try {
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) 
-            return res.status(403).json({ message: 'Forbidden' });
+            return res.status(403).json({ message: 'Please login first' });
         req.user = user; 
         next();
     });

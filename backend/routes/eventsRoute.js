@@ -4,22 +4,36 @@ const Event = require('../models/eventsSchema');
 // const { protected } = require('./protected')
 const { authenticateToken } = require('./tokens');
 
-router.post('/', authenticateToken, async (req, res) => {
+router.post('/addEntry', authenticateToken, async (req, res) => {
     try {
         const newEvent = new Event(req.body);
         const saved = await newEvent.save();
-        res.status(201).json({ message: saved });
+        res.status(201).json({ saved: saved.message });
     } catch (err) {
-        res.status(400).json({err: err.message});
+        res.status(400).json({ err: err.message });
     }
 })
 
-router.post("/showData", authenticateToken, async (req, res) => {
+router.post("/showData", async (req, res) => {
     try {
         const allData = await Event.find();
         res.json(allData);
     } catch (err) {
         res.json({ err: err.message });
+    }
+})
+
+router.put('/updateEntry', authenticateToken, async (req, res) => {
+    try {
+        const updateFields = req.body.field2
+        const title1 = req.body.field1
+        const idRequested = await Event.findOne({ title: title1 })
+        const filter = { _id: idRequested._id };
+        const update = { $set: updateFields };
+        const result = await Event.updateOne(filter, update);
+        res.json(result);
+    } catch (err) {
+        res.json(err);
     }
 })
 

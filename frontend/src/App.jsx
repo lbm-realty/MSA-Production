@@ -8,9 +8,8 @@ import Newsletter from "./pages/newsletter";
 import Donations from "./pages/donations";
 import Events from "./pages/events";
 import About from "./pages/about";
-import EventsApi from "./components/eventsApi"
+import EventsAPI from "./pages/eventsAPI";
 import Login from "./components/login";
-// import ProtectedRoute from "./components/protectedRoute";
 
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path='/addEvents' element={<EventsApi /> } />
+          <Route path='/addEvents' element={<EventsAPI /> } />
         </Routes>
         <Footer />
       </Router>

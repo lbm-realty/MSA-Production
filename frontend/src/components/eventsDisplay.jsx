@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../css/eventDisplay.css";
-import archiveEvents from "./archiveEvents";
-import upcomingEvents from "./upcomingEvents";
+// import archiveEvents from "./archiveEvents";
+// import upcomingEvents from "./upcomingEvents";
 
 const CalendarIcon = () => (
   <svg
@@ -39,7 +39,16 @@ const LocationIcon = () => (
   </svg>
 );
 
-const EventDisplay = ( props ) => {
+const EventDisplay = (props) => {
+  const chaiNight = {
+    title: "Chai Night",
+    location1: "ICSP - Community Hall",
+    time: "After Isha",
+    description:
+      "Join us for some delicious chai, snacks and activites every week! P.S The last chai night for this semester is on the 22nd of November.",
+    location2: "ICSP - Community Hall",
+  };
+
   const [isArchiveOpen, setArchiveOpen] = useState();
   const [ishovered, setHovered] = useState();
 
@@ -51,41 +60,89 @@ const EventDisplay = ( props ) => {
     setArchiveOpen(!isArchiveOpen);
     setHovered(!ishovered);
   };
-  const months = ["", "Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+  const months = [
+    "",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "June",
+    "July",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const currDate = new Date();
+
   return (
     <div className="whole-container">
       <div className="event-wrapper">
         <h3 className="upcoming-events-heading">UPCOMING EVENTS</h3>
         <div className="event-container">
-          {props.data.map((event, index) => (
-            <>
-              <div className="event-card">
-                <div className="event-content">
-                  <div className="date-box">
-                    <div className="date-month">{months[event.date[6]]}</div>
-                    <div className="date-day">{event.date.slice(8,10)}</div>
-                  </div>
+          <div className="event-card">
+            <div className="event-content">
+              <div className="date-box">
+                <div className="date-month">Every</div>
+                <div className="date-day">Friday</div>
+              </div>
 
-                  <div className="event-details">
-                    <h2 className="event-title">{event.title}</h2>
+              <div className="event-details">
+                <h2 className="event-title">{chaiNight.title}</h2>
 
-                    <div className="event-meta">
-                      <CalendarIcon />
-                      <span>{event.time}</span>
+                <div className="event-meta">
+                  <CalendarIcon />
+                  <span>{chaiNight.time}</span>
+                </div>
+
+                <div className="event-meta">
+                  <LocationIcon />
+                  <span>{chaiNight.location1}</span>
+                </div>
+
+                <p className="event-description">{chaiNight.description}</p>
+                <p className="event-venue">{chaiNight.location2}</p>
+              </div>
+            </div>
+          </div>
+          {props.data
+            .filter((event) => new Date(event.date) >= currDate)
+            .map((event, index) => (
+              <>
+                <div className="event-card">
+                  <div className="event-content">
+                    <div className="date-box">
+                      <div className="date-month">
+                        {event.date[5] == 0
+                          ? months[event.date[6]]
+                          : event.date.slice(5, 7)}
+                      </div>
+                      <div className="date-day">{event.date.slice(8, 10)}</div>
                     </div>
 
-                    <div className="event-meta">
-                      <LocationIcon />
-                      <span>{event.location1}</span>
-                    </div>
+                    <div className="event-details">
+                      <h2 className="event-title">{event.title}</h2>
 
-                    <p className="event-description">{event.description}</p>
-                    <p className="event-venue">{event.location2}</p>
+                      <div className="event-meta">
+                        <CalendarIcon />
+                        <span>{event.time}</span>
+                      </div>
+
+                      <div className="event-meta">
+                        <LocationIcon />
+                        <span>{event.location1}</span>
+                      </div>
+
+                      <p className="event-description">{event.description}</p>
+                      <p className="event-venue">{event.location2}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </>
-          ))}
+              </>
+            ))}
         </div>
       </div>
 
@@ -104,45 +161,55 @@ const EventDisplay = ( props ) => {
           <div
             className={`archive-content ${isArchiveOpen ? "open" : "closed"}`}
           >
-            {archiveEvents.map((event, index) => (
-              <>
-                <div key={index} className="event-container-2">
-                  <div className="event-card-2">
-                    <div className="event-content-2">
-                      <div className="first-row">
-                        <div className="date-box-2">
-                          <div className="date-month">{event.date.month}</div>
-                          <div className="date-day">{event.date.day}</div>
-                        </div>
+            {props.data
+              .filter((event) => new Date(event.date) < currDate)
+              .map((event, index) => (
+                <>
+                  <div key={index} className="event-container-2">
+                    <div className="event-card-2">
+                      <div className="event-content-2">
+                        <div className="first-row">
+                          <div className="date-box-2">
+                            <div className="date-month">
+                              {event.date[5] == 0
+                                ? months[event.date[6]]
+                                : months[event.date.slice(5, 7)]}
+                            </div>
+                            <div className="date-day">
+                              {event.date.slice(8, 10)}
+                            </div>
+                          </div>
 
-                        <h2 className="event-title-2">{event.title}</h2>
-                        <div className="closed-box">CLOSED</div>
-                      </div>
-                      <div className="second-row">
-                      <div className="event-details">
-                        <div className="event-meta">
-                          <CalendarIcon />
-                          <span>{event.timeRange}</span>
+                          <h2 className="event-title-2">{event.title}</h2>
+                          <div className="closed-box">CLOSED</div>
                         </div>
-                        <div className="event-meta">
-                          <LocationIcon />
-                          <span>{event.location}</span>
-                        </div>
+                        <div className="second-row">
+                          <div className="event-details">
+                            <div className="event-meta">
+                              <CalendarIcon />
+                              <span>{event.time}</span>
+                            </div>
+                            <div className="event-meta">
+                              <LocationIcon />
+                              <span>{event.location1}</span>
+                            </div>
 
-                        <p className="event-description">{event.description}</p>
-                        <p className="event-venue">{event.venue}</p>
-                      </div>
+                            <p className="event-description">
+                              {event.description}
+                            </p>
+                            <p className="event-venue">{event.location2}</p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </>
-            ))}
+                </>
+              ))}
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default EventDisplay;
