@@ -2,7 +2,7 @@ import '../css/logout.css'
 
 const logout = () => {
     const handleLogout = () => {
-        localStorage.removeItem('accessToken');
+        sessionStorage.removeItem('accessToken');
         window.location.href = '/login';
     }
 

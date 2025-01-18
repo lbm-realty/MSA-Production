@@ -1,14 +1,12 @@
 import { useState } from "react";
 
 const UpdateAPI = () => {
-  const token = localStorage.getItem("accessToken");
+  const token = sessionStorage.getItem("accessToken");
 
   const [field, setField] = useState({
     field1: "",
     field2: "",
   });
-
-  const [updateData, setUpdateData] = useState({});
 
   const [data, setData] = useState({
     title: "",
@@ -46,34 +44,32 @@ const UpdateAPI = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-
+    console.log(token);
     const field1 = {};
     const field2 = {};
     const updatedData = { field1, field2};
     updatedData.field1 = field.field1;
     for (const key in field.field2) {
-        if (field.field2[key] != "")
+        if (field.field2[key] !== "")
             updatedData.field2[key] =  field.field2[key]
     }
     
     try {
-      const response = await fetch(
-        "https://msa-production.onrender.com/api/events/updateEntry",
+      const response = await fetch("http://localhost:8282/api/events/updateEntry",
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token},`,
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(updatedData),
         }
       );
       const value = await response.json();
-      if (response.ok) {
-        alert("Entry Updated");
-      } else {
-        alert("There was an error: ");
-      }
+      if (response.ok)
+        alert(`Entry Updated ${value.message}`);
+      else
+        alert(`There was an error: ${value.message}`);
     } catch (err) {
       alert(`An error occurred: ${err}`);
     }

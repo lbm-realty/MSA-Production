@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/eventsApi.css";
 
 const CreateAPI = () => {
-    const token = localStorage.getItem("accessToken");
+    const token = sessionStorage.getItem("accessToken");
 
     const [data, setData] = useState({
         title: "",
@@ -23,7 +23,7 @@ const CreateAPI = () => {
     const handleCreation = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch("https://msa-production.onrender.com/api/events/addEntry", {
+          const response = await fetch("http://localhost:8282/api/events/addEntry", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -33,7 +33,7 @@ const CreateAPI = () => {
           });
           const value = await response.json();
           if (response.ok) {
-            alert(`Event Created: ${value}`);
+            alert(`Event Created: ${value.saved}`);
           } else {
             alert(`There was an error: ${value.message}`);
           }

@@ -33,7 +33,7 @@ const { sign } = require('jsonwebtoken');
 // };
 
 const jwt = require('jsonwebtoken');
-
+ 
 const createAccessToken = (id) => {
     return sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: 10 * 60,
@@ -42,11 +42,12 @@ const createAccessToken = (id) => {
 
 const authenticateToken = (req, res, next) => {
     const token = req.headers['authorization']?.split(' ')[1]; 
-    if (!token) return res.status(401).json({ message: 'Unauthorized' });
-    try {
+    if (!token){ 
+        return res.status(401).json({ message: 'Unauthorized' });
+    } try {
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-        if (err) 
-            return res.status(403).json({ message: 'Please login first' });
+        if (err)
+            return res.status(403).json({ message: err.message });
         req.user = user; 
         next();
     });

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/eventsApi.css";
 
 const DeleteAPI = () => {
-    const token = localStorage.getItem("accessToken");
+    const token = sessionStorage.getItem("accessToken");
 
     const [deleteData, setDeleteData] = useState({
         title1: "",
@@ -32,7 +32,7 @@ const DeleteAPI = () => {
     
           const res = await response.json();
           if (response.ok) {
-            alert(`The entry ${res} was deleted successfully`);
+            alert(`The entry ${res.deleteEntry} was deleted successfully`);
           } else {
             alert(`An error occured: ${res.message}`);
           }
