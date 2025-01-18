@@ -174,9 +174,9 @@ const EventDisplay = (props) => {
                         <div className="first-row">
                           <div className="date-box-2">
                             <div className="date-month">
-                              {event.date[5] === 0
+                              {event.date ? (event.date[5] === 0
                                 ? months[event.date[6]]
-                                : months[event.date.slice(5, 7)]}
+                                : months[event.date.slice(5, 7)]) : null}
                                 {/* {event.date.month} */}
                             </div>
                             <div className="date-day">
@@ -185,24 +185,24 @@ const EventDisplay = (props) => {
                             </div>
                           </div>
 
-                          <h2 className="event-title-2">{event.title}</h2>
+                          <h2 className="event-title-2">{event.title ? event.title : null}</h2>
                           <div className="closed-box">CLOSED</div>
                         </div>
                         <div className="second-row">
                           <div className="event-details">
                             <div className="event-meta">
                               <CalendarIcon />
-                              <span>{event.time}</span>
+                              <span>{event.time ? event.time : null}</span>
                             </div>
                             <div className="event-meta">
                               <LocationIcon />
-                              <span>{event.location1}</span>
+                              <span>{event.location1 ? event.location1 : event.location1}</span>
                             </div>
 
                             <p className="event-description">
-                              {event.description}
+                              {event.description ? event.description : null}
                             </p>
-                            <p className="event-venue">{event.location2}</p>
+                            <p className="event-venue">{event.location2 ? event.location2 : null}</p>
                           </div>
                         </div>
                       </div>
