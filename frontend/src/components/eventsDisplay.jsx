@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../css/eventDisplay.css";
-// import archiveEvents from "./archiveEvents";
+import archiveEvents from "./archiveEvents";
 // import upcomingEvents from "./upcomingEvents";
 
 const CalendarIcon = () => (
@@ -161,8 +161,8 @@ const EventDisplay = (props) => {
           <div
             className={`archive-content ${isArchiveOpen ? "open" : "closed"}`}
           >
-            {props.data
-              .filter((event) => new Date(event.date) < currDate)
+            {archiveEvents
+              // .filter((event) => new Date(event.date) < currDate)
               .map((event, index) => (
                 <>
                   <div key={index} className="event-container-2">
@@ -171,12 +171,14 @@ const EventDisplay = (props) => {
                         <div className="first-row">
                           <div className="date-box-2">
                             <div className="date-month">
-                              {event.date[5] === 0
+                              {/* {event.date[5] === 0
                                 ? months[event.date[6]]
-                                : months[event.date.slice(5, 7)]}
+                                : months[event.date.slice(5, 7)]} */}
+                                {event.date.month}
                             </div>
                             <div className="date-day">
-                              {event.date.slice(8, 10)}
+                              {/* {event.date.slice(8, 10)} */}
+                              {event.date.day}
                             </div>
                           </div>
 
@@ -191,13 +193,13 @@ const EventDisplay = (props) => {
                             </div>
                             <div className="event-meta">
                               <LocationIcon />
-                              <span>{event.location1}</span>
+                              <span>{event.location}</span>
                             </div>
 
                             <p className="event-description">
                               {event.description}
                             </p>
-                            <p className="event-venue">{event.location2}</p>
+                            <p className="event-venue">{event.venue}</p>
                           </div>
                         </div>
                       </div>
