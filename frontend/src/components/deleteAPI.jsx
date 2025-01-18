@@ -32,7 +32,7 @@ const DeleteAPI = () => {
     
           const res = await response.json();
           if (response.ok) {
-            alert(`The entry ${res.deleteEntry} was deleted successfully`);
+            alert(`The entry ${deleteData.title1} was deleted successfully`);
           } else {
             alert(`An error occured: ${res.message}`);
           }

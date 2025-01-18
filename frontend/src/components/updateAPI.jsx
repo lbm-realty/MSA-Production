@@ -44,7 +44,6 @@ const UpdateAPI = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    console.log(token);
     const field1 = {};
     const field2 = {};
     const updatedData = { field1, field2};
@@ -55,7 +54,8 @@ const UpdateAPI = () => {
     }
     
     try {
-      const response = await fetch("http://localhost:8282/api/events/updateEntry",
+      const response = await fetch(
+        "https://msa-production.onrender.com/api/events/updateEntry",
         {
           method: "PUT",
           headers: {
@@ -67,7 +67,7 @@ const UpdateAPI = () => {
       );
       const value = await response.json();
       if (response.ok)
-        alert(`Entry Updated ${value.message}`);
+        alert(`${value.result}`);
       else
         alert(`There was an error: ${value.message}`);
     } catch (err) {

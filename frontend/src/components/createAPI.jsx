@@ -23,7 +23,8 @@ const CreateAPI = () => {
     const handleCreation = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch("http://localhost:8282/api/events/addEntry", {
+          const response = await fetch(
+            "https://msa-production.onrender.com/api/events/addEntry", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -33,7 +34,7 @@ const CreateAPI = () => {
           });
           const value = await response.json();
           if (response.ok) {
-            alert(`Event Created: ${value.saved}`);
+            alert(`Event Created: ${value.saved.title}`);
           } else {
             alert(`There was an error: ${value.message}`);
           }

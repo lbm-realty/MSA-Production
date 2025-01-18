@@ -13,6 +13,7 @@
     color: aliceblue;
     border: 1px solid whitesmoke;
     border-radius: 5px;
+    cursor: pointer;
 }
 .logout-btn:hover {
     scale: 1.1;

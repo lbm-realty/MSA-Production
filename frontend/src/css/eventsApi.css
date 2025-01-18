@@ -55,6 +55,7 @@ h3 {
     font-family: 'Times New Roman', Times, serif;
 }
 .text-container button {
+    cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
     padding: 5px;

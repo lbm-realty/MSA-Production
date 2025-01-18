@@ -10,6 +10,7 @@ router.post('/addEntry', authenticateToken, async (req, res) => {
         const saved = await newEvent.save();
         res.status(201).json({ saved });
     } catch (err) {
+        console.log("Error here events")
         res.status(400).json({ err: err.message });
     }
 })
@@ -28,10 +29,12 @@ router.put('/updateEntry', authenticateToken, async (req, res) => {
         const updateFields = req.body.field2
         const title1 = req.body.field1
         const idRequested = await Event.findOne({ title: title1 })
+        if (!idRequested)
+            return res.json({ message: "Event does not exist!" })
         const filter = { _id: idRequested._id };
         const update = { $set: updateFields };
         const result = await Event.updateOne(filter, update);
-        res.json(result);
+        res.json({ result });
     } catch (err) {
         res.json({ message: err.message });
     }
@@ -44,8 +47,8 @@ router.post("/deleteEntry", authenticateToken, async (req, res) => {
         if (!validEntry) {
             return res.status(404).json({ message: "Object does not exist" });
         } else {
-        const deleteEntry = await Event.deleteOne({ title: title1 })
-        res.status(201).json({ deleteEntry });
+            const deleteEntry = await Event.deleteOne({ title: title1 })
+            return res.status(201).json({ deleteEntry });
         }
     } catch (err) {
         res.status(500).json({ err: err.message });
