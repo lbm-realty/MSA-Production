@@ -116,7 +116,7 @@ const EventDisplay = (props) => {
                   <div className="event-content">
                     <div className="date-box">
                       <div className="date-month">
-                        {event.date[5] == 0
+                        {event.date[5] === 0
                           ? months[event.date[6]]
                           : event.date.slice(5, 7)}
                       </div>
@@ -171,7 +171,7 @@ const EventDisplay = (props) => {
                         <div className="first-row">
                           <div className="date-box-2">
                             <div className="date-month">
-                              {event.date[5] == 0
+                              {event.date[5] === 0
                                 ? months[event.date[6]]
                                 : months[event.date.slice(5, 7)]}
                             </div>
