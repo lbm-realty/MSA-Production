@@ -2,7 +2,7 @@ const upcomingEvents = [
     {
         date: { month: "Every", day: "Friday" },
         title: "Chai Night",
-        timeRange: "After Isha",
+        time: "After Isha",
         location: "ICSP - Community Hall",
         description:
             "Join us for some delicious chai, snacks and activites every week! P.S The last chai night for this semester is on the 2nd of May.",
@@ -11,7 +11,7 @@ const upcomingEvents = [
     {
         date: { month: "Every", day: "Friday" },
         title: "Dawah",
-        timeRange: "11:00 AM - 01:00 PM",
+        time: "11:00 AM - 01:00 PM",
         location: "Free Speech Area, between the SUB and the Library",
         description:
             "Invite others to Islam to inspire a purpose in life & express the importance of worshipping God.",
