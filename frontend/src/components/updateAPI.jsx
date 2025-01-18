@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const UpdateAPI = () => {
-  const token = sessionStorage.getItem("accessToken");
+  const token = localStorage.getItem("accessToken");
 
   const [field, setField] = useState({
     field1: "",

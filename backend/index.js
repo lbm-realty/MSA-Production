@@ -7,7 +7,10 @@ const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: true }));
+app.use(cors({ 
+  origin: true,
+  credentials: true,
+ }));
 const mongoose = require('mongoose');
 
 const connectDB = async () => {

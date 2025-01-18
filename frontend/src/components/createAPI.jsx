@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../css/eventsApi.css";
 
 const CreateAPI = () => {
-    const token = sessionStorage.getItem("accessToken");
+    const token = localStorage.getItem("accessToken");
 
     const [data, setData] = useState({
         title: "",

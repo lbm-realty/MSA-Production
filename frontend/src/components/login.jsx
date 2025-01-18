@@ -26,7 +26,7 @@ const Signin = () => {
             const value = await response.json();
             if (response.ok) {
                 const { accessToken } = value;
-                sessionStorage.setItem('accessToken', accessToken);
+                localStorage.setItem('accessToken', accessToken);
                 window.location.href = '/addEvents';
             } else
                 alert(`There was an error: ${value.message}`);
