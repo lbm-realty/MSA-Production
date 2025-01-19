@@ -274,7 +274,7 @@
 } */
 
 .archive-content {
-  max-height: 0;
+  /* max-height: 0; */
   justify-content: center;
   opacity: 0;
   transform: translateY(-10px); /* Slight slide up when closed */
@@ -308,7 +308,7 @@
     padding: 0 0 100px 0;
   }
   .archive-content {
-    max-height: 0;
+    /* max-height: 0; */
     opacity: 0;
     transform: translateY(-10px); /* Slight slide up when closed */
     background: var(--bg-red);
@@ -350,7 +350,6 @@
   }
 
   .archive-content.open {
-    max-height: 1000px; /* Large enough to fit content; adjust if needed */
     opacity: 1;
     transform: translateY(0); /* Slide back to the original position */
     padding: 0;

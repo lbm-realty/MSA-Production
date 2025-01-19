@@ -67,7 +67,7 @@ const ComingSoon = () => {
 
       <div className="arch-section">
         {window.width > "600px" ? (
-          <button onClick={toggleArchive} className="archive-toggle-button">
+          <button onClick={toggleArchive} className="arch-toggle-button">
             {isArchiveOpen ? "Hide Archives" : "Show Archives"}
           </button>
         ) : (
