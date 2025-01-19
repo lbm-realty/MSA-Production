@@ -77,7 +77,6 @@ const EventDisplay = (props) => {
     "Dec",
   ];
   const currDate = new Date();
-  console.log(`This is props: ${props.data[0]}`)
 
   return (
     <div className="whole-container">
@@ -86,8 +85,7 @@ const EventDisplay = (props) => {
         <div className="event-container">
           {upcomingEvents
           .map((event, index) =>
-          (
-            
+          (            
           <div className="event-card">
             <div className="event-content">
               <div className="date-box">
@@ -119,9 +117,9 @@ const EventDisplay = (props) => {
                   <div className="event-content">
                     <div className="date-box">
                       <div className="date-month">
-                        {event.date ? (event.date[5] === 0
+                        {event.date ? (Number(event.date[5]) === 0
                           ? months[event.date[6]]
-                          : event.date.slice(5, 7)) : null}
+                          : months[event.date.slice(5, 7)]) : null}
                       </div>
                       <div className="date-day">{event.date ? (event.date.slice(8, 10)) : null}</div>
                     </div>
@@ -174,7 +172,7 @@ const EventDisplay = (props) => {
                         <div className="first-row">
                           <div className="date-box-2">
                             <div className="date-month">
-                              {event.date ? (event.date[5] === 0
+                              {event.date ? (Number(event.date[5]) === 0
                                 ? months[event.date[6]]
                                 : months[event.date.slice(5, 7)]) : null}
                                 {/* {event.date.month} */}
