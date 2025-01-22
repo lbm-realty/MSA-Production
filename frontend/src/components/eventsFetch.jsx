@@ -20,7 +20,6 @@ const EventsFetch = () => {
       const res = await response.json();
       if (response.ok) {
         setEventsData(res);
-        console.log("Successful");
       } else {
         console.log("Error");
       }
@@ -28,7 +27,9 @@ const EventsFetch = () => {
       console.log({ err: err.message });
     }
   };
-  fetchData();
+  setTimeout(() => {
+    fetchData()
+  }, 2000);
 // }, [])
 return (
     <>
