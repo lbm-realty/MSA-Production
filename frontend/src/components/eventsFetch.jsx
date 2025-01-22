@@ -1,11 +1,11 @@
 import EventDisplay from "./eventsDisplay";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import ComingSoon from "./newsletter-component";
 
 const EventsFetch = () => {
   const [eventsData, setEventsData] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
   const fetchData = async () => {
     try {
       const response = await fetch(
@@ -29,7 +29,7 @@ const EventsFetch = () => {
     }
   };
   fetchData();
-}, [])
+// }, [])
 return (
     <>
       <EventDisplay data={eventsData} />
