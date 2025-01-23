@@ -7,6 +7,7 @@ const EventsFetch = () => {
 
   // useEffect(() => {
   const fetchData = async () => {
+    console.log("The function is being called!");
     try {
       const response = await fetch(
         "https://msa-production.onrender.com/api/events/showData",
