@@ -77,7 +77,6 @@ const EventDisplay = (props) => {
     "Dec",
   ];
   const currDate = new Date();
-  console.log(props)
 
   return (
     <div className="whole-container">
@@ -179,11 +178,9 @@ const EventDisplay = (props) => {
                               {event.date ? (Number(event.date[5]) === 0
                                 ? months[event.date[6]]
                                 : months[event.date.slice(5, 7)]) : null}
-                                {/* {event.date.month} */}
                             </div>
                             <div className="date-day">
                               {event.date.slice(8, 10)}
-                              {/* {event.date.day} */}
                             </div>
                           </div>
 
