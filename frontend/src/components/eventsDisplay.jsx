@@ -77,6 +77,7 @@ const EventDisplay = (props) => {
     "Dec",
   ];
   const currDate = new Date();
+  console.log(props)
 
   return (
     <div className="whole-container">
@@ -109,7 +110,7 @@ const EventDisplay = (props) => {
           </div>
             )
         )}
-          {props.data
+          {Array.isArray(props.data) ? props.data
             .filter((event) => new Date(event.date) >= currDate)
             .map((event, index) => (
               <>
@@ -121,7 +122,7 @@ const EventDisplay = (props) => {
                           ? months[event.date[6]]
                           : months[event.date.slice(5, 7)]) : null}
                       </div>
-                      <div className="date-day">{event.date ? (event.date.slice(8, 10)) : null}</div>
+                    <div className="date-day">{event.date ? (event.date.slice(8, 10)) : null}</div>
                     </div>
 
                     <div className="event-details">
@@ -143,7 +144,10 @@ const EventDisplay = (props) => {
                   </div>
                 </div>
               </>
-            ))}
+            )) : 
+            <>
+            <p className="loading">Loading...</p>
+            </>}
         </div>
       </div>
 
@@ -162,7 +166,7 @@ const EventDisplay = (props) => {
           <div
             className={`archive-content ${isArchiveOpen ? "open" : "closed"}`}
           >
-            {props.data
+            {Array.isArray(props.data) ? props.data
               .filter((event) => new Date(event.date) < currDate)
               .map((event, index) => (
                 <>
@@ -207,7 +211,11 @@ const EventDisplay = (props) => {
                     </div>
                   </div>
                 </>
-              ))}
+              )) : 
+              <>
+              <p className="loading">Loading...</p>
+              </>
+              }
           </div>
         </div>
       </div>
