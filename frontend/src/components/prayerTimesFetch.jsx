@@ -1,5 +1,5 @@
 import PrayerDisplay from "./prayerDisplay";
-const { useState, useEffect } = require("react");
+const { useState } = require("react");
 
 const PrayerTimesFetch = () => {
   const [getData, setGetData] = useState([]);
@@ -10,13 +10,13 @@ const PrayerTimesFetch = () => {
       const vto = new Date(v.to);
       const vfrom = new Date(v.from);
       if (currDate >= vfrom && currDate <= vto)
-        setGetData(v?.prayerHours);
+        return setGetData(v?.prayerHours);
       else 
-        setGetData(v?.prayerHours);
+        return setGetData(v?.prayerHours);
       })
   }
   
-  useEffect(() => {
+  // useEffect(() => {
     const fetchPrayerTimes = async () => {
       try {
         const response = await fetch("https://msa-production.onrender.com/showPrayers", {
@@ -36,7 +36,7 @@ const PrayerTimesFetch = () => {
       }
     };
     fetchPrayerTimes();
-  }, []);
+  // }, []);
 
   return (
     <>
