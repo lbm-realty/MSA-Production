@@ -35,6 +35,15 @@
 #prayer-time {
     font-size: 20px;
 }
+.prayer-display-loading-o {
+    padding: 10px 35px;
+}
+.prayer-display-loading-i {
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+}
 
 @media all and (width < 600px) {
     .prayer-outer {
