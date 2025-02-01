@@ -27,7 +27,7 @@ const Signin = () => {
             if (response.ok) {
                 const { accessToken } = value;
                 localStorage.setItem('accessToken', accessToken);
-                window.location.href = '/addEvents';
+                window.location.href = '/adminRoutes';
             } else
                 alert(`There was an error: ${value.message}`);
         } catch (error) {
