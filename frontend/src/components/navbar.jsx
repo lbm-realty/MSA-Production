@@ -36,7 +36,7 @@ function Navbar() {
             <img src={logo} className="logo" alt="MSA-logo" /><Link to='/'></Link>
             <div className="">
               <h2 className='ttu-msa'>TTU MSA</h2>
-              <h2 className='ttu-basmalah'>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h2>
+              <h2 className='ttu-basmalah'>Cultivate Community, Ignite iman</h2>
             </div>
           </div>
           <div className="hyperlinks">

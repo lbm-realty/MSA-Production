@@ -1,13 +1,12 @@
 import EventDisplay from "./eventsDisplay";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import ComingSoon from "./newsletter-component";
 
 const EventsFetch = () => {
   const [eventsData, setEventsData] = useState([]);
 
-  // useEffect(() => {
+  useEffect(() => {
   const fetchData = async () => {
-    console.log("The function is being called!");
     try {
       const response = await fetch(
         "https://msa-production.onrender.com/api/events/showData",
@@ -20,6 +19,7 @@ const EventsFetch = () => {
       );
       const res = await response.json();
       if (response.ok) {
+        console.log(res);
         setEventsData(res);
       } else {
         console.log("Error");
@@ -31,7 +31,7 @@ const EventsFetch = () => {
   setTimeout(() => {
     fetchData()
   }, 2000);
-// }, [])
+}, [])
 return (
     <>
       <EventDisplay data={eventsData} />

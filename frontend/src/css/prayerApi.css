@@ -1,0 +1,40 @@
+.prayers-form {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 30px 50px;
+    background: #000;
+    color: white;
+}
+.prayers-logout {
+    padding-bottom: 50px;
+}
+.prayers-form h3 {
+    font-size: 28px;
+}
+.prayers-inner {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+.prayer-name {
+    font-size: 20px;
+    font-weight: lighter;
+}
+.prayer {
+    padding-right: 15px;
+    gap: 45px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.from-to {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+.prayer-api-btn {
+    margin-top: 30px;
+    padding-right: 10px;
+    margin-right: 30px;
+}

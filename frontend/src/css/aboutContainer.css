@@ -1,7 +1,7 @@
 .about-direct {
-    background: url('../images/about-bg.png') center;
+    background: url('../images/about-bg.png') no-repeat;
     background-size: cover;
-    background-position: 35% 40%;
+    background-position: 35%;
     /* top: 80%; */
 }
 .about-cont {
@@ -11,7 +11,6 @@
     justify-content: center;
     /* background: url('../images/about-bg.png') repeat;  */
 }
-
 .about-head-para {
     font-family: 'Times New Roman', Times, serif;
     background-color: rgb(244, 235, 225, 0.8);
@@ -38,10 +37,13 @@
 
 @media all and (width < 600px) {
     .about-cont {
-        padding: 80px 30px 65px 30px;
+        padding: 110px 30px 65px 30px;
+    }
+    .about-direct {
+        background-position: 29%;
     }
     .about-head-para {
-        padding: 20px 30px;
+        padding: 10px 30px;
         width: 300px;
     }
 }

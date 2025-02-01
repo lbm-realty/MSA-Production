@@ -10,6 +10,8 @@ import Events from "./pages/events";
 import About from "./pages/about";
 import EventsAPI from "./pages/eventsAPI";
 import Login from "./components/login";
+import PrayerAPI from "./components/prayerAPI";
+import APIs from "./pages/apis";
 
 function App() {
   return (
@@ -24,7 +26,9 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/adminRoutes" element={<APIs />} />          
           <Route path='/addEvents' element={<EventsAPI /> } />
+          <Route path='/addPrayers' element={<PrayerAPI /> } />
         </Routes>
         <Footer />
       </Router>

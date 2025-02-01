@@ -47,18 +47,17 @@
     justify-content: space-between;
 }
 .answer {
-    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
-    /* transition: max-height 0.3s ease-in-out; */
+    /* transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out; */
+    transition: max-height 0.5s ease-in-out;
     font-size: 20px;
     margin-bottom: 15px;
 }
-.answer-open {
-    max-height: 100px;
+.answer .answer-open {
+    max-height: auto;
 }
 .answer-close {
     max-height: 0px;
     overflow: hidden;
-
 }
 .open-close-btn {
     font-size: 30px;
@@ -74,27 +73,26 @@
     height: 1px;
     background: white;
 }
-/* .images{
-    height: 470px;
-    width: 310px;
-    margin: 20px;
-    border-radius: 25px;
-    box-shadow: 6px 6px 7px 7px rgb(151, 35, 35);
-    border: 1.5px solid rgb(151, 35, 35);
-}
-   */
+
 @media all and (width < 600px) {
     .wrapper {
         padding: 80px 0;
     }
     .wrapper-holder {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        padding: 10px 30px;
     }
-    .images {
-        height: 400px;
-        width: 250px;
+    .line-l, .line-r {
+        width: 60px;
+    }
+    .answer {
+        padding-top: 20px;
+    }
+    .qa-inner {
+        /* background: gray; */
+        transition: max-height 0.3s ease-in-out;
+        padding: 20px;    }
+    .answer-open {
+        height: fit-content;
     }
 }
 
@@ -113,7 +111,6 @@
         margin: 30px;
         background: rgb(0, 0, 0);
     }
-
     .images {
         scale: 0.9;
         margin: 10px;

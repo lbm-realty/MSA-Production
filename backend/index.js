@@ -2,6 +2,7 @@ const cors = require("cors");
 const express = require("express");
 const eventsRoute = require("./routes/eventsRoute");
 const auth = require('./routes/auth');
+const prayer = require('./routes/prayersRoute');
 require("dotenv").config();
 const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
@@ -9,7 +10,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({ 
   origin: true,
-  credentials: true,
+  credentials: 'include',
  }));
 const mongoose = require('mongoose');
 
@@ -28,6 +29,7 @@ const connectDB = async () => {
 connectDB();
 
 app.use('/api/events', eventsRoute);
+app.use('/', prayer);
 app.use('/', auth);
 
 app.get("/", (req, res) => {

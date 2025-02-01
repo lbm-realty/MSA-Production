@@ -33,19 +33,7 @@ router.post('/login', async (req, res) => {
         if (password != admin.password) 
             return res.status(500).json({ message: "The password is incorrect!" });
         const accessToken = createAccessToken(admin._id);
-        // const refreshToken = createRefreshToken(admin._id);
-        // admin.accessToken = accessToken;
-        // admin.refreshToken = refreshToken;
-        // const createAccessToken = (id) => {
-        //     return sign({ id }, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 10 * 60 });
-        // }
-        // createAccessToken(admin._id);
         await admin.save(); 
-        // sendRefreshToken(res, refreshToken);
-        // sendAccessToken(req, res, accessToken);
-        // res.cookie('refreshToken', refreshToken, {
-        //     httpOnly: true,
-        // })
         return res.json({ accessToken })
         
     } catch (err) {

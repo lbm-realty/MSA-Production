@@ -1,5 +1,5 @@
 {
-  "homepage": "./",
+  "homepage": "http://./",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
@@ -52,5 +52,10 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"
-  }
+  },
+  "description": "This is the improved version of the previous MSA Website. Everything's moved to react and is working well!",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

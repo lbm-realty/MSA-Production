@@ -1,0 +1,35 @@
+.apis-outer {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    background: url("../images/bg-1.png");
+    background-size: cover;
+    padding: 50px 100px 100px 100px;
+}
+.apis-inner {
+    display: flex;
+    flex-direction: column;
+    /* gap: 100px; */
+    justify-content: center;
+    align-items: center;
+}
+.apis-inner button {
+    font-size: 15px;
+    background: white;
+    padding: 5px;
+}
+.apis-inner button:hover {
+    scale: 1.1;
+    transition: 0.5s;
+}
+
+@media all and (width < 600px) {
+    .apis-inner {
+        display: flex;
+    }
+    .api-links {
+        display: flex;
+        gap: 250px;
+        justify-content: center;
+        align-items: center;
+    }
+}
