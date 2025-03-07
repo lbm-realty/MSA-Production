@@ -1,0 +1,215 @@
+.cart-outer {
+    background: url("../images/bg-1.png");
+    padding: 200px 20px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+}
+.cart-full {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.cart-inner {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border-radius: 30px;
+}
+.cart-header {
+    font-style: italic;
+    background: rgb(105, 46, 46);
+    font-size: 35px;
+    padding: 5px;
+    margin: 0 0 20px 0;
+}
+.cart-items {
+    background: rgba(27, 27, 27, 0.6);
+    box-shadow: 0.5px 0.5px 2px 3px rgba(87, 85, 85, 0.7);
+    display: flex;
+    gap: 20px;
+    color: white;
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+.cart-product-img {
+    height: 170px;
+    width: 140px;
+}
+.item-name-quant {
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart-item-name {
+    font-size: 25px;
+    padding: 10px 0 15px 0;
+    margin: 0;
+    font-weight: 100;
+}
+.quant-inc-btn {
+    display: flex;
+    align-items: center;
+    background: black;
+    justify-content: center;
+    border-radius: 40px;
+    height: 30px;
+    padding: 0;
+    border: 1.5px solid white;
+    /* width: 100px; */
+}
+.quant-1 {
+    font-size: 16px;
+    padding: 0 5px;
+    font-weight: lighter;
+}
+.quant-2 {
+    font-size: 16px;
+    padding-right: 5px;
+    font-weight: lighter;
+}
+.cart-quant-inc-btn {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 3px 8px 2px 8px;
+    /* border: 1px solid white; */
+    border: none;
+    border-radius: 20px 0 0 20px;
+}
+.cart-quant-dec-btn {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    display: flex;
+    padding: 1px 12px 4px 8px;
+    /* border: 1px solid white; */
+    border: none;
+    border-radius: 0 20px 20px 0;
+    letter-spacing: -2.5px;
+}
+.remove-item {
+    display: flex;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    color: black;
+    justify-content: center;
+    border-radius: 40px;
+    height: 30px;
+    font-size: 16px;
+    padding: 0 6px;
+    border: 1.5px solid rgb(0, 0, 0);
+    margin-top: 10px;
+    cursor: pointer;
+}
+.middle-element {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 10px 80px;
+}
+.shipping-arrives {
+    display: flex;
+    align-items: flex-start;
+}
+.green-circle {
+    width: 12px;
+    border-radius: 20px;
+    padding: 4px;
+    border: 2px solid green;
+    cursor: pointer;
+}
+.green {
+    border-radius: 10px;
+    background: green;
+    height: 12px;    
+}
+.ship {
+    padding: 0 0 0 10px;
+    font-weight: 100;
+    font-size: 21px;
+    margin: 0;
+}
+.arrive {
+    font-weight: 100;
+    margin: 0;
+    padding: 4px 10px;
+    font-size: 17px;
+}
+.cart-note {
+    font-size: 17px;
+    font-weight: 100;
+    font-style: italic;
+    padding: 35px 0 0 0;
+    margin: 0;
+}
+.item-price {
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 30px;
+}
+.order-summary {
+    width: 25%;
+    padding: 20px 5px;
+    /* margin-top: 80px; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    background: rgba(27, 27, 27, 0.6);
+    border-radius: 30px;
+    box-shadow: 0.5px 0.5px 2px 3px rgba(87, 85, 85, 0.7);
+    color: white;
+}
+.summary-header {
+    padding: 10px 0 10px 0;
+    margin: 0;
+    font-size: 30px;
+}
+.subtotal-print {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    gap: 45px;
+}
+.subtotal-item {
+    font-size: 18px;
+    font-weight: 100;
+    padding: 0;
+    margin: 0;
+}
+.subtotal-print-calc {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.subtotal-item-1 {
+    font-size: 23px;
+    padding: 0;
+    margin: 0;
+}
+.checkout-div {
+    display: flex;
+    justify-content: center;
+}
+.checkout {
+    margin-top: 30px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.checkout:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    background: black;
+    border: 2px solid white;
+    color: white;
+}

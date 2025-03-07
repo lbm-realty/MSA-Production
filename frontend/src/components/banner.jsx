@@ -9,110 +9,24 @@ import slide6 from '../images/slide-show-6.png'
 import slide7 from '../images/slide-show-7.png'
 import slide8 from '../images/slide-show-8.png'
 
+const pictures = [slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide8]
+
 function Banner() {
   return (
     // <div className="banner-container">
       <div id="banner" className="banner-homepage">
         {/* <div className="slider-wrapper"> */}
           <div className="slider">
+          {pictures.map((picture, index) => (
             <img
-              id="slide-1"
-              className="banner-image"
-              src={slide1}
-              alt=""
+            id={`slide-${index + 1}`}
+            className="banner-image"
+            src={picture}
+            alt=""
             />
-            <img
-              id="slide-2"
-              className="banner-image"
-              src={slide2}
-              alt=""
-            />
-            <img
-              id="slide-3"
-              className="banner-image"
-              src={slide3}
-              alt=""
-            />
-            <img
-              id="slide-4"
-              className="banner-image"
-              src={slide4}
-              alt=""
-            />
-            <img
-              id="slide-5"
-              className="banner-image"
-              src={slide5}
-              alt=""
-            />
-            <img
-              id="slide-6"
-              className="banner-image"
-              src={slide6}
-              alt=""
-            />
-            <img
-              id="slide-7"
-              className="banner-image"
-              src={slide7}
-              alt=""
-            />
-            <img
-              id="slide-8"
-              className="banner-image"
-              src={slide8}
-              alt=""
-            />
-            <img
-              id="slide-1"
-              className="banner-image"
-              src={slide1}
-              alt=""
-            />
-            <img
-              id="slide-2"
-              className="banner-image"
-              src={slide2}
-              alt=""
-            />
-            <img
-              id="slide-3"
-              className="banner-image"
-              src={slide3}
-              alt=""
-            />
-            <img
-              id="slide-4"
-              className="banner-image"
-              src={slide4}
-              alt=""
-            />
-            <img
-              id="slide-5"
-              className="banner-image"
-              src={slide5}
-              alt=""
-            />
-            <img
-              id="slide-6"
-              className="banner-image"
-              src={slide6}
-              alt=""
-            />
-            <img
-              id="slide-7"
-              className="banner-image"
-              src={slide7}
-              alt=""
-            />
-            <img
-              id="slide-8"
-              className="banner-image"
-              src={slide8}
-              alt=""
-            />
+          ))}
           </div>
-          {/* <div className="slider-nav">
+          <div className="slider-nav">
             <a href="#slide-1" aria-label="Go to slide 1"></a>
             <a href="#slide-2" aria-label="Go to slide 2"></a>
             <a href="#slide-3" aria-label="Go to slide 3"></a>
@@ -121,7 +35,7 @@ function Banner() {
             <a href="#slide-6" aria-label="Go to slide 6"></a>
             <a href="#slide-7" aria-label="Go to slide 7"></a>
             <a href="#slide-8" aria-label="Go to slide 8"></a>
-          </div> */}
+          </div>
         {/* </div> */}
         <div className="ayahs">
           <h3 className="ayah-arabic">

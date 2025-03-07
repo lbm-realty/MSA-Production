@@ -2,7 +2,6 @@ import '../css/directMessage.css';
 
 function DirectMessage() {
   return (
-    <>
       <div class="form-container">
         <div class="red-line"></div>
         <div class="main-form">
@@ -36,9 +35,6 @@ function DirectMessage() {
           </form>
         </div>
       </div>
-
-      {/* <div class="black-box-2"></div> */}
-    </>
   );
 }
 

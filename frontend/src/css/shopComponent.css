@@ -1,0 +1,103 @@
+.outer-div-shop {
+    background: url('../images/bg-1.png') repeat; 
+    padding: 200px 100px;
+}
+.inner-div-shop {
+    padding: 40px 0;
+    background: rgb(0, 0, 0, 0.6);
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+.header-cart {
+    display: flex;
+    gap: 50px;
+}
+.shop-header {
+    color: white;
+    font-style: italic;
+    background: rgb(105, 46, 46);
+    width: fit-content;
+    padding: 5px 10px;
+    margin: 0;
+}
+.cart-shop {
+    background: rgb(105, 46, 46);
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.cart-shop-btn {
+    color: none;
+    background: none;
+    border: none;
+}
+.cart-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    background: white;
+    border-radius: 100%;
+    /* bottom: 10px; */
+    bottom: 40px;
+    left: 30px;
+}
+.products-outer {
+    padding-top: 30px;
+    display: flex;
+    gap: 50px;
+}
+.products-inner {
+    background: rgba(41, 39, 39, 0.75);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.shop-product-img {
+    height: 300px;
+    width: 250px;
+}
+.product-name {
+    font-size: 25px;
+    font-weight: 500;
+    padding-top: 10px;
+    margin: 0;
+}
+.product-price {
+    font-size: 22px;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+}
+.toggle-amount-merch {
+    display: flex;
+    gap: 5px;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 1px solid white;
+}
+.decrease-merch, .increase-merch {
+    display: flex;
+    font-size: 20px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    background: rgb(0, 0, 0);
+    color: white;
+    border: none;
+}
+.increase-merch {
+    padding: 0 6px;
+}
