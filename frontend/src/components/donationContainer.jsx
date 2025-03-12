@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../css/donationContainer.css";
 import StripeCheckout from "react-stripe-checkout";
 import DonationDesc from "./donationDesc";
@@ -14,6 +14,16 @@ function DonationContainer() {
     price: 0,
   };
   const amounts = [5, 25, 50, 100];
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSubscription = (amount) => {
     console.log("Suubscription: ", amount);
@@ -66,16 +76,16 @@ function DonationContainer() {
   return (
     <>
       <body>
-        <div class="donate-section">
+        <div class={isMobile ? "donate-section-mobile" : "donate-section"}>
           <DonationDesc />
-          <div class="donation-container">
+          <div className="donation-container">
             <div class="donate-section-heading">Donate Here</div>
             <div class="donate-section-para">
               Your donation helps us continue our work. Choose the amount that works best for you!
             </div>
             {/* <div className="all-options"> */}
             <div className="one-time-monthly">
-              <div className="outer-btn">
+              <div className={oneTime ? "outer-btn-t" : "outer-btn"}>
               <button
                 onClick={() => {
                   setOneTime(!oneTime);

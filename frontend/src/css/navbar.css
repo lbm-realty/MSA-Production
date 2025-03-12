@@ -125,7 +125,7 @@
         background-color: #e7cdcd;
     }
     .navbar {
-        height: 40px;
+        height: 65px;
         padding-left: 0;
         width: 100%;
     }
@@ -147,7 +147,7 @@
         /* margin: 0; */
     }
     .logo {
-        height: 32px;
+        height: 52px;
     }
     .logo-desc {
         align-items: center;
@@ -160,11 +160,11 @@
     .ttu-basmalah{
         top: -2px;
         /* bottom: 9px; */
-        font-size: 5px;
+        font-size: 9px;
     }
     .ttu-msa{
         top: 16px;
-        font-size: 6px;
+        font-size: 10px;
     }
     .navbar ul li{
         padding: 20px 70px 15px 70px;
@@ -179,6 +179,9 @@
         padding: 20px 25px 20px 0;
         /* display: block; */
         /* scale: 0.6; */
+    }
+    .menuList-open {
+        margin-top: 35px;
     }
     #menuList{ 
         transition: 0.5s;
