@@ -10,7 +10,7 @@
 } */
 
 .banner-homepage {
-    padding-top: 100px;
+    padding-top: 80px;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -87,7 +87,7 @@
     /* top: 43%; */
     /* width: 100%; */
     color: white;
-    font-size: 57px; 
+    font-size: 40px; 
     font-weight: bold; 
     padding: 10px 18px 7px 18px; 
     background-color: rgba(44, 42, 42, 0.8);
@@ -102,7 +102,7 @@
     /* top: 59%; */
     /* width: 100%; */
     color: white;
-    font-size: 27px; 
+    font-size: 20px; 
     font-weight: lighter; 
     padding: 0 10px 5px 10px; 
     background-color: rgba(44, 42, 42, 0.8);
