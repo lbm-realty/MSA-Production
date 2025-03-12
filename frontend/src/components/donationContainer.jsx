@@ -7,33 +7,16 @@ function DonationContainer() {
   const [customAmount, setCustomAmount] = useState(0);
   const [showCustomInput, setShowCustomInput] = useState(false);
   const [showButton, setShowButton] = useState(true);
-  // const [subscribe25, setSubscribe25] = useState(false);
-  // const [subscribe50, setSubscribe50] = useState(false);
-  // const [subscribe100, setSubscribe100] = useState(false);
   const [oneTime, setOneTime] = useState(false);
   const [subMonthly, setSubMonthly] = useState(false);
   const product = {
     name: "",
     price: 0,
   };
-
-  // const subscriptionOptions = (amount) => {
-  //   if (amount === 25) {
-  //     setSubscribe25(true);
-  //     setSubscribe50(false);
-  //     setSubscribe100(false);
-  //   } else if (amount === 50) {
-  //     setSubscribe50(true);
-  //     setSubscribe25(false);
-  //     setSubscribe100(false);
-  //   } else {
-  //     setSubscribe100(true);
-  //     setSubscribe25(false);
-  //     setSubscribe50(false);
-  //   }
-  // };
+  const amounts = [5, 25, 50, 100];
 
   const handleSubscription = (amount) => {
+    console.log("Suubscription: ", amount);
     if (amount === 25)
       window.location.href = "https://buy.stripe.com/fZe2bFcFJ4Ye2E86oo";
     else if (amount === 50)
@@ -42,6 +25,7 @@ function DonationContainer() {
   };
 
   const handleAmount = (amount) => {
+    console.log("Individual: ", amount);
     if (amount < 0.5) {
       alert("Error: The amount entered was too small, please try again.");
     }
@@ -89,7 +73,9 @@ function DonationContainer() {
             <div class="donate-section-para">
               Your donation helps us continue our work. Choose the amount that works best for you!
             </div>
+            {/* <div className="all-options"> */}
             <div className="one-time-monthly">
+              <div className="outer-btn">
               <button
                 onClick={() => {
                   setOneTime(!oneTime);
@@ -99,6 +85,8 @@ function DonationContainer() {
               >
                 One time
               </button>
+              </div>
+              <div className="outer-btn">
               <button
                 onClick={() => {
                   setSubMonthly(!subMonthly);
@@ -108,111 +96,54 @@ function DonationContainer() {
               >
                 Monthly
               </button>
+              </div>
             </div>
             <div className="donation-options">
-              {/* <div id="donation-options" class="donation-options"> */}
+              {amounts.map((currAmount) => (
                 <div className="subscription-option">
-                  {oneTime ? 
-                    <StripeCheckout
-                      stripeKey={process.env.REACT_APP_KEY}
-                      token={makePayment}
-                    >
-                      <button
-                        onClick={() => {
-                          handleAmount(25);
-                        }}
-                        data-amount="25"
-                        className="donation-button-1"
-                      >
-                        Donate $25
-                      </button>
-                    </StripeCheckout>
-                   : 
-                    <button
-                      onClick={() => {
-                        subMonthly ? handleSubscription(25) : console.log("No action")
-                      }}
-                      data-amount="25"
-                      className="donation-button-1"
-                    >
-                      Donate $25
-                    </button>
-                  }
-                </div>
-                <div className="subscription-option">
-                  {oneTime ? 
-                    <StripeCheckout
-                    stripeKey={process.env.REACT_APP_KEY}
-                    token={makePayment}
-                  >
-                    <button
-                      onClick={() => {
-                        handleAmount(50);
-                      }}
-                      data-amount="50"
-                      className="donation-button-2"
-                    >
-                      Donate $50
-                    </button>
-                  </StripeCheckout> 
-                   :
-                    <button
-                    onClick={() => {
-                      subMonthly ? handleSubscription(50) : console.log("No action");
-                    }}
-                    data-amount="50"
-                    className="donation-button-2"
-                  >
-                    Donate $50
-                  </button>
-                }
-                </div>
-                <div className="subscription-option">
-                  {oneTime ?  
+                {oneTime ? 
                   <StripeCheckout
                     stripeKey={process.env.REACT_APP_KEY}
                     token={makePayment}
                   >
                     <button
                       onClick={() => {
-                        handleAmount(100);
+                        handleAmount(currAmount);
                       }}
-                      data-amount="100"
-                      className="donation-button-3"
+                      data-amount={currAmount}
+                      className="donation-button-1"
                     >
-                      Donate $100
+                      Donate ${currAmount}
                     </button>
                   </StripeCheckout>
-                   :
-                    <button
+                 : 
+                  <button
                     onClick={() => {
-                      subMonthly ? handleSubscription(100) : console.log("No action");
+                      subMonthly ? handleSubscription(currAmount) : console.log("No action")
                     }}
-                    data-amount="100"
-                    className="donation-button-3"
+                    data-amount="25"
+                    className="donation-button-1"
                   >
-                    Donate $100
+                    Donate <br/> ${currAmount}
                   </button>
                 }
-                </div>
-              {/* </div> */}
+              </div>
+              ))}
               <div className="subscription-option">
               <button
                 data-amount="custom"
                 id="donation-button-custom"
                 className="donation-button-custom"
                 onClick={() => {
-                  // setSubscribe100(false);
-                  // setSubscribe25(false);
-                  // setSubscribe50(false);
                   setShowCustomInput(true);
                   setShowButton(true);
                 }}
               >
-                Custom Amount
+                Custom <br /> Amount
               </button>
               </div>
-            </div>  
+            {/* </div>   */}
+            </div>
               {showCustomInput && (
                 <div id="custom-donation-inputs">
                   {showButton && (
@@ -232,7 +163,7 @@ function DonationContainer() {
                         token={makePayment}
                       >
                         <button
-                          id="confirm-amount"
+                          className="confirm-amount"
                           onClick={handleCustomDonate}
                         >
                           Confirm

@@ -27,6 +27,15 @@ function Banner() {
           ))}
           </div>
           <div className="slider-nav">
+            {pictures.map((_, index) => (
+              <a 
+                key={index}
+                href={`#slide-${index + 1}`} 
+                aria-label={`Go to slide ${index + 1}`}
+              ></a>
+            ))}
+          </div>
+          {/* <div className="slider-nav">
             <a href="#slide-1" aria-label="Go to slide 1"></a>
             <a href="#slide-2" aria-label="Go to slide 2"></a>
             <a href="#slide-3" aria-label="Go to slide 3"></a>
@@ -35,7 +44,7 @@ function Banner() {
             <a href="#slide-6" aria-label="Go to slide 6"></a>
             <a href="#slide-7" aria-label="Go to slide 7"></a>
             <a href="#slide-8" aria-label="Go to slide 8"></a>
-          </div>
+          </div> */}
         {/* </div> */}
         <div className="ayahs">
           <h3 className="ayah-arabic">

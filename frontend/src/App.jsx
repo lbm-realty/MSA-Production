@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { MessageProvider } from "./components/MessageProvider";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import Home from "./pages/home";
@@ -12,7 +11,7 @@ import EventsAPI from "./pages/eventsAPI";
 import Login from "./components/login";
 import PrayerAPI from "./components/prayerAPI";
 import APIs from "./pages/apis";
-import Shop from "./pages/shop";
+// import Shop from "./pages/shop";
 import Cart from "./components/cart";
 import ShopComponent from "./components/shopComponent";
 import { CartProvider } from "./components/CartContext";

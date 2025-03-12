@@ -29,27 +29,31 @@
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
 }
-
-.subscription-option{
+.all-options {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .one-time-monthly {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
-    gap: 10px;
+    gap: 15px;
     padding: 10px 0;
+    /* width: 100%; */
 }
-
+.outer-btn {
+    display: flex;
+    width: 100%;
+}
 .oneTime {
     background-color: var(--bg-black);
     border-radius: 15px;
     height: 55px;
     font-size: 25px;
-    width: 253px;
+    width: 100%;
+    /* width:max-content; */
+    /* width: 50%; */
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 255, 255);
     border: 1.5px solid rgb(224, 99, 99);
@@ -76,13 +80,12 @@
     border: 1.5px solid rgb(0, 0, 0);
     transform: scale(1.05);
 }
-
 .monthly {
     background-color: var(--bg-black);
     border-radius: 15px;
     height: 55px;
     font-size: 25px;
-    width: 252px;
+    width: 100%;
     font-family:'Times New Roman', Times, serif;
     color: rgb(255, 255, 255);
     border: 1.5px solid rgb(224, 99, 99);
@@ -90,19 +93,22 @@
     /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); */
     transition: background-color 0.3s, transform 0.3s;
 }
-
 .donation-options {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    justify-content: space-between;
     gap: 12px;
+    width: 100%;
 }
-.donation-button-1 {
+.subscription-option {
+    width: 100%;
+}
+.donation-button-1, #donation-button-custom {
     font-family: 'Times New Roman', Times, serif;
     background-color: var(--bg-black);
     border-radius: 15px;
     height: 80px;
-    width: 120px;
+    width: 100%;
     font-size: 24px;
     color: rgb(255, 255, 255);
     border: 1.5px solid rgb(224, 99, 99);
@@ -110,76 +116,16 @@
     /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); */
     transition: background-color 0.3s, transform 0.3s;
 }
-.donation-button-2 {
-    background-color: var(--bg-black);
-    font-family: 'Times New Roman', Times, serif;
-    border-radius: 15px;
-    height: 80px;
-    width: 120px;
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    border: 1.5px solid rgb(217, 64, 64);
-    cursor: pointer;
-    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); */
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.donation-button-3 {
-    background-color: var(--bg-black);
-    font-family: 'Times New Roman', Times, serif;
-    border-radius: 15px;
-    height: 80px;
-    width: 120px;
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    border: 1.5px solid rgb(236, 4, 4);
-    cursor: pointer;
-    /* box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5); */
-    transition: background-color 0.3s, transform 0.3s;
-}
-#donation-button-custom {
-    background-color: var(--bg-black);
-    font-family: 'Times New Roman', Times, serif;
-    color: white;
-    border-radius: 15px;
-    font-size: 24px;
-    height: 80px;
-    width: 120px;
-    border: 1.5px solid red;
-    cursor: pointer;
-}
-.donation-button-1:hover {
+.donation-button-1:hover, #donation-button-custom:hover {
     background-color:  rgb(180, 22, 22);
     color: rgb(0, 0, 0);
     border: 1.5px solid rgb(0, 0, 0);
     transform: scale(1.05);
 }
-
-.donation-button-2:hover {
-    background-color:  rgb(180, 22, 22);
-    color: rgb(0, 0, 0);
-    border: 1.5px solid rgb(0, 0, 0);
-    transform: scale(1.05);
-}
-
-.donation-button-3:hover {
-    background-color:  rgb(180, 22, 22);
-    color: rgb(0, 0, 0);
-    border: 1.5px solid rgb(0, 0, 0);
-    transform: scale(1.05);
-}
-
-#donation-button-custom:hover {
-    background-color:  rgb(180, 22, 22);
-    color: rgb(0, 0, 0);
-    border: 1.5px solid rgb(0, 0, 0);
-    transform: scale(1.05);
-}
-
 #custom-amount {
     font-size: 16px;
     padding: 7px;
-    width: 26.5%;
+    width: 50%;
     border-radius: 5px;
     color:#f0ebeb;
     font-family: 'Times New Roman', Times, serif;
@@ -189,31 +135,20 @@
 }
 
 #custom-donation-inputs {
-    margin-top: 5px;
-    padding-top: 10px;
+    margin-top: 15px;
     display: flex;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-}
-#custom-donate-button:hover {
-    border: 1.5px solid #020202;
-    background-color: #c51e1e;
-    color: black;
-    transition: 300ms;
-    transform: scale(1.05);
-}
-.confirm-div {
-    display: flex;
-    gap: 10px;
+    width: 100%;
     align-items: center;
     justify-content: center;
 }
 .confirm-cancel {
+    width: 50%;
     display: flex;
     gap: 10px;
+    justify-content: space-between;
 }
-#confirm-amount {
+.confirm-amount, .cancel-button {
+    width: 100%;
     background-color: var(--bg-black);
     border: none;
     border-radius: 7px;
@@ -223,17 +158,7 @@
     color: rgb(255, 255, 255);
     cursor: pointer;
 }
-.cancel-button {
-    color: white;
-    border: none;
-    padding: 6.5px 10px;
-    font-size: 16px;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 7px;
-    background: var(--bg-black);
-    cursor: pointer;
-}
-#confirm-amount:hover {
+.confirm-amount:hover {
     background: rgb(94, 139, 25);
     transition: 0.5s;
 }
@@ -260,20 +185,31 @@
         font-size: 25px;
     }
     .oneTime, .monthly {
-        width: 123px;
         font-size: 23px;
     }
     .one-time-monthly {
+        display: flex;
+        justify-content: center;
+        padding-left: 7px;
+        width: 96%;
+    }
+    .outer-btn {
         display: flex;
     }
     .donation-options {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
     }
-    .donation-button-1, .donation-button-2, .donation-button-3, #donation-button-custom {
+    .subscription-option {
+        width: 45%;
+    }
+    .donation-button-1, #donation-button-custom {
         font-size: 23px;
         height: 100px;
         margin: 0;
+        /* width: ; */
     }
     #custom-amount {
         width: 68%;

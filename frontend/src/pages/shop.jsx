@@ -1,11 +1,11 @@
-import ShopComponent from "../components/shopComponent";
+// import ShopComponent from "../components/shopComponent";
 
-const Shop = () => {
-    return (
-        <>
-            <ShopComponent />
-        </>
-    )
-}
+// const Shop = () => {
+//     return (
+//         <>
+//             <ShopComponent />
+//         </>
+//     )
+// }
 
-export default Shop;
+// export default Shop;
