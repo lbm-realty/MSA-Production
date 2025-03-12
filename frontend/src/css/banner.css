@@ -18,13 +18,12 @@
 
 .banner-image {
     min-width: 90%;
-    height: fit-content;
     /* object-fit: cover; */
 }
 
 .slider {
     display: flex;
-    height: 800px;
+    height: 600px;
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
