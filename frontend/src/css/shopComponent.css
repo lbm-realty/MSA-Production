@@ -39,11 +39,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 15px;
     height: 30px;
     width: 30px;
     position: absolute;
     background: white;
+    border: 1.5px solid black;
     border-radius: 100%;
     /* bottom: 10px; */
     bottom: 40px;
@@ -86,18 +87,40 @@
     align-items: center;
     justify-content: center;
     color: white;
-    border: 1px solid white;
 }
-.decrease-merch, .increase-merch {
+.size-arrow {
     display: flex;
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
-    padding: 0 8px;
-    background: rgb(0, 0, 0);
-    color: white;
+}
+.size-arrow, .add-cart {
+    background: white;
+    border: 2px solid black;
+    padding: 5px 7px;
+    border-radius: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    /* font-weight: bold; */
+    /* gap: 10px; */
+}
+.merch-size {
+    background: none;
     border: none;
 }
-.increase-merch {
-    padding: 0 6px;
+.size-selection {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 0;
+}
+.size-options {
+    cursor: pointer;
+}
+.line {
+    cursor: none;
+}
+.selected-size {
+    color: white;
+    background: black;
+    padding: 5px;
+    border-radius: 20px;
 }

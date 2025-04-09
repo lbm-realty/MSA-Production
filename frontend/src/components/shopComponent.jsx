@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../css/shopComponent.css";
 import merch1 from "../images/merch1.png";
 import merch2 from "../images/merch2.png";
-import { useCart } from "./CartContext";
 import { useNavigate } from 'react-router-dom';
 
 const ShopComponent = () => {
+  const sizes = ["S", "M", "L", "XL"];
+  const [selectSize, setSelectSize] = useState(new Array(3).fill(false));
+  const [size, setSize] = useState(new Array(3).fill(""))
+  const [amount, setAmount] = useState(new Array(3).fill(0))
+  const [total, setTotal] = useState(0);
+  // const [changed, setChanged] = useState(false);
+  const navigate = useNavigate();
+
   const current_products = [
     {
       id: 1,
@@ -13,6 +20,7 @@ const ShopComponent = () => {
       name: "'25-26 Hoodie",
       price: "$39.99",
       quantity: 0,
+      productSize: "" 
     },
     {
       id: 2,
@@ -20,6 +28,7 @@ const ShopComponent = () => {
       name: "'24-25 Hoodie",
       price: "$49.99",
       quantity: 0,
+      productSize: "" 
     },
     {
       id: 3,
@@ -27,44 +36,55 @@ const ShopComponent = () => {
       name: "'23-24 Hoodie",
       price: "$39.99",
       quantity: 0,
+      productSize: "" 
     },
   ];
   const [products, setProducts] = useState(current_products);
-  const [count, setCount] = useState(new Array(products.length).fill(0));
-  const [totalCount, setTotalCount] = useState(0);
-  const { addProducts } = useCart();
-  const navigate = useNavigate();
 
-  const handleClickDecrease = (index, product) => {
-    if (count[index] === 0) return;
-    setCount((prevCount) => {
-      const newCount = [...prevCount];
-      newCount[index] = prevCount[index] - 1;
-      return newCount;
-    });
-    if (product.id === index + 1) {
-      product.quantity = count[index] - 1;
-    }
+  useEffect(() => {
+      setTotal(() => {
+        return amount.reduce((accumulator, currentValue) => {
+          return accumulator + currentValue
+        }, 0);
+      })
+      const updatedProducts = products.map((product, index) => ({
+        ...product,
+        quantity: amount[index],
+        productSize: size[index]
+      }));
+      setProducts(updatedProducts)
+  }, [amount, size, products]); 
 
-    setTotalCount(count.reduce((a, b) => a + b, 0) - 1);
-  };
-  const handleClickIncrease = (index, product) => {
-    setCount((prevCount) => {
-      const newCount = [...prevCount];
-      newCount[index] = prevCount[index] + 1;
-      return newCount;
-    });
-    if (product.id === index + 1) {
-      product.quantity = count[index] + 1;
-    }
-    setTotalCount(count.reduce((a, b) => a + b, 0) + 1);
-    addProducts(product, 1)
-  };
   const handleCartClick = () => {
-    setProducts(current_products);
+    setProducts(products);
+    console.log(products);
     localStorage.setItem("cartItems", JSON.stringify(products));
     navigate("/cart");
   };
+  const handleCartAmount = (index1) => {
+    if (size[index1] === "") {
+      alert("Please select a size");
+      return;
+    }
+    setAmount((prevAmount) => {
+      const newAmount = [...prevAmount];
+      newAmount[index1] += 1
+      return newAmount
+    })
+  }
+  const handleSizeSelection = (index1, index, uniqueSize) => {
+    setSize((prevSize) => {
+      const currSize = [...prevSize];
+      currSize[index1] = sizes[index];
+      return currSize
+    });
+    setSelectSize((prevSize) => {
+      const newSize = [...prevSize];
+      newSize[index1] = !newSize[index1];
+      return newSize
+    })    
+    console.log(selectSize);
+  }
   
   return (
     <>
@@ -77,8 +97,8 @@ const ShopComponent = () => {
                 onClick={handleCartClick}
                 className="cart-shop-btn"
               >
-                {totalCount > 0 && (
-                  <div className="cart-circle">{totalCount}</div>
+                {total > 0 && (
+                  <div className="cart-circle">{total}</div>
                 )}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +113,7 @@ const ShopComponent = () => {
             </div>
           </div>
           <div className="products-outer">
-            {products.map((product, index) => (
+            {products.map((product, index1) => (
               <div className="products-inner">
                 <img
                   className="shop-product-img"
@@ -103,19 +123,34 @@ const ShopComponent = () => {
                 <h3 className="product-name">{product.name}</h3>
                 <h3 className="product-price">{product.price}</h3>
                 <div className="toggle-amount-merch">
-                  <button
-                    className="decrease-merch"
-                    onClick={() => handleClickDecrease(index, product)}
-                  >
-                    -
-                  </button>
-                  {count[index]}
-                  <button
-                    className="increase-merch"
-                    onClick={() => handleClickIncrease(index, product)}
-                  >
-                    +
-                  </button>
+                  <button className="add-cart"
+                    onClick={() => handleCartAmount(index1)}
+                    >Add to cart</button>
+                  <div className="size-arrow">
+                    {!selectSize[index1] && (
+                      <>
+                    <button 
+                      className="merch-size"
+                      onClick={() => handleSizeSelection(index1)}
+                      >Size
+                      </button>
+                      </>
+                      )}
+                    {selectSize[index1] && (
+                      <div className="size-selection">
+                        <div className="line">----</div>
+                        {sizes.map((uniqueSize, index) => (
+                        <>
+                          <div className="size-options" onClick={() => handleSizeSelection(index1, index, uniqueSize)}>{uniqueSize}</div>
+                          <div className="line">----</div>
+                        </>
+                      ))}
+                      </div>
+                    )}
+                    {size[index1] && (
+                        <div className="selected-size">{size[index1]}</div>
+                       )}
+                  </div>
                 </div>
               </div>
             ))}

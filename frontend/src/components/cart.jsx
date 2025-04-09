@@ -1,36 +1,48 @@
 import "../css/cart.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Cart = () => {
   const retreivedItems = localStorage.getItem("cartItems");
   const items = retreivedItems ? JSON.parse(retreivedItems) : null;
   const [products, setProducts] = useState(items);
-  const [count, setCount] = useState(new Array(products.length).fill(1));
-  //   const [totalCount, setTotalCount] = useState(0);
+  const [count, setCount] = useState(new Array(1).fill(products.map(product => product.quantity)));
+  const [changed, setChanged] = useState(false);
+
+  useEffect(() => {
+    if (changed) {
+      setCount(count);
+      setProducts(products);
+    }
+    localStorage.setItem("cartItems", JSON.stringify(products));
+    setChanged(false);
+  }, [changed])
+
   const handleClickDecrease = (index, product) => {
-    if (count[index] === 1) return count[index];
+    if (count[0][index] === 1) return count[index];
     setCount((prevCount) => {
       const newCount = [...prevCount];
-      newCount[index] = prevCount[index] - 1;
+      newCount[0][index] = prevCount[0][index] - 1;
       return newCount;
     });
-    if (product.id === index + 1) {
-      product.quantity = count[index] - 1;
-    }
-    // setTotalCount(count.reduce((a, b) => a + b, 0) - 1);
-    localStorage.setItem("cartItems", JSON.stringify(products));
+    setProducts((prevProds) => {
+      const currProds = [...prevProds];
+      currProds[index].quantity = count[0][index];
+      return currProds;
+    })
+    setChanged(true);
   };
   const handleClickIncrease = (index, product) => {
     setCount((prevCount) => {
       const newCount = [...prevCount];
-      newCount[index] = prevCount[index] + 1;
+      newCount[0][index] = prevCount[0][index] + 1;
       return newCount;
     });
-    if (product.id === index + 1) {
-      product.quantity = count[index] + 1;
-    }
-    // setTotalCount(count.reduce((a, b) => a + b, 0) + 1);
-    localStorage.setItem("cartItems", JSON.stringify(products));
+    setProducts((prevProds) => {
+      const currProds = [...prevProds];
+      currProds[index].quantity = count[0][index];
+      return currProds;
+    })
+    setChanged(true);
   };
   const removeItem = (product) => {
     const updatedCartItems = items.filter((item) => item.name !== product.name);
@@ -64,7 +76,8 @@ const Cart = () => {
       <div className="cart-full">
         <div className="cart-inner">
           <h3 className="cart-header">Your Items</h3>
-          {products.map((item, index) => (
+          {products.map((item, index) => 
+            item.quantity > 0 && (
             <div className="cart-items">
               <div className="">
                 <img
@@ -90,6 +103,9 @@ const Cart = () => {
                   >
                     -
                   </button>
+                </div>
+                <div className="size-display">
+                  Size: {products[index].productSize}
                 </div>
                 <div className="remove-item" onClick={() => removeItem(item)}>
                   Remove Item

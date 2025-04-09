@@ -11,9 +11,8 @@ import EventsAPI from "./pages/eventsAPI";
 import Login from "./components/login";
 import PrayerAPI from "./components/prayerAPI";
 import APIs from "./pages/apis";
-// import Shop from "./pages/shop";
-import Cart from "./components/cart";
-import ShopComponent from "./components/shopComponent";
+// import Cart from "./components/cart";
+// import ShopComponent from "./components/shopComponent";
 import { CartProvider } from "./components/CartContext";
 
 function App() {
@@ -28,9 +27,9 @@ function App() {
           <Route path="/donations" element={<Donations />} />
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
-          {/* <Route path="/shop" element={<Shop />} />     */}
-          <Route path="/shop" element={<ShopComponent />} />    
-          <Route path="/cart" element={<Cart /> } />      
+          {/* <Route path="/shop" element={<ShopComponent />} />     */}
+          {/* <Route path="/shop" element={<ShopComponent />} />     */}
+          {/* <Route path="/cart" element={<Cart /> } />       */}
           <Route path="/login" element={<Login />} />
           <Route path="/adminRoutes" element={<APIs />} />          
           <Route path='/addEvents' element={<EventsAPI /> } />

@@ -13,7 +13,7 @@ function Footer() {
         <img src={logo} className="msa-logo" alt="" />
         <div className="">
           <h2 className='ttu-msa-2'>TTU MSA</h2>
-          <h2 className='ttu-basmalah-2'>بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</h2>
+          <h2 className='ttu-basmalah-2'>Cultivate Community, Ignite Iman</h2>
         </div>
       </div>
       <div className="about-footer">

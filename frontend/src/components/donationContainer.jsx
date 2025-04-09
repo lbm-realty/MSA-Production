@@ -27,7 +27,9 @@ function DonationContainer() {
 
   const handleSubscription = (amount) => {
     console.log("Suubscription: ", amount);
-    if (amount === 25)
+    if (amount === 5) 
+      window.location.href = "https://buy.stripe.com/9AQg2v49d0HYceI4gj";
+    else if (amount === 25)
       window.location.href = "https://buy.stripe.com/fZe2bFcFJ4Ye2E86oo";
     else if (amount === 50)
       window.location.href = "https://buy.stripe.com/dR603xaxB9eu4Mg7st";

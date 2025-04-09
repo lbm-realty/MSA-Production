@@ -17,13 +17,14 @@
 }
 
 .banner-image {
-    min-width: 90%;
+    width: 100%;
+    height: 100%;
     /* object-fit: cover; */
 }
 
 .slider {
     display: flex;
-    height: 600px;
+    height: 900px;
     width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
@@ -34,9 +35,9 @@
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.slider::-webkit-scrollbar {
+/* .slider::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .slider > img {
     scroll-snap-align: start;
@@ -86,7 +87,7 @@
     /* top: 43%; */
     /* width: 100%; */
     color: white;
-    font-size: 40px; 
+    font-size: 55px; 
     font-weight: bold; 
     padding: 10px 18px 7px 18px; 
     background-color: rgba(44, 42, 42, 0.8);
@@ -101,7 +102,7 @@
     /* top: 59%; */
     /* width: 100%; */
     color: white;
-    font-size: 20px; 
+    font-size: 28px; 
     font-weight: lighter; 
     padding: 0 10px 5px 10px; 
     background-color: rgba(44, 42, 42, 0.8);

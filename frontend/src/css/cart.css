@@ -94,6 +94,18 @@
     border-radius: 0 20px 20px 0;
     letter-spacing: -2.5px;
 }
+.size-display {
+    display: flex;
+    align-items: center;
+    /* background: rgb(37, 36, 36); */
+    /* color: rgb(255, 255, 255); */
+    justify-content: center;
+    /* border-radius: 40px; */
+    font-size: 16px;
+    padding: 5px 20px;
+    /* border: 1.5px solid rgb(255, 255, 255); */
+    margin-top: 10px;
+}
 .remove-item {
     display: flex;
     align-items: center;

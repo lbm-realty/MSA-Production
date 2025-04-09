@@ -47,6 +47,7 @@ function Navbar() {
             <li className="navbar-text"><Link to='/faqs'>FAQS</Link></li>
             <li className="navbar-text"><Link to='/newsletter'>NEWSLETTER</Link></li>
             <li className="navbar-text"><Link to='/donations'>DONATE</Link></li>
+            {/* <li className="navbar-text"><Link to='/shop'>SHOP</Link></li> */}
           </ul>
           {isMobile && (
            <div id="menu-icon" onClick={toggleClick} className='menu-icon'>
