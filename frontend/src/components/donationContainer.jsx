@@ -75,6 +75,12 @@ function DonationContainer() {
     }
   };
 
+  // const handleCustomAmount = (e) => {
+  //   if (Number(e.target.value))
+  //     setCustomAmount(e.target.value);
+  //   console.log(typeof(e.target.value))
+  // }
+
   return (
     <>
       <body>
@@ -163,10 +169,17 @@ function DonationContainer() {
                       <input
                         id="custom-amount"
                         type="number"
+                        inputmode="numeric"
+                        pattern="[0-9]*"
+                        onKeyDown={(e) => {
+                          const invalidChars = ['-', '+', 'e', 'E', '.', 'ArrowUp', 'ArrowDown'];
+                          if (invalidChars.includes(e.key)) 
+                            e.preventDefault();
+                        }}
                         className="input-box"
                         placeholder="Enter Amount in USD"
-                        value={customAmount || ""}
-                        onChange={(e) => setCustomAmount(e.target.value)}
+                        // value={customAmount || ""}
+                        // onChange={(e) => setCustomAmount(e.target.value)}
                       />
 
                         <div className="confirm-cancel">
