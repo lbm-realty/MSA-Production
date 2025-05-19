@@ -14,6 +14,7 @@ import APIs from "./pages/apis";
 import Cart from "./components/cart";
 import ShopComponent from "./components/shopComponent";
 import { CartProvider } from "./components/CartContext";
+import CheckoutForm from "./components/checkout";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/shop" element={<ShopComponent />} />    
           {/* <Route path="/shop" element={<ShopComponent />} />     */}
           <Route path="/cart" element={<Cart /> } />      
+          <Route path="/checkout" element={<CheckoutForm /> } />      
           <Route path="/login" element={<Login />} />
           <Route path="/adminRoutes" element={<APIs />} />          
           <Route path='/addEvents' element={<EventsAPI /> } />

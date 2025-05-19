@@ -3,6 +3,7 @@
     padding: 200px 20px;
     font-family: 'Times New Roman', Times, serif;
     display: flex;
+    justify-content: center;
 }
 .cart-full {
     background: rgba(0, 0, 0, 0.6);
@@ -11,6 +12,10 @@
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
+}
+
+.cart-empty {
+    margin-top: 60px;
 }
 
 .cart-inner {

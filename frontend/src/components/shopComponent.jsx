@@ -8,7 +8,6 @@ const ShopComponent = () => {
   const sizes = ["S", "M", "L", "XL"];
   const [selectSize, setSelectSize] = useState(new Array(3).fill(false));
   const [total, setTotal] = useState(0);
-  // const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
 
   const current_products = [
@@ -38,6 +37,15 @@ const ShopComponent = () => {
     },
   ];
   const [products, setProducts] = useState(current_products);
+
+  /**
+   * Make the products come from local storage, that way the product size
+   * and the quantity will be saved permanently, and won't disappear on reload
+   * No reason to worry about local storage being empty, and products not being
+   * displayed as in this component, the user can't remove any products
+   * The useEffect just has to run in the very beginning, so products can be
+   * retrieved from it
+  */
 
   const handleCartClick = () => {
     const sendData = products.filter((product) => product.quantity !== 0);
