@@ -4,20 +4,30 @@ import { useEffect, useState } from "react";
 const Cart = () => {
   const retreivedItems = localStorage.getItem("cartItems");
   const items = retreivedItems ? JSON.parse(retreivedItems) : null;
+  
   const [products, setProducts] = useState(items);
   const [count, setCount] = useState(new Array(1).fill(products.map(product => product.quantity)));
   const [changed, setChanged] = useState(false);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     if (changed) {
       setCount(count);
-      setProducts(products);
     }
     localStorage.setItem("cartItems", JSON.stringify(products));
+    handleLocalStorage();
     setChanged(false);
+    console.log(localStorage.getItem('cartItems'));
   }, [changed])
 
-  const handleClickDecrease = (index, product) => {
+  const handleLocalStorage = () => {
+    if (localStorage.length == 0)
+      setIsEmpty(true);
+    else
+      localStorage.setItem("cartItems", JSON.stringify(products));
+  }
+
+  const handleClickDecrease = (index) => {
     if (count[0][index] === 1) return count[index];
     setCount((prevCount) => {
       const newCount = [...prevCount];
@@ -31,7 +41,7 @@ const Cart = () => {
     })
     setChanged(true);
   };
-  const handleClickIncrease = (index, product) => {
+  const handleClickIncrease = (index) => {
     setCount((prevCount) => {
       const newCount = [...prevCount];
       newCount[0][index] = prevCount[0][index] + 1;
@@ -46,8 +56,8 @@ const Cart = () => {
   };
   const removeItem = (product) => {
     const updatedCartItems = items.filter((item) => item.name !== product.name);
-    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
     setProducts(updatedCartItems);
+    setChanged(true);
   };
   const calcTotalQuant = () => {
     var total = 0;
@@ -73,6 +83,12 @@ const Cart = () => {
 
   return (
     <div className="cart-outer">
+      {isEmpty ? 
+      (
+        <div className="cart-empty">cart empty</div>
+      ) 
+      : 
+      (
       <div className="cart-full">
         <div className="cart-inner">
           <h3 className="cart-header">Your Items</h3>
@@ -155,6 +171,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 };

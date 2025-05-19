@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import "../css/shopComponent.css";
 import merch1 from "../images/merch1.png";
 import merch2 from "../images/merch2.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const ShopComponent = () => {
   const sizes = ["S", "M", "L", "XL"];
   const [selectSize, setSelectSize] = useState(new Array(3).fill(false));
-  const [size, setSize] = useState(new Array(3).fill(""))
-  const [amount, setAmount] = useState(new Array(3).fill(0))
   const [total, setTotal] = useState(0);
   // const [changed, setChanged] = useState(false);
   const navigate = useNavigate();
@@ -20,7 +18,7 @@ const ShopComponent = () => {
       name: "'25-26 Hoodie",
       price: "$39.99",
       quantity: 0,
-      productSize: "" 
+      productSize: "Size",
     },
     {
       id: 2,
@@ -28,7 +26,7 @@ const ShopComponent = () => {
       name: "'24-25 Hoodie",
       price: "$49.99",
       quantity: 0,
-      productSize: "" 
+      productSize: "Size",
     },
     {
       id: 3,
@@ -36,56 +34,40 @@ const ShopComponent = () => {
       name: "'23-24 Hoodie",
       price: "$39.99",
       quantity: 0,
-      productSize: "" 
+      productSize: "Size",
     },
   ];
   const [products, setProducts] = useState(current_products);
 
-  useEffect(() => {
-      setTotal(() => {
-        return amount.reduce((accumulator, currentValue) => {
-          return accumulator + currentValue
-        }, 0);
-      })
-      const updatedProducts = products.map((product, index) => ({
-        ...product,
-        quantity: amount[index],
-        productSize: size[index]
-      }));
-      setProducts(updatedProducts)
-  }, [amount, size, products]); 
-
   const handleCartClick = () => {
-    setProducts(products);
-    console.log(products);
-    localStorage.setItem("cartItems", JSON.stringify(products));
+    const sendData = products.filter((product) => product.quantity !== 0);
+    localStorage.setItem("cartItems", JSON.stringify(sendData));
     navigate("/cart");
   };
-  const handleCartAmount = (index1) => {
-    if (size[index1] === "") {
-      alert("Please select a size");
+
+  const handleAddToCart = (product) => {
+    if (product.productSize === "Size") {
+      alert("Please select a size first");
       return;
     }
-    setAmount((prevAmount) => {
-      const newAmount = [...prevAmount];
-      newAmount[index1] += 1
-      return newAmount
-    })
-  }
-  const handleSizeSelection = (index1, index, uniqueSize) => {
-    setSize((prevSize) => {
-      const currSize = [...prevSize];
-      currSize[index1] = sizes[index];
-      return currSize
-    });
-    setSelectSize((prevSize) => {
-      const newSize = [...prevSize];
-      newSize[index1] = !newSize[index1];
-      return newSize
-    })    
-    console.log(selectSize);
-  }
-  
+
+    setProducts(products.map(currProduct => {
+      return currProduct.name === product.name ? 
+        { ...product, quantity: currProduct.quantity + 1 } :
+        currProduct;
+    }))
+
+    setTotal(prevTotal => prevTotal + 1);
+  };
+
+  const handleSizeSelection = (name, prodSize) => {
+    setProducts(products.map(product => {
+      return product.name === name ? 
+        {...product, productSize: prodSize} : 
+          product
+    }))
+  };
+
   return (
     <>
       <div className="outer-div-shop">
@@ -93,13 +75,8 @@ const ShopComponent = () => {
           <div className="header-cart">
             <h2 className="shop-header">Shop our Merch!</h2>
             <div className="cart-shop">
-              <button
-                onClick={handleCartClick}
-                className="cart-shop-btn"
-              >
-                {total > 0 && (
-                  <div className="cart-circle">{total}</div>
-                )}
+              <button onClick={handleCartClick} className="cart-shop-btn">
+                {total > 0 && <div className="cart-circle">{total}</div>}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -123,33 +100,52 @@ const ShopComponent = () => {
                 <h3 className="product-name">{product.name}</h3>
                 <h3 className="product-price">{product.price}</h3>
                 <div className="toggle-amount-merch">
-                  <button className="add-cart"
-                    onClick={() => handleCartAmount(index1)}
-                    >Add to cart</button>
+                  <button
+                    className="add-cart"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to cart
+                  </button>
                   <div className="size-arrow">
                     {!selectSize[index1] && (
                       <>
-                    <button 
-                      className="merch-size"
-                      onClick={() => handleSizeSelection(index1)}
-                      >Size
-                      </button>
+                        <button
+                          className="merch-size"
+                          onClick={() => {
+                            setSelectSize(prevSize => {
+                              const updated = [...prevSize];
+                              updated[index1] = true;
+                              return updated
+                            });
+                          }}
+                        >
+                          {product.productSize}
+                        </button>
                       </>
-                      )}
+                    )}
                     {selectSize[index1] && (
                       <div className="size-selection">
                         <div className="line">----</div>
-                        {sizes.map((uniqueSize, index) => (
-                        <>
-                          <div className="size-options" onClick={() => handleSizeSelection(index1, index, uniqueSize)}>{uniqueSize}</div>
-                          <div className="line">----</div>
-                        </>
-                      ))}
+                        {sizes.map((uniqueSize) => (
+                          <>
+                            <div
+                              className="size-options"
+                              onClick={() => {
+                                handleSizeSelection(product.name, uniqueSize);
+                                setSelectSize(prevSize => {
+                                  const updated = [...prevSize];
+                                  updated[index1] = false;
+                                  return updated
+                                });
+                              }}
+                            >
+                              {uniqueSize}
+                            </div>
+                            <div className="line">----</div>
+                          </>
+                        ))}
                       </div>
                     )}
-                    {size[index1] && (
-                        <div className="selected-size">{size[index1]}</div>
-                       )}
                   </div>
                 </div>
               </div>
