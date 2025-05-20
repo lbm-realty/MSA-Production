@@ -107,6 +107,171 @@
 
 
 
+// import React, { useState, useEffect } from 'react';
+// import emailjs from '@emailjs/browser';
+// import '../css/checkout.css'; // Assuming you'll create a CSS file with this name
+
+// const CheckoutForm = () => {
+//   const [formData, setFormData] = useState({
+//     email: '',
+//     firstName: '',
+//     lastName: '',
+//     location: '',
+//     phone: '',
+//   });
+//   const [isSubmitting, setIsSubmitting] = useState(false);
+//   const [submitStatus, setSubmitStatus] = useState(null);
+
+//   // Initialize EmailJS once when component mounts
+//   useEffect(() => {
+//     // Replace with your actual EmailJS public key
+//     emailjs.init("LtuqxcFti1fOU04yO");
+//   }, []);
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setFormData(prevState => ({
+//       ...prevState,
+//       [name]: value
+//     }));
+//   };
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setIsSubmitting(true);
+//     setSubmitStatus(null);
+    
+//     try {
+//       // Send email with form data
+//       const emailResponse = await emailjs.send(
+//         "service_46qcp95", // Replace with your EmailJS service ID
+//         "template_28hbnlv", // Replace with your EmailJS template ID
+//         {
+//           to_email: "labeebmuntasir@gmail.com", // Replace with recipient email
+//           from_name: `${formData.firstName} ${formData.lastName}`,
+//           from_email: formData.email,
+//           subject: "New Checkout Form Submission",
+//           message: `
+//             Customer Information:
+//             -------------------
+//             Name: ${formData.firstName} ${formData.lastName}
+//             Email: ${formData.email}
+//             Location: ${formData.location}
+//             Phone: ${formData.phone || "Not provided"}
+//           `,
+//           ...formData // Also send all form fields individually
+//         }
+//       );
+      
+//       console.log('Email sent successfully:', emailResponse);
+//       setSubmitStatus('success');
+      
+//       // After email is sent, you would integrate with Stripe for payment
+//       console.log('Form data submitted, ready for Stripe payment');
+      
+//     } catch (error) {
+//       console.error('Error sending email:', error);
+//       setSubmitStatus('error');
+//     } finally {
+//       setIsSubmitting(false);
+//     }
+//   };
+
+//   return (
+//     <div className="checkout-outer">
+//     <div className="checkout-container">
+//       <div className="checkout-header">
+//         <h1>Checkout</h1>
+//       </div>
+      
+//       <form id="checkout-form" onSubmit={handleSubmit}>
+//         <div className="form-group">
+//           <label htmlFor="email" className="required-field">Email</label>
+//           <input 
+//             type="email" 
+//             id="email" 
+//             name="email" 
+//             value={formData.email}
+//             onChange={handleChange}
+//             required 
+//           />
+//         </div>
+        
+//         <div className="form-group">
+//           <label htmlFor="firstName" className="required-field">First Name</label>
+//           <input 
+//             type="text" 
+//             id="firstName" 
+//             name="firstName" 
+//             value={formData.firstName}
+//             onChange={handleChange}
+//             required 
+//           />
+//         </div>
+        
+//         <div className="form-group">
+//           <label htmlFor="lastName" className="required-field">Last Name</label>
+//           <input 
+//             type="text" 
+//             id="lastName" 
+//             name="lastName" 
+//             value={formData.lastName}
+//             onChange={handleChange}
+//             required 
+//           />
+//         </div>
+        
+//         <div className="form-group">
+//           <label htmlFor="location" className="required-field">Location</label>
+//           <input 
+//             type="text" 
+//             id="location" 
+//             name="location" 
+//             value={formData.location}
+//             onChange={handleChange}
+//             required 
+//           />
+//         </div>
+        
+//         <div className="form-group">
+//           <label htmlFor="phone" className="optional-label">Phone Number</label>
+//           <input 
+//             type="tel" 
+//             id="phone" 
+//             name="phone" 
+//             value={formData.phone}
+//             onChange={handleChange}
+//           />
+//         </div>
+        
+//         <button type="submit" disabled={isSubmitting}>
+//           {isSubmitting ? 'Processing...' : 'Complete Purchase'}
+//         </button>
+        
+//         {submitStatus === 'success' && (
+//           <div className="status-message success">
+//             Form submitted successfully!
+//           </div>
+//         )}
+        
+//         {submitStatus === 'error' && (
+//           <div className="status-message error">
+//             There was an error submitting the form. Please try again.
+//           </div>
+//         )}
+//       </form>
+      
+//       <div className="form-footer">
+//         <p>Secure payment processed by Stripe</p>
+//       </div>
+//     </div>
+//     </div>
+//   );
+// };
+
+// export default CheckoutForm;
+
+
 import React, { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import '../css/checkout.css'; // Assuming you'll create a CSS file with this name
@@ -142,24 +307,35 @@ const CheckoutForm = () => {
     setSubmitStatus(null);
     
     try {
+      // 1. Send email to YOU (the store owner) with customer details
+      const ownerEmailResponse = await emailjs.send(
+        "service_46qcp95", // Replace with your EmailJS service ID
+        "template_klf1i2o", // Replace with template ID for emails to you
+        {
+          to_email: "texastechmsa@gmail.com", // Your email address
+          customer_name: `${formData.firstName} ${formData.lastName}`,
+          customer_email: formData.email,
+          customer_location: formData.location,
+          customer_phone: formData.phone || "Not provided",
+          order_details: "New order from website checkout",
+          // Include any other order details you need
+        }
+      );
+      
+      console.log('Owner notification email sent successfully:', ownerEmailResponse);
+      
+      // 2. Send confirmation email to the CUSTOMER
       // Send email with form data
       const emailResponse = await emailjs.send(
         "service_46qcp95", // Replace with your EmailJS service ID
         "template_28hbnlv", // Replace with your EmailJS template ID
         {
-          to_email: "labeebmuntasir@gmail.com", // Replace with recipient email
-          from_name: `${formData.firstName} ${formData.lastName}`,
-          from_email: formData.email,
-          subject: "New Checkout Form Submission",
-          message: `
-            Customer Information:
-            -------------------
-            Name: ${formData.firstName} ${formData.lastName}
-            Email: ${formData.email}
-            Location: ${formData.location}
-            Phone: ${formData.phone || "Not provided"}
-          `,
-          ...formData // Also send all form fields individually
+          from_email: "texastechmsa@gmail.com",
+          customer_first_name: formData.firstName,
+          customer_name: `${formData.firstName} ${formData.lastName}`,
+          to_email: formData.email, // Replace with recipient email
+          customer_location: formData.location,
+          customer_phone: formData.phone || "Not Provided",
         }
       );
       
