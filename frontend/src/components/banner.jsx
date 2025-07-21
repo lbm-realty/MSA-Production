@@ -137,7 +137,7 @@ const Banner = () => {
       </button>
 
       {/* Slide Indicators */}
-      <div className="absolute scale-50 bottom-2 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
+      <div className="absolute scale-50 sm:scale-100 bottom-2 left-1/2 transform -translate-x-1/2 z-20 flex space-x-2">
         {images.map((_, index) => (
           <button
             key={index}
