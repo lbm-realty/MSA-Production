@@ -11,10 +11,10 @@ import EventsAPI from "./pages/eventsAPI";
 import Login from "./components/login";
 import PrayerAPI from "./components/prayerAPI";
 import APIs from "./pages/apis";
-import Cart from "./components/cart";
-import ShopComponent from "./components/shopComponent";
+// import Cart from "./components/cart";
+// import ShopComponent from "./components/shopComponent";
 import { CartProvider } from "./components/CartContext";
-import CheckoutForm from "./components/checkout";
+// import CheckoutForm from "./components/checkout";
 
 function App() {
   return (
@@ -28,10 +28,9 @@ function App() {
           <Route path="/donations" element={<Donations />} />
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
-          <Route path="/shop" element={<ShopComponent />} />    
           {/* <Route path="/shop" element={<ShopComponent />} />     */}
-          <Route path="/cart" element={<Cart /> } />      
-          <Route path="/checkout" element={<CheckoutForm /> } />      
+          {/* <Route path="/cart" element={<Cart /> } />       */}
+          {/* <Route path="/checkout" element={<CheckoutForm /> } />       */}
           <Route path="/login" element={<Login />} />
           <Route path="/adminRoutes" element={<APIs />} />          
           <Route path='/addEvents' element={<EventsAPI /> } />
