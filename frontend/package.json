@@ -11,6 +11,7 @@
     "axios": "^1.7.9",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "lucide-react": "^0.525.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-lazyload": "^3.2.1",
@@ -51,7 +52,10 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.11"
   },
   "description": "This is the improved version of the previous MSA Website. Everything's moved to react and is working well!",
   "main": "index.js",

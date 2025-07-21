@@ -137,7 +137,6 @@
         right: 0;
         display: flexbox;
         text-align: center;
-        background: var(--bg-red);
         gap: 0;
         overflow: hidden;
         z-index: 10;

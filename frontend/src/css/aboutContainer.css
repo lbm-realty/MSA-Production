@@ -26,6 +26,7 @@
 .about-head {
     font-size: 30px;
     padding: 0;
+    color: rgb(108, 59, 59);
     /* font-weight: ; */
     margin-bottom: -2px;
 }
@@ -36,8 +37,15 @@
 }
 
 @media all and (width < 600px) {
+    .about-outermost{
+        padding: 0;
+        color: rgb(108, 59, 59);
+    }
+    .about-direct {
+        padding: 0;
+    }
     .about-cont {
-        padding: 110px 30px 65px 30px;
+        padding: 180px 0 65px 0;
     }
     .about-direct {
         background-position: 29%;

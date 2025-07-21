@@ -11,6 +11,7 @@ function DirectMessage() {
               type="hidden"
               name="access_key"
               value="d5783baa-71d4-4cf1-a3d1-b9ec1724380c"
+              id="input-form"
             />
             <div class="form-group">
               <label for="name">Name*</label>

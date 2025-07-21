@@ -20,8 +20,7 @@
 
 @media all and (width < 600px) {
     .donation-desc-container {
-        transform: scale(0.8);
-        /* width: 320px; */
+        margin-top: 40px;
         padding: 10px 30px;
     }
     .donation-desc-header {

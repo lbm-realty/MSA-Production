@@ -40,14 +40,6 @@ const LocationIcon = () => (
 );
 
 const EventDisplay = (props) => {
-  // const chaiNight = {
-  //   title: "Chai Night",
-  //   location1: "ICSP - Community Hall",
-  //   time: "After Isha",
-  //   description:
-  //     "Join us for some delicious chai, snacks and activites every week! P.S The last chai night for this semester is on the 22nd of November.",
-  //   location2: "ICSP - Community Hall",
-  // };
 
   const [isArchiveOpen, setArchiveOpen] = useState();
   const [ishovered, setHovered] = useState();

@@ -1,4 +1,4 @@
-.connect-container {
+/* .connect-container {
     background: var(--bg-black);
     padding-top: 20px;
 }
@@ -43,7 +43,6 @@
     color: white;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
-    /* margin: 120px 0 0 0; */
 
 }
 
@@ -57,7 +56,6 @@
     width: 146.5px;
     cursor: pointer;
     border-radius: 42px;
-    /* margin-left: 30px; */
 }
 
 .instagram-header {
@@ -127,7 +125,6 @@
         padding-top: 40px;
         display: flex;
         width: 100%;
-        /* font-size: ; */
         justify-content: center;
     }
     
@@ -169,4 +166,76 @@
     .discord-header, .youtube-header, .instagram-header, .facebook-header {
         scale: 0.8;
     }
+} */
+
+
+
+.connect-section {
+  padding: 5rem 0;
+  background-color: black;
+  border-top: 1px solid white;
+}
+
+.connect-container {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.connect-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.connect-header h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.connect-header p {
+  font-size: 1.125rem;
+  color: white;
+}
+
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .social-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border: 1px solid white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  background-color: rgba(99, 10, 0, 0.95);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon {
+  margin-bottom: 1rem;
 }

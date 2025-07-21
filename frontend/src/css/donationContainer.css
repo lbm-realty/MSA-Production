@@ -156,7 +156,7 @@
 
 @media all and (width < 600px) {
     .donate-section-mobile {
-        padding: 150px 15px 130px 15px;
+        padding: 160px 30px 90px 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -165,8 +165,7 @@
         text-align: center;
     }
     .donation-container {
-        transform: scale(0.8);
-        width: 350px;
+        width: 100%;
         height: auto;
         padding: 25px 5px 30px 5px;
         border-radius: 20px;
@@ -178,12 +177,14 @@
     }
     .one-time-monthly {
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
     }
     .outer-btn {
         display: flex;
         justify-content: center;
-        width: 100%;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
     }
     .outer-btn-t {
         display: flex;
@@ -193,8 +194,10 @@
     }
     .oneTime, .monthly {
         font-size: 20px;
-        margin-top: 15px;
-        width: 100%;
+        /* margin-top: 15px; */
+        margin: 0;
+        padding: 0 10px;
+        width: fit-content;
     }
     .oneTime-true, .monthly-true {
         margin-top: 15px;

@@ -1,6 +1,5 @@
-.about-outer {
+/* .about-outer {
     background: url('../images/bg-1.png') repeat; 
-    /* padding: 50px 0 0 0; */
 }
 
 .about-inner {
@@ -14,7 +13,6 @@
     width: 400px;
 }
 .about-container {
-    /* height: 260px; */
     max-width: 400px;
     position: relative;
     margin-left: -60px;
@@ -40,7 +38,6 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 17px;
     color: white;
-    /* border-radius: 6px; */
     border: 1px solid rgb(255, 255, 255);
     cursor: pointer;
 }
@@ -62,7 +59,6 @@
     }
     .about-container{
         margin-left: -40px;
-        /* height: 150px; */
         padding: 15px;
     }
     .read-more-btn {
@@ -75,4 +71,78 @@
         top: -5px;
         font-size: 9px;
     }
+} */
+
+
+.about-section {
+  padding: 5rem 0;
+  background-color: black;
+}
+
+.about-container {
+  max-width: 72rem; /* Same as max-w-6xl */
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(99, 10, 0, 0.95);
+  border: 1px solid #e5e7eb; /* border-gray-100 */
+  border-radius: 1.5rem; /* rounded-3xl */
+}
+
+.about-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* gap: 0; */
+}
+
+@media (min-width: 1024px) {
+  .about-content-wrapper {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .about-text {
+    text-align: left;
+  }
+}
+
+.about-logo img {
+  width: 12rem; 
+  height: 12rem; 
+  object-fit: contain;
+}
+
+.about-text {
+  margin: 0;
+  text-align: center;
+  color: #f3f4f6; 
+}
+
+.about-text h2 {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.about-text p {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.about-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.about-button:hover {
+  background-color: #7f1d1d; /* hover:bg-red-900 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }

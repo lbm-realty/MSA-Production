@@ -24,6 +24,10 @@
     border-radius: 30px;
 }
 
+#name, #email {
+    color: #694545;
+}
+
 h2 {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;

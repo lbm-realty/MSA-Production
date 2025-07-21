@@ -72,7 +72,7 @@ function ImageGallery() {
   ];
 
   return (
-    <>
+    <div className="gallery-outer">
       <div class="image-gallery">
         <h2>Event Highlights</h2>
         <div class="gallery-grid">
@@ -91,8 +91,7 @@ function ImageGallery() {
           })}
         </div>
       </div>
-      <div className="black-box-2"></div>
-    </>
+    </div>
   );
 }
 
