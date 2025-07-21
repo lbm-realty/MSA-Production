@@ -235,7 +235,7 @@ const FaqContainer = () => {
               Join Discord
             </a>
             <a
-              href="#"
+              href="/about"
               className="inline-block bg-gray-200/95 hover:bg-gray-200 text-black font-semibold py-4 px-8 rounded-lg transition-all duration-300 shadow-lg transform hover:-translate-y-1 border-2 border-black"
             >
               Contact Us

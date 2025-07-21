@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../css/shopComponent.css";
 import merch1 from "../images/merch1.png";
 import merch2 from "../images/merch2.png";

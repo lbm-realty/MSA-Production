@@ -162,7 +162,8 @@ function DonationContainer() {
               </div>
             {/* </div>   */}
             </div>
-              {showCustomInput && (
+              {!subMonthly ? 
+               showCustomInput && (
                 <div id="custom-donation-inputs">
                   {showButton && (
                     <>
@@ -178,8 +179,8 @@ function DonationContainer() {
                         }}
                         className="input-box"
                         placeholder="Enter Amount in USD"
-                        // value={customAmount || ""}
-                        // onChange={(e) => setCustomAmount(e.target.value)}
+                        value={customAmount || ""}
+                        onChange={(e) => setCustomAmount(e.target.value)}
                       />
 
                         <div className="confirm-cancel">
@@ -207,6 +208,8 @@ function DonationContainer() {
                     </>
                   )}
                 </div>
+              ) : (
+                ""
               )}
             
           </div>
