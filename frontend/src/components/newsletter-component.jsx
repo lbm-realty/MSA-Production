@@ -118,7 +118,7 @@ const ComingSoon = () => {
               <div className="pdf-box" key={index}>
                 <h3>{months[pdf.month - 1]} Newsletter</h3>
                 <iframe
-                  src={pdf.file}
+                  src={`http://localhost:8282/newsletter/${pdf._id}/pdf`}
                   title={`Newsletter-${months[pdf.month - 1]}`}
                   className="pdf-frame"
                 />
