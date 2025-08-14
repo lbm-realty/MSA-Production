@@ -60,7 +60,7 @@ const DonationProjectAPI = () => {
 
      fetchDonationProjects();
 
-    }, []);
+    }, [token]);
 
     useEffect(() => {
         setDonationProjects(donationProjects);
