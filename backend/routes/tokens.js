@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
  
 const createAccessToken = (id) => {
     return sign({ id }, process.env.ACCESS_TOKEN_SECRET, {
-        expiresIn: 10 * 60,
+        expiresIn: null,
     });
 };
 

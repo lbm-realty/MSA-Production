@@ -52,7 +52,7 @@ const AboutContainer = () => {
               <img
                 src={logo}
                 alt="TTU MSA Logo"
-                className="h-32 w-32 object-contain"
+                className="h-32 w-32 bg-gray-100 rounded-full object-contain"
               />
             </div>
 
@@ -66,6 +66,7 @@ const AboutContainer = () => {
                 discussions, or community service projects.
               </p>
               <a
+                onClick={() => window.location.href('/about')}
                 href="/about"
                 className="inline-block bg-transparent hover:bg-red-900 text-white border-white border font-semibold py-3 px-8 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
               >

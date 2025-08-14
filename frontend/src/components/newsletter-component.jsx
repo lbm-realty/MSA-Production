@@ -1,22 +1,56 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import "../css/newsletter.css";
-import pdf1 from "../images/MSA August Newsletter[1].pdf";
-import pdf2 from "../images/MSA September Newsletter[1].pdf";
-import pdf3 from "../images/MSA October Newsletter.pdf";
 
 const ComingSoon = () => {
-  const archivePdfs = [{ month: "August", file: pdf1 }];
 
-  const pdfFiles = [
-    { month: "October", file: pdf3 },
-    { month: "September", file: pdf2 },
-  ];
   const [isArchiveOpen, setArchiveOpen] = useState();
   const [ishovered, setHovered] = useState();
   // const [isMobile, setIsMobile] = useState(false);
+  const [pdfs, setPdfs] = useState([]);
+  const [archivePdfs, setArchivePdfs] = useState([]);
   const [width, setWidth] = useState(window.innerWidth)
   const isMobile = width <= 768;
+
+  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  useEffect(() => {
+    const fetchNewsletter = async () => {
+      try {
+        const response = await fetch(`https://msa-production.onrender.com/fetch-newsletters`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          }
+        });
+
+        const res = await response.json();
+        
+        if (response.ok){
+          setPdfs(res);
+          console.log(res);
+        }
+         else 
+          alert(res);
+
+      } catch (err) {
+        alert(err);
+      }
+    }
+
+    fetchNewsletter();
+
+  }, [])
+
+  useEffect(() => {
+    setArchivePdfs(pdfs.length > 1 ? pdfs.slice(2) : []);
+
+  }, [pdfs])
+
+  // useEffect(() => {
+  //   setArchivePdfs( pdfs.length > 1 ? pdfs.slice(1) : [] );
+  //   setPdfs( pdfs.length > 1 ? pdfs.slice(0, 2) : pdfs);
+  // }, [pdfs]);
 
   const toggleArchive = () => {
     setArchiveOpen(!isArchiveOpen);
@@ -31,6 +65,7 @@ const ComingSoon = () => {
     const handleResize = () => {
       setWidth(window.innerWidth);
     };
+
     handleResize();
 
     window.addEventListener('resize', handleResize);
@@ -52,12 +87,12 @@ const ComingSoon = () => {
         ) : (
           ""
         )}
-          {pdfFiles.map((pdf, index) => (
+          {pdfs.slice(0,2).map((pdf, index) => (
             <div className="pdf-box" key={index}>
-              <h3>{pdf.month} Newsletter</h3>
+              <h3>{months[pdf.month - 1]} Newsletter</h3>
               <iframe
-                src={pdf.file}
-                title={`Newsletter-${pdf.month}`}
+                src={`http://localhost:8282/newsletter/${pdf._id}/pdf`}
+                title={`Newsletter-${months[pdf.month - 1]}`}
                 className="pdf-frame"
               />
             </div>
@@ -81,10 +116,10 @@ const ComingSoon = () => {
           {isArchiveOpen &&
             archivePdfs.map((pdf, index) => (
               <div className="pdf-box" key={index}>
-                <h3>{pdf.month} Newsletter</h3>
+                <h3>{months[pdf.month - 1]} Newsletter</h3>
                 <iframe
                   src={pdf.file}
-                  title={`Newsletter-${pdf.month}`}
+                  title={`Newsletter-${months[pdf.month - 1]}`}
                   className="pdf-frame"
                 />
               </div>

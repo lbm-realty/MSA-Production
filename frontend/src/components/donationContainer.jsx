@@ -9,6 +9,7 @@ function DonationContainer() {
   const [showButton, setShowButton] = useState(true);
   const [oneTime, setOneTime] = useState(false);
   const [subMonthly, setSubMonthly] = useState(false);
+  const [donationProjects, setDonationProjects] = useState([]);
   const product = {
     name: "",
     price: 0,
@@ -53,7 +54,7 @@ function DonationContainer() {
     const headers = {
       "Content-Type": "application/json",
     };
-    console.log(`This is the headers: ${headers}`);
+
     return fetch(`https://msa-production.onrender.com/payment`, {
       method: "POST",
       headers,
@@ -75,18 +76,40 @@ function DonationContainer() {
     }
   };
 
-  // const handleCustomAmount = (e) => {
-  //   if (Number(e.target.value))
-  //     setCustomAmount(e.target.value);
-  //   console.log(typeof(e.target.value))
-  // }
+  const fetchDonationProjects = async () => {
+    try {
+      const response = await fetch(`https://msa-production.onrender.com/fetch-donation-projects`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+
+      const res = await response.json();
+
+      if (response.ok) setDonationProjects(res.message)
+      else alert(res.message);
+
+    } catch (err) {
+      alert(err);
+    }
+  }
+
+  useEffect(() => {
+    fetchDonationProjects();
+  }, [])
+
+  useEffect(() => {
+    setDonationProjects(donationProjects);
+
+  }, [donationProjects])
 
   return (
     <>
       <body>
         <div class={isMobile ? "donate-section-mobile" : "donate-section"}>
           <DonationDesc />
-          <div className="donation-container">
+          <div className="bg-red-950/70 p-12 rounded-3xl">
             <div class="donate-section-heading">Donate Here</div>
             <div class="donate-section-para">
               Your donation helps us continue our work. Choose the amount that works best for you!
@@ -213,6 +236,28 @@ function DonationContainer() {
               )}
             
           </div>
+
+          {donationProjects.length > 0 && (
+          <div className="flex flex-col gap-8 sm:gap-4 justify-center items-center text-white bg-red-950/70 p-12 rounded-3xl">
+            <p className="text-2xl sm:text-4xl mb-2 sm:mb-4 italic font-bold">Feel free to support our projects too!</p>
+              <div className="flex flex-col gap-6">
+                {donationProjects.map((proj) => (
+                  <StripeCheckout
+                    stripeKey={process.env.REACT_APP_KEY}
+                    token={makePayment}
+                  >
+                  <div onClick={() => handleAmount(proj.amount)} className="text-white rounded-2xl cursor-pointer sm:rounded-2xl border-[1.5px] border-red-400 p-4 hover:bg-red-800/30 duration-300 hover:scale-105">
+                    <p className="text-xl sm:text-2xl font-bold mb-2">{proj.name}</p>
+                    {proj.description && (
+                      <p className="text-lg sm:text-xl">{proj.description}</p>
+                    )}
+                    <p className="text-lg sm:text-xl">${proj.amount}</p>
+                  </div>
+                  </StripeCheckout>
+                ))}
+              </div>
+          </div>
+          )}
         </div>
       </body>
     </>

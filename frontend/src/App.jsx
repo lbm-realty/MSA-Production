@@ -11,6 +11,8 @@ import EventsAPI from "./pages/eventsAPI";
 import Login from "./components/login";
 import PrayerAPI from "./components/prayerAPI";
 import APIs from "./pages/apis";
+import NewsletterAPI from "./components/newsletter-api";
+import DonationProjectAPI from "./components/donation-project-api";
 // import Cart from "./components/cart";
 // import ShopComponent from "./components/shopComponent";
 import { CartProvider } from "./components/CartContext";
@@ -35,6 +37,8 @@ function App() {
           <Route path="/adminRoutes" element={<APIs />} />          
           <Route path='/addEvents' element={<EventsAPI /> } />
           <Route path='/addPrayers' element={<PrayerAPI /> } />
+          <Route path='/addNewsletter' element={<NewsletterAPI /> } />          
+          <Route path='/add-donation-project' element={<DonationProjectAPI /> } />          
         </Routes>
         <Footer />
       </Router>

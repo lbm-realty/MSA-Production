@@ -86,14 +86,14 @@ const Navbar = () => {
 
   return (
     <nav className="fixed bg-black py-4 w-full z-50 shadow-lg">
-      <div style={{"background": "rgb(99, 10, 0, 0.95)"}} className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-0 lg:px-8">
+      <div style={{"background": "rgb(99, 10, 0, 0.95)"}} className="max-w-7xl mx-auto px-4 py-4 sm:px-6 sm:py-1 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo Section */}
           <div className="flex items-center space-x-2">
             <img 
               src={logo} 
               alt="TTU MSA Logo" 
-              className="h-20 w-20 object-contain"
+              className="h-20 w-20 bg-gray-100 rounded-full object-contain"
             />
             <div className="text-white flex flex-col justify-center">
               <p className="text-xl">TTU MSA</p>

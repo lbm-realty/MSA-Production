@@ -3,7 +3,7 @@ import '../css/donationDesc.css'
 
 const DonationDesc = () => {
   return (
-    <div className="donation-desc-container">
+    <div className="bg-red-950/70 p-12 rounded-3xl text-white">
       <h3 className="donation-desc-header">Make a Difference Today</h3>
       <p className="donation-desc-desc">
         Here at Texas Tech MSA, we strive to create a positive impact within our

@@ -17,10 +17,6 @@ router.post('/addEntry', authenticateToken, async (req, res) => {
 router.post("/showData", async (req, res) => {
     try {
         const allData = await Event.find();
-        console.log(`Type of All Data: `, typeof allData);
-        console.log(`Is Array: ${Array.isArray(allData)}`);
-        console.log(`Length: ${allData.length}`)
-        console.log(`All of the data: ${allData}`);
         if (allData && allData.length > 0)
             res.json(allData);
     } catch (err) {

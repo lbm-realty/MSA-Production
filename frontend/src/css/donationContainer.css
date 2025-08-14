@@ -1,11 +1,13 @@
 .donate-section {
     padding: 150px 175px 130px 175px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     background: url('../images/zakat-assistance-img.png'); 
     background-size: cover;
     text-align: center;
 }
 .donation-container {
-    background: rgb(139, 0, 0, 0.5);
     padding: 35px 35px 55px 35px;
     box-shadow: 10px;
     border-radius: 25px;
@@ -17,8 +19,7 @@
     color: rgb(255, 255, 255);
     /* background: rgb(139, 0, 0, 0.5); */
     padding-bottom: 10px;
-    font-weight: lighter;
-    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
 }
 
 .donate-section-para {
@@ -27,7 +28,6 @@
     /* background-color: var(--bg-red); */
     padding-bottom: 10px;
     font-style: italic;
-    font-family: 'Times New Roman', Times, serif;
 }
 .all-options {
     display: flex;
@@ -52,7 +52,6 @@
     height: 55px;
     font-size: 25px;
     width: 100%;
-    font-family:'Times New Roman', Times, serif;
     color: rgb(255, 255, 255);
     border: 1.5px solid rgb(224, 99, 99);
     cursor: pointer;
@@ -91,7 +90,6 @@
     width: 100%;
 }
 .donation-button-1, #donation-button-custom {
-    font-family: 'Times New Roman', Times, serif;
     background-color: var(--bg-black);
     border-radius: 15px;
     height: 80px;
@@ -115,7 +113,6 @@
     width: 50%;
     border-radius: 5px;
     color:#f0ebeb;
-    font-family: 'Times New Roman', Times, serif;
     border: 2px solid black;
     background-color: var(--bg-black);
     margin-right: 10px;
@@ -156,9 +153,10 @@
 
 @media all and (width < 600px) {
     .donate-section-mobile {
-        padding: 160px 30px 90px 30px;
+        padding: 180px 30px 90px 30px;
         display: flex;
         flex-direction: column;
+        gap: 20px;
         align-items: center;
         justify-content: center;
         background: url("../images/donations-phone.png");

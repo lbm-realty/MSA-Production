@@ -68,8 +68,8 @@ const Footer = () => {
             {/* Logo Section */}
             <div className="text-center md:text-center">
               <div
-                style={{ background: "rgb(99, 10, 0, 0.95)" }}
-                className="p-3 rounded-full inline-block mb-4 shadow-lg border-2 border-white"
+                // style={{ background: "rgb(99, 10, 0, 0.95)" }}
+                className="p-3 bg-gray-200 rounded-full inline-block mb-4 shadow-lg border-2 border-red-600"
               >
                 <img
                   src={logo}
