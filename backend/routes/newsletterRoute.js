@@ -6,7 +6,7 @@ const { authenticateToken } = require('./tokens');
 
 const upload = multer();
 
-router.post('/add-newsletter', upload.single("pdfFile"), authenticateToken, async (req, res) => {
+router.post('/add-newsletter', authenticateToken, async (req, res) => {
     try {
         const newNewsletter = new NewsletterContent({
             month: req.body.month,
