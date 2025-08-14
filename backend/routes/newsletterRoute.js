@@ -1,12 +1,12 @@
 const NewsletterContent = require('../models/newsletterSchema');
 const express = require('express');
-// const multer = require('multer');
+const multer = require('multer');
 const router = express.Router();
 const { authenticateToken } = require('./tokens');
 
-// const upload = multer();
+const upload = multer();
 
-router.post('/add-newsletter', authenticateToken, async (req, res) => {
+router.post('/add-newsletter', upload.single("pdfFile"), authenticateToken, async (req, res) => {
     try {
         const newNewsletter = new NewsletterContent({
             month: req.body.month,
