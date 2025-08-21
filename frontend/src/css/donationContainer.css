@@ -74,10 +74,8 @@
     transition: background-color 0.3s, transform 0.3s; */
 }
 .oneTime:hover, .monthly:hover {
-    background-color: rgb(235, 231, 231);
-    color: rgb(0, 0, 0);
-    border: 1.5px solid rgb(0, 0, 0);
-    transform: scale(1.05);
+    background-color: rgb(235, 231, 231, 0.4);
+    transform: scale(1.02);
 }
 .donation-options {
     display: flex;
@@ -102,9 +100,7 @@
     transition: background-color 0.3s, transform 0.3s;
 }
 .donation-button-1:hover, #donation-button-custom:hover {
-    background-color:  rgb(180, 22, 22);
-    color: rgb(0, 0, 0);
-    border: 1.5px solid rgb(0, 0, 0);
+    background-color:  rgb(125, 6, 6, 0.5);
     transform: scale(1.05);
 }
 #custom-amount {
@@ -143,11 +139,11 @@
     cursor: pointer;
 }
 .confirm-amount:hover {
-    background: rgb(94, 139, 25);
+    background: rgb(52, 44, 213, 0.6);
     transition: 0.5s;
 }
 .cancel-button:hover {
-    background: rgb(172, 5, 5);
+    background: rgb(172, 5, 5, 0.6);
     transition: 0.5s;
 }
 

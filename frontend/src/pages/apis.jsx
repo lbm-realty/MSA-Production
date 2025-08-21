@@ -42,6 +42,15 @@ const APIs = () => {
         >
           Go to prayer hours
         </button>
+        <h2>Edit Merch</h2>
+        <button
+          className="text-black"
+          onClick={() => {
+            window.location.href = "/edit-merch";
+          }}
+        >
+          Go to All Merch
+        </button>
       </div>
       <div className="api-links">
       </div>

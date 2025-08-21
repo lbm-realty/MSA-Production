@@ -14,7 +14,7 @@ router.post('/add-newsletter', upload.single("pdfFile"), authenticateToken, asyn
             contentType: req.file.mimetype,
         });
         const saved = await newNewsletter.save();
-                if (saved) 
+        if (saved) 
             return res.status(201).json({ message: `Newsletter added` });
         else
             return res.json({ message: "An error occurred" });
@@ -24,15 +24,6 @@ router.post('/add-newsletter', upload.single("pdfFile"), authenticateToken, asyn
 })
 
 router.get('/fetch-newsletters', async (req, res) => {
-
-        // For the condition below to work, we'll have to 
-        // loop through all the objects in NewsletterData
-        // And then target the .pdfFile property, as all the 
-        // newsletters are being stored as objects in an array
-        // if (!newsletterData || !newsletterData.pdfFile) {
-        //     return res.status(404).send({ "message": "PDF was not found"});
-        // }
-
     try {
         const newsletterData = await NewsletterContent.find({}, { pdfFile: 0 }); // exclude pdfFile
         res.send(newsletterData);

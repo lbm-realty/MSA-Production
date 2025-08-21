@@ -5,6 +5,7 @@ const auth = require('./routes/auth');
 const prayer = require('./routes/prayersRoute');
 const newsletter = require('./routes/newsletterRoute');
 const donationProject = require('./routes/donationProjectRoute');
+const merchContent = require('./routes/merchRoute');
 require("dotenv").config();
 const stripe = require("stripe")(process.env.BACKEND_KEY);
 const { v4: uuidv4 } = require("uuid");
@@ -35,6 +36,7 @@ app.use('/', prayer);
 app.use('/', auth);
 app.use('/', newsletter);
 app.use('/', donationProject);
+app.use('/', merchContent);
 
 app.get("/", (req, res) => {
   res.send("App works");

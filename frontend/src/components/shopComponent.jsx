@@ -3,10 +3,10 @@ import "../css/shopComponent.css";
 import merch1 from "../images/merch1.png";
 import merch2 from "../images/merch2.png";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const ShopComponent = () => {
   const sizes = ["S", "M", "L", "XL"];
-  const [selectSize, setSelectSize] = useState(new Array(3).fill(false));
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
 
@@ -36,16 +36,63 @@ const ShopComponent = () => {
       productSize: "Size",
     },
   ];
-  const [products, setProducts] = useState(current_products);
+  const [products, setProducts] = useState([]);
+  const [selectSize, setSelectSize] = useState(
+    new Array(products.length).fill("")
+  );
+  const [isSizeOpen, setIsSizeOpen] = useState(
+    new Array(products.length).fill(false)
+  );
+  const [added, setAdded] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const [outOfStock, setOutOfStock] = useState(
+    new Array(products.length).fill(false)
+  );
 
   /**
    * Make the products come from local storage, that way the product size
    * and the quantity will be saved permanently, and won't disappear on reload
    * No reason to worry about local storage being empty, and products not being
    * displayed as in this component, the user can't remove any products
-   * The useEffect just has to run in the very beginning, so products can be
+   * The useEffect just has to run in the beginning, so products can be
    * retrieved from it
-  */
+   */
+
+  // useEffect(() => {
+  //   setSelectSize(new Array(products.length).fill(""));
+  //   setIsSizeOpen(new Array(products.length).fill(false));
+  //   setOutOfStock(new Array(products.length).fill(false));
+  
+  // }, [products])
+
+  useEffect(() => {
+    setIsSizeOpen(isSizeOpen);
+    setSelectSize(selectSize);
+
+  }, [isSizeOpen, selectSize]);
+
+  useEffect(() => {
+    const fetchMerch = async () => {
+      try {
+        const response = await fetch(`http://localhost:8282/all-merch`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        const res = await response.json();
+
+        if (response.ok) {
+          setProducts(res);
+        } else alert(res);
+      } catch (err) {
+        alert(err);
+      }
+    };
+
+    fetchMerch();
+  }, []);
 
   const handleCartClick = () => {
     const sendData = products.filter((product) => product.quantity !== 0);
@@ -59,32 +106,58 @@ const ShopComponent = () => {
       return;
     }
 
-    setProducts(products.map(currProduct => {
-      return currProduct.name === product.name ? 
-        { ...product, quantity: currProduct.quantity + 1 } :
-        currProduct;
-    }))
+    setProducts(
+      products.map((currProduct) => {
+        return currProduct.name === product.name
+          ? { ...product, quantity: currProduct.quantity + 1 }
+          : currProduct;
+      })
+    );
 
-    setTotal(prevTotal => prevTotal + 1);
+    setTotal((prevTotal) => prevTotal + 1);
   };
 
-  const handleSizeSelection = (name, prodSize) => {
-    setProducts(products.map(product => {
-      return product.name === name ? 
-        {...product, productSize: prodSize} : 
-          product
-    }))
+  const handleShowMessage = () => {
+    setAdded(true);
+    setTimeout(() => setVisible(true), 50);
+
+    setTimeout(() => setVisible(false), 600);
+    setTimeout(() => setAdded(false), 1000);
+  };
+
+  const handleSizeSelection = (product, index1, chosenSize) => {
+    const isOut = product.amount.some(
+      (a) => a.size === chosenSize && a.stock === 0
+    );
+    setOutOfStock((prev) => ({ ...prev, [index1]: isOut }));
   };
 
   return (
     <>
-      <div className="outer-div-shop">
-        <div className="inner-div-shop">
-          <div className="header-cart">
-            <h2 className="shop-header">Shop our Merch!</h2>
-            <div className="cart-shop">
-              <button onClick={handleCartClick} className="cart-shop-btn">
-                {total > 0 && <div className="cart-circle">{total}</div>}
+      <div className="px-6 py-32 text-white bg-black flex justify-center">
+        {added && (
+          <div
+            className={`fixed ease-in-out top-1/2 left-1/2 -translate-x-1/2 
+                          -translate-y-1/2  bg-gray-400 px-6 py-3 rounded-full
+                          transition-opacity duration-700 ${
+                            visible ? "opacity-100" : "opacity-0"
+                          }`}
+          >
+            <p className="text-black font-bold text-xl">Item added!</p>
+          </div>
+        )}
+        <div className="mt-20 bg-gray-900/45 p-4">
+          <div className="flex justify-between sm:justify-around items-center">
+            <p className="bg-red-800/65 font-bold text-3xl p-2">
+              Shop our Merch!
+            </p>
+            <div className="bg-red-800/65">
+              <button onClick={handleCartClick} className="text-xl">
+                {total > 0 && (
+                  <div className="bg-gray-100 rounded-full absolute ml-10 px-2 text-black">
+                    {total}
+                  </div>
+                )}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -97,54 +170,60 @@ const ShopComponent = () => {
               </button>
             </div>
           </div>
-          <div className="products-outer">
+          <div className="flex flex-col gap-4 sm:flex-row justify-center items-center py-8 px-2">
             {products.map((product, index1) => (
-              <div className="products-inner">
+              <div className="p-4 bg-gray-700/20 gap-2 flex flex-col items-center w-full">
                 <img
-                  className="shop-product-img"
-                  src={product.source}
+                  className="sm:h-80 sm:w-64"
+                  src={`http://localhost:8282/merch/${product._id}/image`}
                   alt="merch1"
                 />
-                <h3 className="product-name">{product.name}</h3>
-                <h3 className="product-price">{product.price}</h3>
-                <div className="toggle-amount-merch">
+                <p className="text-2xl">{product.name}</p>
+                <p className="text-2xl">${product.price}</p>
+                <div className="flex gap-3 items-center justify-center">
                   <button
-                    className="add-cart"
-                    onClick={() => handleAddToCart(product)}
+                    className="bg-gray-100 px-2 text-xl rounded-md text-black"
+                    onClick={() => {
+                      handleAddToCart(product);
+                      handleShowMessage();
+                    }}
                   >
                     Add to cart
                   </button>
-                  <div className="size-arrow">
-                    {!selectSize[index1] && (
+                  <div className="bg-gray-100 rounded-md text-black items-center">
+                    {!isSizeOpen[index1] && (
                       <>
                         <button
-                          className="merch-size"
+                          className="text-black text-xl px-2"
                           onClick={() => {
-                            setSelectSize(prevSize => {
-                              const updated = [...prevSize];
-                              updated[index1] = true;
-                              return updated
-                            });
+                            setIsSizeOpen((prev) => ({
+                              ...prev,
+                              [index1]: !prev[index1],
+                            }));
                           }}
                         >
-                          {product.productSize}
+                          {selectSize[index1] ? selectSize[index1] : "Size"}
                         </button>
                       </>
                     )}
-                    {selectSize[index1] && (
-                      <div className="size-selection">
-                        <div className="line">----</div>
+                    {isSizeOpen[index1] && (
+                      <div className="p-3">
+                        <div className="text-black"></div>
                         {sizes.map((uniqueSize) => (
                           <>
                             <div
-                              className="size-options"
+                              className="flex flex-col items-center"
                               onClick={() => {
-                                handleSizeSelection(product.name, uniqueSize);
-                                setSelectSize(prevSize => {
-                                  const updated = [...prevSize];
-                                  updated[index1] = false;
-                                  return updated
-                                });
+                                // handleSizeSelection(product.name, uniqueSize);
+                                setSelectSize((prev) => ({
+                                  ...prev,
+                                  [index1]: uniqueSize,
+                                }));
+                                setIsSizeOpen((prev) => ({
+                                  ...prev,
+                                  [index1]: !prev[index1],
+                                }));
+                                handleSizeSelection(product, index1, uniqueSize);
                               }}
                             >
                               {uniqueSize}
@@ -156,6 +235,11 @@ const ShopComponent = () => {
                     )}
                   </div>
                 </div>
+                {outOfStock[index1] && (
+                  <div className="px-2 py-1 mt-1 text-red-700 border-[1.5px] border-red-800 rounded-lg">
+                    <p>Out of Stock</p>
+                  </div>
+                )}
               </div>
             ))}
           </div>
