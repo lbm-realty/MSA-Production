@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "../css/donationContainer.css";
 import StripeCheckout from "react-stripe-checkout";
 import DonationDesc from "./donationDesc";
-import { BookOpen, Link } from "lucide-react";
+import { Link } from "lucide-react";
 
 function DonationContainer() {
   const [customAmount, setCustomAmount] = useState(0);
