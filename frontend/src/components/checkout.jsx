@@ -34,7 +34,7 @@ const CheckoutForm = () => {
 
     try {
       // 1. Create PaymentIntent on backend
-      const response = await fetch("http://localhost:8282/merch/create-payment-intent", {
+      const response = await fetch("https://msa-production.onrender.com/merch/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

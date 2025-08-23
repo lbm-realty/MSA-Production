@@ -43,7 +43,7 @@ const MerchAPI = () => {
   useEffect(() => {
     const fetchMerch = async () => {
       try {
-        const response = await fetch(`http://localhost:8282/all-merch`, {
+        const response = await fetch(`https://msa-production.onrender.com/all-merch`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const MerchAPI = () => {
 
   const deleteMerch = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8282/delete/merch/${id}`, {
+      const response = await fetch(`https://msa-production.onrender.com/delete/merch/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ const MerchAPI = () => {
     formData.append("imageFile", merchContent.image);
 
     try {
-      const response = await fetch("http://localhost:8282/add-merch", {
+      const response = await fetch("https://msa-production.onrender.com/add-merch", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -131,7 +131,7 @@ const MerchAPI = () => {
     setSizeEdited(false);
 
     try {
-      const response = await fetch(`http://localhost:8282/edit-merch/${id}`, {
+      const response = await fetch(`https://msa-production.onrender.com/edit-merch/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -256,7 +256,7 @@ const MerchAPI = () => {
                   <img
                     className="h-32"
                     alt="product-image"
-                    src={`http://localhost:8282/merch/${m._id}/image`}
+                    src={`https://msa-production.onrender.com/merch/${m._id}/image`}
                   />
                 </div>
               ) : (

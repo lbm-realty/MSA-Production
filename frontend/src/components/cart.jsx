@@ -84,7 +84,7 @@ const Cart = () => {
                       <div className="flex justify-center">
                         <img
                           className="w-64 w-58"
-                          src={`http://localhost:8282/merch/${item.id}/image`}
+                          src={`https://msa-production.onrender.com/merch/${item.id}/image`}
                           alt="merch"
                         />
                       </div>

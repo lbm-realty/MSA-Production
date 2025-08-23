@@ -240,17 +240,11 @@ function DonationContainer() {
           <div className="flex flex-col gap-8 sm:gap-4 justify-center items-center text-white bg-red-950/70 p-12 rounded-3xl">
             <p className="text-2xl sm:text-4xl mb-2 sm:mb-4 italic font-bold">Feel free to support our projects too!</p>
               <div className="flex flex-col gap-6">
-                {donationProjects.map((proj) => (
-                  // <StripeCheckout
-                  //   stripeKey={process.env.REACT_APP_KEY}
-                  //   token={makePayment}
-                  // >
+
                   <div onClick={() => window.location.href="https://www.zeffy.com/en-US/donation-form/support-tech-students-islamic-journey"} className="flex gap-2 text-white rounded-2xl sm:rounded-2xl hover:bg-red-900/40 cursor-pointer duration-300 hover:scale-105 justify-center items-center border-[1.5px] border-red-400 p-4">
                     <h1 className="text-2xl">Go to project</h1>
                     <Link />
                 </div>
-                  // {/* </StripeCheckout> */}
-                ))}
               </div>
           </div>
           )}
