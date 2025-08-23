@@ -85,7 +85,7 @@ const CheckoutForm = () => {
   );
 };
 
-export default function PaymentPage() {
+const PaymentPage = () => {
   const [error, setError] = useState(false)
 
   if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
@@ -107,3 +107,5 @@ export default function PaymentPage() {
     </div>
   );
 }
+
+export default PaymentPage;
