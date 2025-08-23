@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../css/donationContainer.css";
 import StripeCheckout from "react-stripe-checkout";
 import DonationDesc from "./donationDesc";
+import { BookOpen, Link } from "lucide-react";
 
 function DonationContainer() {
   const [customAmount, setCustomAmount] = useState(0);
@@ -244,42 +245,9 @@ function DonationContainer() {
                   //   stripeKey={process.env.REACT_APP_KEY}
                   //   token={makePayment}
                   // >
-                  <div onClick={() => handleAmount(proj.amount)} className="flex flex-col gap-2 text-white rounded-2xl sm:rounded-2xl justify-center items-center border-[1.5px] border-red-400 p-4">
-                    <p className="text-xl sm:text-2xl font-bold">{proj.name}</p>
-                    {proj.description && (
-                      <p className="text-lg sm:text-xl">{proj.description}</p>
-                    )}
-                    <p className="text-lg sm:text-xl font-bold">Amount needed: ${proj.amount}</p>
-                    <div className="h-[1px] w-[50%] bg-white my-4"></div>
-                    <div className="flex gap-2 justify-center items-center">
-                      <p className="text-lg sm:text-xl text-white">Feel free to pitch in whatever you can</p>
-                      <input
-                        type="number"
-                        inputmode="numeric"
-                        pattern="[0-9]*"
-                        onKeyDown={(e) => {
-                          const invalidChars = ['-', '+', 'e', 'E', '.', 'ArrowUp', 'ArrowDown'];
-                          if (invalidChars.includes(e.key)) 
-                            e.preventDefault();
-                        }}
-                        className="bg-transparent border rounded-md px-2 py-1"
-                        placeholder="Enter Amount in USD"
-                        value={customAmount || ""}
-                        onChange={(e) => setCustomAmount(e.target.value)}
-                      />
-
-                        <StripeCheckout
-                        stripeKey={process.env.REACT_APP_KEY}
-                        token={makePayment}
-                      >
-                        <button
-                          className="bg-transparent border rounded-md px-2 py-1 cursor-pointer hover:bg-red-800/30 duration-300 hover:scale-105"
-                          onClick={handleCustomDonate}
-                        >
-                          Confirm
-                        </button>
-                      </StripeCheckout>
-                  </div>
+                  <div onClick={() => window.location.href="https://www.zeffy.com/en-US/donation-form/support-tech-students-islamic-journey"} className="flex gap-2 text-white rounded-2xl sm:rounded-2xl hover:bg-red-900/40 cursor-pointer duration-300 hover:scale-105 justify-center items-center border-[1.5px] border-red-400 p-4">
+                    <h1 className="text-2xl">Go to project</h1>
+                    <Link />
                 </div>
                   // {/* </StripeCheckout> */}
                 ))}
