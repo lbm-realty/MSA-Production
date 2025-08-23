@@ -8,6 +8,12 @@ const Cart = () => {
   const items =
     retreivedItems !== "undefined" ? JSON.parse(retreivedItems) : null;
   const [products, setProducts] = useState(items);
+  const currDate = new Date;
+
+  const months = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(products));
@@ -55,7 +61,7 @@ const Cart = () => {
     var sum = 0;
     products
       ? products.forEach((product) => {
-          var currPrice = product.price.slice(1) * product.quantity;
+          var currPrice = product.price * product.quantity;
           sum += currPrice;
         })
       : (sum = 0);
@@ -66,74 +72,71 @@ const Cart = () => {
   const grandtotal = Number(tax) + Number(calcTotalAmount());
 
   return (
-    <div className="cart-outer">
+    <div className="px-10 py-20 bg-black">
       {products ? (
         products.length > 0 ? (
-          <div className="cart-full">
-            <div className="cart-inner">
-              <h3 className="cart-header">Your Items</h3>
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <div className="mt-24 flex flex-col items-center text-white justify-center gap-4">
+              <h3 className="bg-red-700/70 text-3xl p-2">Your Items</h3>
               {products.map(
                 (item, index) =>
-                  item.quantity > 0 && (
-                    <div className="cart-items">
-                      <div className="">
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-8 p-3 border border-gray-400 rounded-2xl items-center justify-center">
+                      <div className="flex justify-center">
                         <img
-                          className="cart-product-img"
-                          src={item.source}
-                          alt="merch1"
+                          className="w-64 w-58"
+                          src={`http://localhost:8282/merch/${item.id}/image`}
+                          alt="merch"
                         />
                       </div>
-                      <div className="item-name-quant">
-                        <h2 className="cart-item-name">{item.name}</h2>
-                        <div className="quant-inc-btn">
-                          <button
-                            className="cart-quant-inc-btn"
-                            onClick={() => handleClickDecrease(item.name)}
-                          >
-                            -
-                          </button>
-                          <h5 className="quant-1">Qty</h5>
-                          <h5 className="quant-2">{item.quantity}</h5>
-                          <button
-                            className="cart-quant-dec-btn"
+                      <div className="flex gap-2 justify-center items-center flex-col">
+                        <h5 className="text-2xl">{item.name}</h5>
+                        <div className="flex gap-2 text-2xl sm:text-lg bg-gray-800 items-center justify-center border border-gray-700 rounded-full">
+                            <p
+                              className="text-xl cursor-pointer mb-1 border-r px-2"
+                              onClick={() => handleClickDecrease(item.name)}
+                            >
+                              -
+                            </p>
+                          <h5 className="text-lg">Qty</h5>
+                          <h5 className="text-lg">{item.quantity}</h5>
+                          <p
+                            className="text-xl mb-1 border-l cursor-pointer px-2"
                             onClick={() => handleClickIncrease(item.name)}
                           >
                             +
-                          </button>
+                          </p>
                         </div>
-                        <div className="size-display">
-                          Size: {products[index].productSize}
-                        </div>
+                        <h5 className="text-lg">
+                          Size: {item.size}
+                        </h5>
                         <div
-                          className="remove-item"
+                          className="bg-gray-200 cursor-pointer text-black px-2 py-1 rounded-full"
                           onClick={() => removeItem(item)}
                         >
                           Remove Item
                         </div>
                       </div>
-                      <div className="middle-element">
-                        <div className="shipping-arrives">
-                          <div className="green-circle">
-                            <div className="green"></div>
+                      <div className="px-8 sm:px-16">
+                        <div className="flex items-start">
+                          <div className="border-2 mt-1 border-green-600 p-2 rounded-full">
                           </div>
                           <div className="ship-arrive">
                             <h3 className="ship">Shipping</h3>
                             <h3 className="arrive">
-                              Arriving by: Monday, 13th March
+                              Arriving by: {currDate.getDate() + 7}th {months[currDate.getMonth() - 1]}
                             </h3>
                           </div>
                         </div>
                         <h2 className="cart-note">
-                          If you decide to cancel your order, please let us know
+                         If you decide to cancel your order, please let us know
                           at texastechmsa@gmail.com
                         </h2>
                       </div>
-                      <h2 className="item-price">{item.price}</h2>
+                      <h2 className="item-price">${item.price}</h2>
                     </div>
-                  )
               )}
             </div>
-            <div className="order-summary">
+            <div className="flex flex-col sm:mt-24 text-white border border-gray-400 p-4 rounded-2xl">
               <h2 className="summary-header">Order Summary</h2>
               <div className="subtotal-container">
                 <div className="subtotal-print">
@@ -157,8 +160,11 @@ const Cart = () => {
                   <h2 className="subtotal-item-1">Total </h2>
                   <h2 className="subtotal-item-1">{grandtotal.toFixed(2)}</h2>
                 </div>
-                <div className="checkout-div">
-                  <button onClick={() => navigate("/checkout")} className="checkout">Checkout</button>
+                <div className="flex justify-center items-center mt-4">
+                  <button onClick={() => {
+                    localStorage.setItem("total", grandtotal);
+                    navigate("/checkout")
+                    }} className="px-2 py-1 border rounded-full hover:bg-gray-200 hover:text-black duration-300 hover:scale-105">Checkout</button>
                 </div>
               </div>
             </div>

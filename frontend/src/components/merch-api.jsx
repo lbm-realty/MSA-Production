@@ -102,7 +102,6 @@ const MerchAPI = () => {
     formData.append("amount", JSON.stringify(merchContent.amount));
     formData.append("imageFile", merchContent.image);
 
-    console.log(merchContent);
     try {
       const response = await fetch("http://localhost:8282/add-merch", {
         method: "POST",

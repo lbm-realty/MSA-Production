@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "../css/shopComponent.css";
-import merch1 from "../images/merch1.png";
-import merch2 from "../images/merch2.png";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -10,32 +8,6 @@ const ShopComponent = () => {
   const [total, setTotal] = useState(0);
   const navigate = useNavigate();
 
-  const current_products = [
-    {
-      id: 1,
-      source: merch1,
-      name: "'25-26 Hoodie",
-      price: "$39.99",
-      quantity: 0,
-      productSize: "Size",
-    },
-    {
-      id: 2,
-      source: merch2,
-      name: "'24-25 Hoodie",
-      price: "$49.99",
-      quantity: 0,
-      productSize: "Size",
-    },
-    {
-      id: 3,
-      source: merch1,
-      name: "'23-24 Hoodie",
-      price: "$39.99",
-      quantity: 0,
-      productSize: "Size",
-    },
-  ];
   const [products, setProducts] = useState([]);
   const [selectSize, setSelectSize] = useState(
     new Array(products.length).fill("")
@@ -48,6 +20,7 @@ const ShopComponent = () => {
   const [outOfStock, setOutOfStock] = useState(
     new Array(products.length).fill(false)
   );
+  const [cartProduct, setCartProduct] = useState([]);
 
   /**
    * Make the products come from local storage, that way the product size
@@ -58,12 +31,19 @@ const ShopComponent = () => {
    * retrieved from it
    */
 
-  // useEffect(() => {
-  //   setSelectSize(new Array(products.length).fill(""));
-  //   setIsSizeOpen(new Array(products.length).fill(false));
-  //   setOutOfStock(new Array(products.length).fill(false));
+  useEffect(() => {
+    setSelectSize(new Array(products.length).fill(""));
+    setIsSizeOpen(new Array(products.length).fill(false));
+    setOutOfStock(new Array(products.length).fill(false));
+    setCartProduct(new Array(products.length).fill({
+    id: "",
+    name: "",
+    price: null,
+    size: "",
+    quantity: 0,
+  }));
   
-  // }, [products])
+  }, [products])
 
   useEffect(() => {
     setIsSizeOpen(isSizeOpen);
@@ -95,26 +75,32 @@ const ShopComponent = () => {
   }, []);
 
   const handleCartClick = () => {
-    const sendData = products.filter((product) => product.quantity !== 0);
-    localStorage.setItem("cartItems", JSON.stringify(sendData));
+    const cartItems = cartProduct.filter((prod) => prod.quantity !== 0)
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
     navigate("/cart");
   };
 
-  const handleAddToCart = (product) => {
-    if (product.productSize === "Size") {
+  const handleAddToCart = (index, product) => {
+    if (selectSize[index].trim().length < 1) {
       alert("Please select a size first");
       return;
     }
 
-    setProducts(
-      products.map((currProduct) => {
-        return currProduct.name === product.name
-          ? { ...product, quantity: currProduct.quantity + 1 }
-          : currProduct;
-      })
-    );
+    setCartProduct((prev) => {
+      const updated = [...prev];
+      updated[index] = {
+        ...updated[index],
+        id: product._id,
+        name: product.name,
+        price: product.price,
+        size: selectSize[index],
+        quantity: updated[index].quantity + 1 
+      }
+      return updated;
+    });
 
     setTotal((prevTotal) => prevTotal + 1);
+    handleShowMessage();
   };
 
   const handleShowMessage = () => {
@@ -182,11 +168,11 @@ const ShopComponent = () => {
                 <p className="text-2xl">${product.price}</p>
                 <div className="flex gap-3 items-center justify-center">
                   <button
-                    className="bg-gray-100 px-2 text-xl rounded-md text-black"
-                    onClick={() => {
-                      handleAddToCart(product);
-                      handleShowMessage();
-                    }}
+                    className={`${outOfStock[index1] ? "bg-gray-200/70" : "bg-gray-100"} px-2 text-xl rounded-md text-black`}
+                    onClick={!outOfStock[index1] ? (() => {
+                      handleAddToCart(index1, product);
+                    }) : (() => null)
+                  }
                   >
                     Add to cart
                   </button>
@@ -212,7 +198,7 @@ const ShopComponent = () => {
                         {sizes.map((uniqueSize) => (
                           <>
                             <div
-                              className="flex flex-col items-center"
+                              className="flex flex-col cursor-pointer items-center"
                               onClick={() => {
                                 // handleSizeSelection(product.name, uniqueSize);
                                 setSelectSize((prev) => ({
