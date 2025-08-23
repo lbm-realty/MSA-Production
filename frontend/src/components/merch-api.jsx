@@ -62,7 +62,7 @@ const MerchAPI = () => {
     };
 
     fetchMerch();
-  }, []);
+  }, [merch.length]);
 
   const deleteMerch = async (id) => {
     try {

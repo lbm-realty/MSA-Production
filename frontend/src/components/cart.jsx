@@ -8,7 +8,7 @@ const Cart = () => {
   const items =
     retreivedItems !== "undefined" ? JSON.parse(retreivedItems) : null;
   const [products, setProducts] = useState(items);
-  const currDate = new Date;
+  const currDate = new Date();
 
   const months = [
     "January", "February", "March", "April", "May", "June",
