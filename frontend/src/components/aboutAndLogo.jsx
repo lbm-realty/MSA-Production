@@ -1,41 +1,3 @@
-// import "../css/aboutAndLogo.css";
-// import logo from "../images/msa-logo.png";
-
-// const AboutContainer = () => {
-//   const openAboutPage = () => {
-//     window.open("/about");
-//   };
-
-//   return (
-//     <div className="about-outer">
-//       <div className="about-inner">
-//         <img src={logo} className="about-logo" alt="MSA-logo" />
-//         <div className="about-container">
-//           <div className="about-header">About</div>
-//           <div className="about-text">
-//             Salam Alaikum! Welcome to the Muslim Students Association (MSA) at
-//             Texas Tech University! Our main goal is to bring people
-//             together—whether through fun social events, thought-provoking
-//             discussions, or community service projects.
-//             <br />
-//             <button
-//               onClick={() => {
-//                 openAboutPage();
-//               }}
-//               className="read-more-btn"
-//             >
-//               Learn More
-//             </button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default AboutContainer;
-
-
 import logo from "../images/msa-logo.png";
 
 const AboutContainer = () => {
@@ -57,8 +19,8 @@ const AboutContainer = () => {
             </div>
 
             {/* About Content */}
-            <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-4xl font-bold text-gray-100 mb-6">About</h2>
+            <div className="flex-1 justify-center text-left">
+              <h2 className="text-4xl font-bold lg:mr-44 text-gray-100 mb-6">About</h2>
               <p className="text-lg text-gray-100 leading-relaxed mb-8">
                 Salam Alaikum! Welcome to the Muslim Students Association (MSA)
                 at Texas Tech University! Our main goal is to bring people

@@ -1,23 +1,3 @@
-// import '../css/donateHome.css'
-
-// const DonateHome = () => {
-//     return (
-//         <div className="outer-donate">
-//             <div className='inner-donate'>
-//                 <h2>Make a Donation</h2>
-//                 <p className='donate-hadees'>Prophet Muhammad (ﷺ), peace be upon him, said: "When a man dies, his deeds come to an end except for three things: Sadaqah Jariyah (ceaseless charity); a knowledge which is beneficial, or a virtuous descendant who prays for him (for the deceased)." (Muslim)</p>
-//                 <button onClick={() => {
-//                     window.open('/donations')
-//                 }} className='donate-btn-home'>Donate</button>
-//             </div>
-//         </div>
-//     )
-// }
-
-// export default DonateHome;
-
-
-
 import { Heart } from 'lucide-react';
 
 const DonateHome = () => {
@@ -41,7 +21,7 @@ const DonateHome = () => {
 
         <a 
           style={{"background": "rgb(99, 10, 0, 0.95)"}}
-          href="/donation"
+          href="/donations"
           className="inline-block border hover:bg-red-700 text-white font-semibold py-4 px-10 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
         >
           Donate Now

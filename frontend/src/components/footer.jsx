@@ -152,7 +152,7 @@ const Footer = () => {
 
           <div className="border-t border-red-700 mt-12 pt-8 text-center">
             <p className="text-white">
-              © 2024 Texas Tech University Muslim Students Association. All
+              © 2025 Texas Tech University Muslim Students Association. All
               rights reserved.
             </p>
           </div>

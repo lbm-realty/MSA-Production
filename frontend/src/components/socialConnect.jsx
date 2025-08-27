@@ -56,7 +56,7 @@ const SocialConnect = () => {
     {
       name: "YouTube",
       icon: Youtube,
-      url: "https://www.youtube.com/@texastechuniversity_msa",
+      url: "https://www.youtube.com/@tx.techuniversity_msa",
       color: "hover:text-red-500",
     },
     {
