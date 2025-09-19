@@ -13,10 +13,10 @@ import PrayerAPI from "./components/prayerAPI";
 import APIs from "./pages/apis";
 import NewsletterAPI from "./components/newsletter-api";
 import DonationProjectAPI from "./components/donation-project-api";
-// import Cart from "./components/cart";
+import Cart from "./components/cart";
 import ShopComponent from "./components/shopComponent";
 import { CartProvider } from "./components/CartContext";
-// import PaymentPage from "./components/checkout";
+import PaymentPage from "./components/checkout";
 import MerchAPI from "./components/merch-api";
 
 function App() {
@@ -32,8 +32,8 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/about" element={<About />} />
           <Route path="/shop" element={<ShopComponent />} />    
-          {/* <Route path="/cart" element={<Cart /> } />       */}
-          {/* <Route path="/checkout" element={<PaymentPage /> } />       */}
+          <Route path="/cart" element={<Cart /> } />      
+          <Route path="/checkout" element={<PaymentPage /> } />      
           <Route path="/login" element={<Login />} />
           <Route path="/adminRoutes" element={<APIs />} />          
           <Route path='/addEvents' element={<EventsAPI /> } />
