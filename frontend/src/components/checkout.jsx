@@ -20,7 +20,7 @@ const CheckoutForm = () => {
     fullName: "",
     email: "",
     phone: "",
-    amount: 0.5,
+    amount: total,
   });
   const [loading, setLoading] = useState(false);
 
