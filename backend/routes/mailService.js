@@ -16,12 +16,12 @@ async function sendOrderEmail(orderDetails) {
     to: process.env.ADMIN_EMAIL, // email of admin
     subject: 'New Order Received',
     text: `
-New Order Details:
--------------------
-Name: ${fullName}
-Email: ${email}
-Phone: ${phone}
-Amount: $${amount}
+    New Order Details:
+    -------------------
+    Name: ${fullName}
+    Email: ${email}
+    Phone: ${phone}
+    Amount: $${amount}
     `
   };
 

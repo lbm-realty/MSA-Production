@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const router = express.Router();
-// const sendOrderEmail = require('./mailService');
+const sendOrderEmail = require('./mailService');
 const stripe = require("stripe")(process.env.BACKEND_KEY);
 
 router.post('/merch/create-payment-intent', async (req, res) => {
@@ -23,15 +23,16 @@ router.post('/merch/create-payment-intent', async (req, res) => {
       automatic_payment_methods: { enabled: true }, // allows various payment methods
     });
 
-    // await sendOrderEmail({ fullName, email, phone, amount });
+    sendOrderEmail({ fullName, email, phone, amount });
 
     res.send({
       clientSecret: paymentIntent.client_secret,
     });
+
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: err.message });
   }
-});
+}); 
 
 module.exports = router
