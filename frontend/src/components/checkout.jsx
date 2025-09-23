@@ -97,22 +97,22 @@ const CheckoutForm = () => {
 const PaymentPage = () => {
   const [error, setError] = useState(false)
 
-  if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
-    setError(true);
-  }
+  // if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
+  //   setError(true);
+  // }
 
   return (
     <div className="sm:p-40 p-10 py-20 bg-black">
-      {error ? (
-        <div className="text-white italic mt-20 items-center flex flex-col gap-4">
+      {/* {error ? ( */}
+        {/* <div className="text-white italic mt-20 items-center flex flex-col gap-4">
           <p className="bg-red-800/85 px-2 py-1 sm:text-xl">An error occurred. Please refresh the page or come back later.</p>
           <p className="bg-red-800/85 px-2 py-1 sm:text-xl">If the error persists, please let us know at texastechmsa@gmail.com</p>
-        </div>
-      ) : (
+        </div> */}
+      {/* ) : ( */}
         <Elements stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
-      )}
+      {/* )} */}
     </div>
   );
 }
