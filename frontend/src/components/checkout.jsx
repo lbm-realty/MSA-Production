@@ -7,7 +7,8 @@ const stripePromise = loadStripe(process.env.REACT_APP_KEY); // from Stripe Dash
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState(true)
+  const [error, setError] = useState(true);
+  const [token, setToken] = useState("");
 
   //  if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
   //   console.log(error);
@@ -16,10 +17,14 @@ const CheckoutForm = () => {
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (!token) { setError(true); console.log(error); }
-  }, [error]);
+    setToken(localStorage.getItem("token"));
+  }, []);
 
+  useEffect(() => {
+    setToken(token);
+  }, [token]);
+
+  if (!token) setError(true); console.log(error); 
   const total = localStorage.getItem("total")
 
   const [formData, setFormData] = useState({
