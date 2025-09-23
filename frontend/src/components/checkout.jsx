@@ -14,6 +14,7 @@ const CheckoutForm = () => {
   //   setError(true);
   //  }
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) { setError(true); console.log(error); }
