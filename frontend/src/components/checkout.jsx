@@ -23,7 +23,7 @@ const CheckoutForm = () => {
   // }, [error, token]);
   
   // if (!token) setError(true); console.log(error); 
-  const total = localStorage.getItem("total")
+  // const total = localStorage.getItem("total")
 
   const [formData, setFormData] = useState({
     fullName: "",
