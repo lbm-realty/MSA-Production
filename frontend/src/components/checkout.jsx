@@ -23,13 +23,13 @@ const CheckoutForm = () => {
   // }, [error, token]);
   
   // if (!token) setError(true); console.log(error); 
-  // const total = localStorage.getItem("total")
+  const total = localStorage.getItem("total")
 
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
-    amount: 0.5,  // Should be total;
+    amount: total,  
   });
   const [loading, setLoading] = useState(false);
 
