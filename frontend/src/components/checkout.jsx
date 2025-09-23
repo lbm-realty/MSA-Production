@@ -1,26 +1,26 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const stripePromise = loadStripe(process.env.REACT_APP_KEY); // from Stripe Dashboard
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState(true);
-  const [token, setToken] = useState("");
+  // const [error, setError] = useState(true);
+  // const [token, setToken] = useState("");
 
-  useEffect(() => {
-    const stored = localStorage.getItem("token");
-    setToken(stored);
-  }, []);
+  // useEffect(() => {
+  //   const stored = localStorage.getItem("token");
+  //   setToken(stored);
+  // }, []);
 
-  useEffect(() => {
-    if (token === null || token === undefined) {
-      console.log(error);
-      setError(true);
-    }
-  }, [error, token]);
+  // useEffect(() => {
+  //   if (token === null || token === undefined) {
+  //     console.log(error);
+  //     setError(true);
+  //   }
+  // }, [error, token]);
   
   // if (!token) setError(true); console.log(error); 
   const total = localStorage.getItem("total")
@@ -98,7 +98,7 @@ const PaymentPage = () => {
   const [error, setError] = useState(false)
 
   if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
-  setError(true);
+    setError(true);
   }
 
   return (
