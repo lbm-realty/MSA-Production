@@ -18,7 +18,7 @@ const CheckoutForm = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) { setError(true); console.log(error); }
-  }, []);
+  }, [error]);
 
   const total = localStorage.getItem("total")
 
