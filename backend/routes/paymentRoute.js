@@ -14,7 +14,7 @@ router.post('/merch/create-payment-intent', async (req, res) => {
       name: fullName,
       phone,
     });
-
+    
     const paymentIntent = await stripe.paymentIntents.create({
       amount: Math.round(amount * 100), // amount in cents
       currency: 'usd',
