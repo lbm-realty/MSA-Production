@@ -1,6 +1,6 @@
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements, CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const stripePromise = loadStripe(process.env.REACT_APP_KEY); // from Stripe Dashboard
 
@@ -10,21 +10,17 @@ const CheckoutForm = () => {
   const [error, setError] = useState(true);
   const [token, setToken] = useState("");
 
-  //  if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
-  //   console.log(error);
-  //   setError(true);
-  //  }
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    setToken(localStorage.getItem("token"));
+  const stored = localStorage.getItem("token");
+  setToken(stored);
   }, []);
 
-  useEffect(() => {
-    setToken(token);
-  }, [token]);
-
-  if (!token) setError(true); console.log(error); 
+  if (token === null || token === undefined) {
+    console.log(error);
+    setError(true);
+   }
+  
+  // if (!token) setError(true); console.log(error); 
   const total = localStorage.getItem("total")
 
   const [formData, setFormData] = useState({
@@ -46,7 +42,6 @@ const CheckoutForm = () => {
     try {
       // 1. Create PaymentIntent on backend
       const response = await fetch("https://msa-production.onrender.com/merch/create-payment-intent", {
-      // const response = await fetch("http://localhost:8282/merch/create-payment-intent", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
