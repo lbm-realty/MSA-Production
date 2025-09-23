@@ -95,7 +95,7 @@ const CheckoutForm = () => {
 };
 
 const PaymentPage = () => {
-  const [error, setError] = useState(false)
+  // const [error, setError] = useState(false)
 
   // if (localStorage.getItem("token") === null || localStorage.getItem("token") === undefined) {
   //   setError(true);
