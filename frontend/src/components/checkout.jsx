@@ -11,14 +11,16 @@ const CheckoutForm = () => {
   const [token, setToken] = useState("");
 
   useEffect(() => {
-  const stored = localStorage.getItem("token");
-  setToken(stored);
+    const stored = localStorage.getItem("token");
+    setToken(stored);
   }, []);
 
-  if (token === null || token === undefined) {
-    console.log(error);
-    setError(true);
-   }
+  useEffect(() => {
+    if (token === null || token === undefined) {
+      console.log(error);
+      setError(true);
+    }
+  }, [error, token]);
   
   // if (!token) setError(true); console.log(error); 
   const total = localStorage.getItem("total")
