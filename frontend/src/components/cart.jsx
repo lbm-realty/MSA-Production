@@ -43,7 +43,8 @@ const Cart = () => {
 
   const removeItem = (product) => {
     setProducts((prevProds) => {
-      prevProds.filter((item) => item.name !== product.name);
+      const currProds = [...prevProds];
+      return currProds.filter((item) => item.id !== product.id);
     });
   };
 
@@ -111,7 +112,7 @@ const Cart = () => {
                         </h5>
                         <div
                           className="bg-gray-200 cursor-pointer text-black px-2 py-1 rounded-full"
-                          onClick={() => removeItem(item)}
+                          onClick={() =>  removeItem(item)}
                         >
                           Remove Item
                         </div>
