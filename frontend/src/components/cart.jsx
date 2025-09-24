@@ -123,7 +123,8 @@ const Cart = () => {
                           <div className="ship-arrive">
                             <h3 className="ship">Shipping</h3>
                             <h3 className="arrive">
-                              Arriving by: {currDate.getDate() + 7}th {months[currDate.getMonth() - 1]}
+                              Arriving in 3 to 4 weeks 
+                              {/* {currDate.getDate() + 7}th {months[currDate.getMonth() - 1]} */}
                             </h3>
                           </div>
                         </div>
