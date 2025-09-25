@@ -19,7 +19,7 @@ const NewsletterAPI = () => {
             formData.append("month", content.month);   // normal text field
             formData.append("pdfFile", content.pdfFile);  
   
-            const response = await fetch(`https://msa-production.onrender.com/add-newsletter`, {
+            const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/add-newsletter`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`

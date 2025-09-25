@@ -55,7 +55,7 @@ const UpdateAPI = () => {
     
     try {
       const response = await fetch(
-        "https://msa-production.onrender.com/api/events/updateEntry",
+        `${process.env.REACT_APP_PRODUCTION}/api/events/updateEntry`,
         {
           method: "PUT",
           headers: {

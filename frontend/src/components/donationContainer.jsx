@@ -56,7 +56,7 @@ function DonationContainer() {
       "Content-Type": "application/json",
     };
 
-    return fetch(`https://msa-production.onrender.com/payment`, {
+    return fetch(`${process.env.REACT_APP_PRODUCTION}/payment`, {
       method: "POST",
       headers,
       body: JSON.stringify(body),
@@ -79,7 +79,7 @@ function DonationContainer() {
 
   const fetchDonationProjects = async () => {
     try {
-      const response = await fetch(`https://msa-production.onrender.com/fetch-donation-projects`, {
+      const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/fetch-donation-projects`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

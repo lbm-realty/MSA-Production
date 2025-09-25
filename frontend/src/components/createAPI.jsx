@@ -24,7 +24,7 @@ const CreateAPI = () => {
         e.preventDefault();
         try {
           const response = await fetch(
-            "https://msa-production.onrender.com/api/events/addEntry", {
+            `${process.env.REACT_APP_PRODUCTION}/api/events/addEntry`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

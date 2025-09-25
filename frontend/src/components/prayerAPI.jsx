@@ -43,7 +43,7 @@ const PrayerAPI = () => {
   const createPrayerTime = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://msa-production.onrender.com/addPrayerTime", {
+      const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/addPrayerTime`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -9,7 +9,7 @@ const EventsFetch = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://msa-production.onrender.com/api/events/showData",
+        `${process.env.REACT_APP_PRODUCTION}/api/events/showData`,
         {
           method: "POST",
           headers: {

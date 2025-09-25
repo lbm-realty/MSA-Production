@@ -54,7 +54,7 @@ const ShopComponent = () => {
   useEffect(() => {
     const fetchMerch = async () => {
       try {
-        const response = await fetch(`https://msa-production.onrender.com/all-merch`, {
+        const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/all-merch`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -161,7 +161,7 @@ const ShopComponent = () => {
               <div className="p-4 bg-gray-700/20 gap-2 flex flex-col items-center w-full">
                 <img
                   className="sm:h-80 sm:w-64"
-                  src={`https://msa-production.onrender.com/merch/${product._id}/image`}
+                  src={`${process.env.REACT_APP_PRODUCTION}/merch/${product._id}/image`}
                   alt="merch1"
                 />
                 <p className="text-2xl">{product.name}</p>

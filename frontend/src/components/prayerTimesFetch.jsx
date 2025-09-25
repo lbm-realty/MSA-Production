@@ -19,7 +19,7 @@ const PrayerTimesFetch = () => {
   // useEffect(() => {
     const fetchPrayerTimes = async () => {
       try {
-        const response = await fetch("https://msa-production.onrender.com/showPrayers", {
+        const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/showPrayers`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

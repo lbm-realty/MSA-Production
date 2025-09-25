@@ -19,7 +19,7 @@ const DeleteAPI = () => {
         e.preventDefault();
         try {
           const response = await fetch(
-            "https://msa-production.onrender.com/api/events/deleteEntry",
+            `${process.env.REACT_APP_PRODUCTION}/api/events/deleteEntry`,
             {
               method: "POST",
               headers: {

@@ -17,7 +17,7 @@ const ComingSoon = () => {
   useEffect(() => {
     const fetchNewsletter = async () => {
       try {
-        const response = await fetch(`https://msa-production.onrender.com/fetch-newsletters`, {
+        const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/fetch-newsletters`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const ComingSoon = () => {
             <div className="pdf-box" key={index}>
               <h3>{months[pdf.month - 1]} Newsletter</h3>
               <iframe
-                src={`https://msa-production.onrender.com/newsletter/${pdf._id}/pdf`}
+                src={`${process.env.REACT_APP_PRODUCTION}/newsletter/${pdf._id}/pdf`}
                 title={`Newsletter-${months[pdf.month - 1]}`}
                 className="pdf-frame"
               />
@@ -117,7 +117,7 @@ const ComingSoon = () => {
               <div className="pdf-box" key={index}>
                 <h3>{months[pdf.month - 1]} Newsletter</h3>
                 <iframe
-                  src={`https://msa-production.onrender.com/newsletter/${pdf._id}/pdf`}
+                  src={`${process.env.REACT_APP_PRODUCTION}/newsletter/${pdf._id}/pdf`}
                   title={`Newsletter-${months[pdf.month - 1]}`}
                   className="pdf-frame"
                 />

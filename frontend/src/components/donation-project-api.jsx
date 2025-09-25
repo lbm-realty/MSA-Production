@@ -20,7 +20,7 @@ const DonationProjectAPI = () => {
         }
 
         try {
-            const response = await fetch(`https://msa-production.onrender.com/add-donation-project`, {
+            const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/add-donation-project`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -41,7 +41,7 @@ const DonationProjectAPI = () => {
     useEffect(() => {
      const fetchDonationProjects = async () => {
       try {
-        const response = await fetch(`https://msa-production.onrender.com/fetch-donation-projects`, {
+        const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/fetch-donation-projects`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const DonationProjectAPI = () => {
 
     const deleteProject = async (projectId) => {
         try{
-            const response = await fetch(`https://msa-production.onrender.com/delete/project/${projectId}`, {
+            const response = await fetch(`${process.env.REACT_APP_PRODUCTION}/delete/project/${projectId}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
